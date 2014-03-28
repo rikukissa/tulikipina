@@ -1,0 +1,141 @@
+doctype html
+html
+  head
+    title Tulikipinä
+    link(rel='stylesheet', href='/css/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='keywords', content='retkeily,rovaniemi,lappi,lapland,adventures,northern lights, ice fishing')
+  body
+    #fb-root
+    header#header
+      img.logo(src='/assets/images/header-logo.png')
+      nav
+        a(href='/main') Tulikipinä
+        a(href='/adventures') Arctic Adventures
+        a(href='/summer') Kesä
+        a(href='/winter') Talvi
+        a(href='/renting') Vuokraus
+
+    #main.section(data-bind='css: { "hidden": currentView() !== "main" }')
+      .cover
+      .section-content
+        .row
+          h1 Tulikipinä
+          p.description
+            |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+
+          .list-feature
+            .column
+              img(src='/assets/images/winter-hiking.png')
+            .column
+              ul
+                li Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
+                li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+                li Tulikipinän erityisenä pyrkimyksenä on mahdollistaa luontoelämykset myös pienille, 2-4 hengen ryhmille ilman, että kustannukset nousevat kohtuuttoman korkeiksi.
+                li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+
+        hr
+        .row
+          h2
+            i.fa.fa-facebook
+          .facebook-feed
+            .item
+              .timestamp 2 days ago
+              .body Happy ice fishers from Hong Kong!
+            .item
+              .timestamp 5 days ago
+              .body Tulikipinä shared Padasjoen harrastus ja vapaa-ajan toimintaa's event.
+            .item
+              .timestamp 6 days ago
+              .body Happy ice fishers from Hong Kong!
+            .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+        hr
+        .row
+          h2
+            i.fa.fa-phone
+
+          table.contacts
+            tr
+              td
+                |Vesa Rouvila
+                br
+                |Leimaajankuja 2 C 6
+                br
+                |96460 Rovaniemi
+              td
+                |0405720174
+                br
+                |info@tulikipina.com
+              td
+                |Tulikipinä 1710555-4
+
+    #adventures.section.hidden(data-bind='css: { "hidden": currentView() !== "adventures" }')
+      .cover
+      .section-content
+        .row
+          h1 Arctic adventures
+          p.description
+            |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut. Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
+
+
+    #summer.section.hidden(data-bind='css: { "hidden": currentView() !== "summer" }')
+      .cover
+      .grid
+        .grid-row
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/rafting.png)" }')
+              .overlay
+                .overlay-text
+                  |White Water Rafting
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/trekking.png)" }')
+              .overlay
+                .overlay-text
+                  |Hikes and treks
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/rope-descending.png)" }')
+              .overlay
+                .overlay-text
+                  |Rope Descending
+        .grid-row
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/kayaking.png)" }')
+              .overlay
+                .overlay-text
+                  |Kayaking and canoeing
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/climbing.png)" }')
+              .overlay
+                .overlay-text
+                  |Climbing
+
+
+    #winter.section.hidden(data-bind='css: { "hidden": currentView() !== "winter" }')
+      .cover
+      .grid
+        .grid-row
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/northern-lights.png)" }')
+              .overlay
+                .overlay-text
+                  |Northern lights
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/ice-fishing.png)" }')
+              .overlay
+                .overlay-text
+                  |Ice fishing
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/rope-descending.png)" }')
+              .overlay
+                .overlay-text
+                  |Rope descending
+        .grid-row
+          a.grid-item(href='#')
+            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/trekking.png)" }')
+              .overlay
+                .overlay-text
+                  |Trekking
+
+
+    script(src='/js/bundle.js')

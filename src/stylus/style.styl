@@ -1,0 +1,240 @@
+@import '../../vendor/font-awesome/css/font-awesome.css'
+body, html
+  margin 0
+  height 100%
+  font-family HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
+
+textColor = #46474b
+descriptionColor = #6e7076
+maxWidth = 1280px
+
+breakpoint1 = "all and (max-width: 550px)"
+breakpoint2 = "all and (max-width: 700px)"
+
+.section
+  box-sizing border-box
+  color textColor
+  background #fff
+  background #fff
+  position relative
+  h1 + .description
+    margin-top -1.25em
+
+  .description
+    width 80%
+    max-width 700px
+    margin auto
+    text-align center
+    color descriptionColor
+    font-size 1.25em
+    @media breakpoint1
+      width auto
+  &.hidden
+    display none
+
+.section-content
+  margin 1em 0
+  padding 0 2em
+
+
+h1
+  font-size 3.5em
+  text-align center
+  font-weight 300
+
+h1,h2
+  text-transform uppercase
+
+hr
+  border 0
+  border-top 1px solid #ddd
+  width 70%
+  margin 3em auto
+
+.cover
+  margin-top 65px
+  height 500px
+  background-size cover
+  background-repeat no-repeat
+  background-position center center
+
+.row
+  max-width 960px
+  margin auto
+  overflow hidden
+  .column
+    width (100/3)%
+    float left
+    box-sizing border-box
+
+  .column1-2
+    width 50%
+
+.row-full
+  width auto
+  max-width initial
+
+
+// Views
+#main
+  .list-feature
+    margin 3em auto 2em auto
+  .cover
+    background-image url('/assets/images/main-background.png')
+
+#adventures
+  .cover
+    background-image url('/assets/images/adventures-background.png')
+
+#summer
+  .cover
+    background-image url('/assets/images/summer-background.png')
+
+#winter
+  .cover
+    background-image url('/assets/images/winter-background.png')
+
+// Components
+.grid
+  padding 0 1em
+  margin 1em auto
+  max-width maxWidth
+
+.grid-row
+  overflow hidden
+
+.grid-item
+  float left
+  display block
+  width (100/3)%
+  height 200px
+  padding 1em
+  box-sizing border-box
+  overflow hidden
+  position relative
+  cursor pointer
+  color inherit
+  .grid-item-content
+    width 100%
+    height 100%
+    position relative
+    background-size cover
+    background-position center center
+
+  .overlay
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+
+    text-align center
+    font-size 1.5em
+    background rgba(255,255,255, 0.6)
+    opacity 0
+    transition opacity 0.3s
+    display table
+    &:hover
+      opacity 1
+
+  .overlay-text
+    vertical-align middle
+    display table-cell
+  @media breakpoint2
+    width auto
+    float none
+    padding 0
+    margin-bottom 1em
+
+#header
+  width 100%
+  height 65px
+  padding 0 0.5em
+  position fixed
+  top 0
+  left 0
+  line-height 65px
+  z-index 2
+  background #fff
+  .logo
+    width (103/2.5)px
+    height (117/2.5)px
+    vertical-align middle
+
+  nav
+    -webkit-font-smoothing antialiased
+    text-transform uppercase
+    letter-spacing 1px
+    height 100%
+    display inline-block
+    font-size 1em
+    a
+      height 100%
+      padding 0 1em
+      display inline-block
+      color textColor
+      text-decoration none
+
+  @media breakpoint2
+    nav
+      letter-spacing 0
+      a
+        padding 0 0.7em
+    .logo
+      display none
+
+.list-feature
+  position relative
+  display table
+  .column
+    width auto
+    display table-cell
+    vertical-align middle
+    float none
+  ul
+    margin 0
+    padding-left 4em
+  li
+    padding 1em 0
+
+  img
+    width 10em
+    border-radius 10em
+
+  @media breakpoint1
+    padding-left 0
+    margin-top 3em
+    ul
+      padding-left 0
+    img
+      display none
+
+.facebook-feed
+  max-width 900px
+  .facebook-icon
+    width 48px
+    height 48px
+    background url('/assets/images/facebook-icon.png')
+    background-size 100%
+    margin-bottom 1em
+  .timestamp
+    font-size 0.75em
+    color #888
+    margin-bottom 5px
+  .item
+    margin-left 1em
+    margin-bottom 0.5em
+    background #f4f6f8
+    padding 0.5em
+  .item:nth-child(odd)
+    background transparent
+  .fb-like
+    margin 0 auto
+    width 450px
+    display block
+    margin-top 2.5em
+
+.contacts
+  width 100%
+  margin 3em 0
+  text-align center
