@@ -53,6 +53,9 @@ class ViewModel
     page '/renting', @setView 'renting'
     page()
 
+    if location.host is 'rikurouvila.fi'
+      page.base '/tulikipina'
+
   setView: (name) -> =>
     @currentView name
 

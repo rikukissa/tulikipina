@@ -9,13 +9,13 @@ html
   body
     #fb-root
     header#header
-      img.logo(src='/assets/images/header-logo.png')
+      img.logo(src='/images/header-logo.png')
       nav
-        a(href='/main') Tulikipinä
-        a(href='/adventures') Arctic Adventures
-        a(href='/summer') Kesä
-        a(href='/winter') Talvi
-        a(href='/renting') Vuokraus
+        a(href='main') Tulikipinä
+        a(href='adventures') Arctic Adventures
+        a(href='summer') Kesä
+        a(href='winter') Talvi
+        a(href='renting') Vuokraus
 
     #main.section(data-bind='css: { "hidden": currentView() !== "main" }')
       .cover
@@ -24,10 +24,10 @@ html
           h1 Tulikipinä
           p.description
             |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
-
+          hr
           .list-feature
             .column
-              img(src='/assets/images/winter-hiking.png')
+              img(src='/images/winter-hiking.png')
             .column
               ul
                 li Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
@@ -82,30 +82,34 @@ html
     #summer.section.hidden(data-bind='css: { "hidden": currentView() !== "summer" }')
       .cover
       .grid
+        h1 Kesä
+        p.description
+          |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+        hr
         .grid-row
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/rafting.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/rafting.png)" }')
               .overlay
                 .overlay-text
                   |White Water Rafting
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/trekking.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/trekking.png)" }')
               .overlay
                 .overlay-text
                   |Hikes and treks
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/rope-descending.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/rope-descending.png)" }')
               .overlay
                 .overlay-text
                   |Rope Descending
         .grid-row
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/kayaking.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/kayaking.png)" }')
               .overlay
                 .overlay-text
                   |Kayaking and canoeing
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/summer/climbing.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/climbing.png)" }')
               .overlay
                 .overlay-text
                   |Climbing
@@ -114,28 +118,37 @@ html
     #winter.section.hidden(data-bind='css: { "hidden": currentView() !== "winter" }')
       .cover
       .grid
+        h1 Talvi
+        p.description
+          |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+        hr
         .grid-row
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/northern-lights.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/northern-lights.png)" }')
               .overlay
                 .overlay-text
                   |Northern lights
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/ice-fishing.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/ice-fishing.png)" }')
               .overlay
                 .overlay-text
                   |Ice fishing
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/rope-descending.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/rope-descending.png)" }')
               .overlay
                 .overlay-text
                   |Rope descending
         .grid-row
           a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/assets/images/thumbnails/winter/trekking.png)" }')
+            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/trekking.png)" }')
               .overlay
                 .overlay-text
                   |Trekking
 
-
+    #renting.section.hidden(data-bind='css: { "hidden": currentView() !== "renting" }')
+      .cover
+      h1 Vuokraus
+      p.description
+        |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+      hr
     script(src='/js/bundle.js')
