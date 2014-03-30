@@ -8,6 +8,7 @@ html
     meta(name='keywords', content='retkeily,rovaniemi,lappi,lapland,adventures,northern lights, ice fishing')
   body
     #fb-root
+
     header#header
       img.logo(src='/images/header-logo.png')
       nav
@@ -17,138 +18,119 @@ html
         a(href='winter') Talvi
         a(href='renting') Vuokraus
 
-    #main.section(data-bind='css: { "hidden": currentView() !== "main" }')
-      .cover
-      .section-content
-        .row
-          h1 Tulikipinä
-          p.description
-            |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
-          hr
-          .list-feature
-            .column
-              img(src='/images/winter-hiking.png')
-            .column
-              ul
-                li Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
-                li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
-                li Tulikipinän erityisenä pyrkimyksenä on mahdollistaa luontoelämykset myös pienille, 2-4 hengen ryhmille ilman, että kustannukset nousevat kohtuuttoman korkeiksi.
-                li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+    mixin section(name)
+      .section(id=name, data-bind='css: { "hidden": currentView() !== "#{name}" }')
+        .cover
+        .section-content
+          block
 
-        hr
-        .row
-          h2
-            i.fa.fa-facebook
-          .facebook-feed
-            .item
-              .timestamp 2 days ago
-              .body Happy ice fishers from Hong Kong!
-            .item
-              .timestamp 5 days ago
-              .body Tulikipinä shared Padasjoen harrastus ja vapaa-ajan toimintaa's event.
-            .item
-              .timestamp 6 days ago
-              .body Happy ice fishers from Hong Kong!
-            .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
-        hr
-        .row
-          h2
-            i.fa.fa-phone
+    mixin grid-item(background)
+      a.grid-item(href='#')
+        .grid-item-content(data-bind='style: { "background-image": "url(#{background})" }')
+          .overlay
+            .overlay-text
+              block
 
-          table.contacts
-            tr
-              td
-                |Vesa Rouvila
-                br
-                |Leimaajankuja 2 C 6
-                br
-                |96460 Rovaniemi
-              td
-                |0405720174
-                br
-                |info@tulikipina.com
-              td
-                |Tulikipinä 1710555-4
-
-    #adventures.section.hidden(data-bind='css: { "hidden": currentView() !== "adventures" }')
-      .cover
-      .section-content
-        .row
-          h1 Arctic adventures
-          p.description
-            |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut. Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
-
-
-    #summer.section.hidden(data-bind='css: { "hidden": currentView() !== "summer" }')
-      .cover
-      .grid
-        h1 Kesä
+    +section("main")
+      .row
+        h1 Tulikipinä
         p.description
           |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
         hr
-        .grid-row
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/rafting.png)" }')
-              .overlay
-                .overlay-text
-                  |White Water Rafting
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/trekking.png)" }')
-              .overlay
-                .overlay-text
-                  |Hikes and treks
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/rope-descending.png)" }')
-              .overlay
-                .overlay-text
-                  |Rope Descending
-        .grid-row
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/kayaking.png)" }')
-              .overlay
-                .overlay-text
-                  |Kayaking and canoeing
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/summer/climbing.png)" }')
-              .overlay
-                .overlay-text
-                  |Climbing
+        .list-feature
+          .column
+            img(src='/images/winter-hiking.png')
+          .column
+            ul
+              li Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
+              li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+              li Tulikipinän erityisenä pyrkimyksenä on mahdollistaa luontoelämykset myös pienille, 2-4 hengen ryhmille ilman, että kustannukset nousevat kohtuuttoman korkeiksi.
+              li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
 
+      hr
+      .row
+        h2
+          i.fa.fa-facebook
+        .facebook-feed
+          .item
+            .timestamp 2 days ago
+            .body Happy ice fishers from Hong Kong!
+          .item
+            .timestamp 5 days ago
+            .body Tulikipinä shared Padasjoen harrastus ja vapaa-ajan toimintaa's event.
+          .item
+            .timestamp 6 days ago
+            .body Happy ice fishers from Hong Kong!
+          .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+      hr
+      .row
+        h2
+          i.fa.fa-phone
 
-    #winter.section.hidden(data-bind='css: { "hidden": currentView() !== "winter" }')
-      .cover
-      .grid
-        h1 Talvi
+        table.contacts
+          tr
+            td
+              |Vesa Rouvila
+              br
+              |Leimaajankuja 2 C 6
+              br
+              |96460 Rovaniemi
+            td
+              |0405720174
+              br
+              |info@tulikipina.com
+            td
+              |Tulikipinä 1710555-4
+
+    +section("adventures")
+      .row
+        h1 Arctic adventures
         p.description
-          |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
-        hr
-        .grid-row
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/northern-lights.png)" }')
-              .overlay
-                .overlay-text
-                  |Northern lights
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/ice-fishing.png)" }')
-              .overlay
-                .overlay-text
-                  |Ice fishing
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/rope-descending.png)" }')
-              .overlay
-                .overlay-text
-                  |Rope descending
-        .grid-row
-          a.grid-item(href='#')
-            .grid-item-content(data-bind='style: { "background-image": "url(/images/thumbnails/winter/trekking.png)" }')
-              .overlay
-                .overlay-text
-                  |Trekking
+          |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut. Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
 
-    #renting.section.hidden(data-bind='css: { "hidden": currentView() !== "renting" }')
-      .cover
+    +section("summer")
+      h1 Kesä
+      p.description
+        |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+      hr
+
+      .grid
+        .grid-row
+          +grid-item('/images/thumbnails/summer/rafting.png')
+            |White Water Rafting
+          +grid-item('/images/thumbnails/summer/trekking.png')
+            |Hikes and treks
+          +grid-item('/images/thumbnails/summer/rope-descending.png')
+            |Rope Descending
+
+        .grid-row
+          +grid-item('/images/thumbnails/summer/kayaking.png')
+            |Kayaking and canoeing
+          +grid-item('/images/thumbnails/summer/climbing.png')
+            |Climbing
+
+
+    +section("winter")
+      h1 Talvi
+      p.description
+        |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+      hr
+      .grid
+        .grid-row
+          +grid-item('/images/thumbnails/winter/northern-lights.png')
+            |Northern lights
+          +grid-item('/images/thumbnails/winter/ice-fishing.png')
+            |Ice fishing
+          +grid-item('/images/thumbnails/winter/rope-descending.png')
+            |Rope descending
+        .grid-row
+          +grid-item('/images/thumbnails/winter/trekking.png')
+            |Trekking
+
+    +section("renting")
       h1 Vuokraus
       p.description
         |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
       hr
+
     script(src='/js/bundle.js')
