@@ -19,25 +19,25 @@ html
         a(href='/renting') Vuokraus
 
     mixin section(name)
-      .section(id=name, data-bind='css: { "hidden": currentView() !== "#{name}" }')
+      .section(id=name, data-bind='if: currentView() === "#{name}"')
         .cover
         .section-content
           block
 
     mixin grid-item(background)
-      a.grid-item(href='#')
+      a.grid-item(href!=attributes.href)
         .grid-item-content(data-bind='style: { "background-image": "url(#{background})" }')
           .overlay
             .overlay-text
               block
 
-    include sections/index.jade
-    include sections/adventures.jade
-    include sections/adventures/paddling-yllas.jade
-    include sections/adventures/gold-miners-route.jade
-    include sections/summer.jade
-    include sections/winter.jade
-    include sections/renting.jade
+    include sections/index
+    include sections/adventures
+    include sections/adventures/paddling-yllas
+    include sections/adventures/gold-miners-route
+    include sections/summer
+    include sections/winter
+    include sections/renting
 
     #footer
       a(href='/') Tulikipinä

@@ -12,6 +12,7 @@ lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
 plumber    = require 'gulp-plumber'
 prefix     = require 'gulp-autoprefixer'
+tinypng    = require 'gulp-tinypng'
 express    = require 'express'
 reloadServer = lr()
 
@@ -48,9 +49,15 @@ compileStylus = (debug = false) ->
     .pipe(gulp.dest('public/css/'))
     .pipe livereload reloadServer
 
-copyAssets = (debug = false) ->
+copyAssets = (paths) ->
   gulp
-    .src('src/assets/**/*.*')
+    .src paths
+    .pipe gulp.dest 'public/'
+
+compressAssets = (debug = false) ->
+  gulp
+    .src('src/assets/**/*.png')
+    .pipe tinypng 'kaWxVgMUeNBvNBGxLx9yKFWuNTHQZbiP'
     .pipe gulp.dest 'public/'
 
 copyFonts = (debug = false) ->
@@ -58,18 +65,21 @@ copyFonts = (debug = false) ->
     .src('vendor/font-awesome/fonts/*.*')
     .pipe gulp.dest 'public/fonts/'
 
+gulp.task 'copy-assets', -> copyAssets ['src/assets/**/*.*', '!src/assets/**/*.png']
+gulp.task 'compress-assets', -> compressAssets()
+
 # Build tasks
 gulp.task "jade-production", -> compileJade()
 gulp.task 'stylus-production', ['fonts-production'], -> compileStylus()
 gulp.task 'coffee-production', -> compileCoffee()
-gulp.task 'assets-production', -> copyAssets()
+gulp.task 'assets-production', ['copy-assets', 'compress-assets']
 gulp.task 'fonts-production', -> copyFonts()
 
 # Development tasks
 gulp.task "jade", -> compileJade(true)
 gulp.task 'stylus', -> compileStylus(true)
 gulp.task 'coffee', -> compileCoffee(true)
-gulp.task 'assets', -> copyAssets(true)
+gulp.task 'assets', -> copyAssets 'src/assets/**/*.*'
 gulp.task 'fonts', -> copyFonts(true)
 
 gulp.task "server", ->
