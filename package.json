@@ -38,11 +38,14 @@
   },
   "browser": {
     "jquery": "./vendor/jquery/dist/jquery.js",
-    "page.js": "./vendor/page.js/index.js"
+    "page.js": "./vendor/page.js/index.js",
+    "gmaps": "./vendor/gmaps/gmaps.js",
+    "scrollTo": "./vendor/jquery.scrollTo/jquery.scrollTo.js"
   },
   "browserify-shim": {
     "jquery": "$",
-    "page.js": "page"
+    "page.js": "page",
+    "gmaps": "GMaps"
   },
   "browserify": {
     "transform": [

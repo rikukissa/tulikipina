@@ -1,10 +1,13 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,700')
 @import '../../vendor/font-awesome/css/font-awesome.css'
 body, html
   margin 0
   height 100%
-  font-family HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
+  font-family 'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
+  font-weight 300
 
 textColor = #46474b
+linkColor = #00AED9
 descriptionColor = #6e7076
 maxWidth = 1280px
 
@@ -15,8 +18,8 @@ breakpoint2 = "all and (max-width: 700px)"
   box-sizing border-box
   color textColor
   background #fff
-  background #fff
   position relative
+
   h1 + .description
     margin-top -1.25em
 
@@ -35,19 +38,23 @@ breakpoint2 = "all and (max-width: 700px)"
 .section-content
   margin 1em 0
   padding 0 2em
+  padding-bottom 4em
+  overflow hidden
 
+a
+  text-decoration none
 
 h1
   font-size 3.5em
   text-align center
-  font-weight 300
 
 h1,h2
   text-transform uppercase
+  font-weight 300
 
 hr
   border 0
-  border-top 1px solid #ddd
+  border-top 1px solid #dee5f0
   width 70%
   margin 3em auto
 
@@ -70,6 +77,14 @@ hr
   .column1-2
     width 50%
 
+  .column2-3
+    width (100/3*2) %
+
+  @media breakpoint2
+    .column
+      width auto
+      max-width initial
+      float none
 .row-full
   width auto
   max-width initial
@@ -81,7 +96,8 @@ hr
     margin 3em auto 2em auto
   .cover
     background-image url('/images/main-background.png')
-
+  .map-container
+    padding-left 1em
 #adventures
   .cover
     background-image url('/images/adventures-background.png')
@@ -93,7 +109,8 @@ hr
 #winter
   .cover
     background-image url('/images/winter-background.png')
-#renting
+
+#renting, #adventures_paddling-yllas, #adventures_gold-miners-route
   .cover
     background-image url('http://lorempizza.com/380/240')
 
@@ -159,6 +176,7 @@ hr
   line-height 65px
   z-index 2
   background #fff
+  transition opacity 0.4s
   .logo
     width (103/2.5)px
     height (117/2.5)px
@@ -186,10 +204,24 @@ hr
     .logo
       display none
 
+#footer
+  font-size 0.8em
+  padding 1em 0
+  text-align center
+  a
+    color linkColor
+    display inline-block
+    margin 0 0.5em
+    &:not(:last-child):after
+      color textColor
+      content ' - '
+      margin-left 1em
+
 .list-feature
   position relative
   display table
-  .column
+  .list-feature-image,
+  .list-feature-content
     width auto
     display table-cell
     vertical-align middle
@@ -238,6 +270,36 @@ hr
     margin-top 2.5em
 
 .contacts
+  padding 0
+  list-style none
+  li
+    padding 3px
+    padding-left 2em
+    position relative
+    i
+      position absolute
+      top 50%
+      left 0
+      margin-top -0.5em
+
+.feature
+  position relative
+  padding 1em
+  margin 1em 0
+  display block
+  color textColor
+  overflow hidden
+  border 1px solid #DFE0E3
+  h3
+    margin 0
+    font-weight 400
+  p
+    margin 0.5em 0
+  img
+    width 100px
+    float left
+    margin-right 1em
+.map
   width 100%
-  margin 3em 0
-  text-align center
+  height 300px
+

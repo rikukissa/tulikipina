@@ -1,0 +1,38 @@
++section("main")
+  .row
+    h1 Tulikipinä
+    p.description
+      |Tuotteisiimme kuuluvat erilaiset ohjelmapalvelut, luontoelämykset, seikkailut sekä perinteiset eräoppaan palvelut.
+    hr
+    .list-feature
+      .list-feature-image
+        img(src='/images/winter-hiking.png')
+      .list-feature-content
+        ul
+          li Tulikipinän pääasiallisena toiminta-alueena on Rovaniemi sekä Lapin tunturit ja erämaat.
+          li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+          li Tulikipinän erityisenä pyrkimyksenä on mahdollistaa luontoelämykset myös pienille, 2-4 hengen ryhmille ilman, että kustannukset nousevat kohtuuttoman korkeiksi.
+          li Arvostamme luonnon rauhaa, joten moottoroidut palvelut eivät kuulu valikoimiimme.
+
+  hr
+  .row#contacts
+    h2 Yhteystiedot
+    .column
+      ul.contacts
+        li
+          i.fa.fa-user
+          | Vesa Rouvila
+        li
+          i.fa.fa-envelope
+          | info@tulikipina.com
+        li
+          i.fa.fa-phone
+          |0405720174
+      ul.contacts
+        li
+          i.fa.fa-map-marker
+          | Leimaajankuja 2 C 6, 96460 Rovaniemi
+        li Tulikipinä 1710555-4
+
+    .column.column2-3.map-container
+      .map(data-bind='map: {}')
