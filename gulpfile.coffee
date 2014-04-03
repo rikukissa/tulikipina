@@ -50,9 +50,9 @@ compileStylus = (debug = false) ->
     .pipe(gulp.dest('public/css/'))
     .pipe livereload reloadServer
 
-copyAssets = (paths) ->
+copyAssets = (paths = []) ->
   gulp
-    .src paths
+    .src paths.concat ['src/assets/**/*.*', 'vendor/font-awesome/fonts*/*.*']
     .pipe gulp.dest 'public/'
 
 compressAssets = (debug = false) ->
@@ -68,12 +68,7 @@ compileContent = (debug = false) ->
     .pipe gulp.dest 'public/'
     .pipe livereload(reloadServer)
 
-copyFonts = (debug = false) ->
-  gulp
-    .src('vendor/font-awesome/fonts/*.*')
-    .pipe gulp.dest 'public/fonts/'
-
-gulp.task 'copy-assets', -> copyAssets ['src/assets/**/*.*', '!src/assets/**/*.png']
+gulp.task 'copy-assets', -> copyAssets ['!src/assets/**/*.png']
 gulp.task 'compress-assets', -> compressAssets()
 
 # Build tasks
@@ -81,15 +76,13 @@ gulp.task "jade-production", -> compileJade()
 gulp.task 'stylus-production', ['fonts-production'], -> compileStylus()
 gulp.task 'coffee-production', -> compileCoffee()
 gulp.task 'assets-production', ['copy-assets', 'compress-assets']
-gulp.task 'fonts-production', -> copyFonts()
 gulp.task 'content-production', -> compileContent()
 
 # Development tasks
 gulp.task "jade", -> compileJade(true)
 gulp.task 'stylus', -> compileStylus(true)
 gulp.task 'coffee', -> compileCoffee(true)
-gulp.task 'assets', -> copyAssets 'src/assets/**/*.*'
-gulp.task 'fonts', -> copyFonts(true)
+gulp.task 'assets', -> copyAssets()
 gulp.task 'content', -> compileContent(true)
 
 gulp.task "server", ->
@@ -113,5 +106,5 @@ gulp.task "watch", ->
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 
-gulp.task "build", ["coffee-production", "jade-production", "stylus-production", "assets-production", "fonts-production", "content-production"]
-gulp.task "default", ["coffee", "jade", "stylus", "assets", "fonts", "content", "watch", "server"]
+gulp.task "build", ["coffee-production", "jade-production", "stylus-production", "assets-production", "content-production"]
+gulp.task "default", ["coffee", "jade", "stylus", "assets", "content", "watch", "server"]
