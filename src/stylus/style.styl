@@ -48,7 +48,8 @@ a
 h1
   font-size 3.5em
   text-align center
-
+  @media breakpoint1
+    font-size 3em
 h1,h2,h3
   text-transform uppercase
   font-weight 300
@@ -221,6 +222,7 @@ body.no-video #main
   z-index 2
   background #fff
   transition opacity 0.4s
+  user-select none
   .logo
     width (103/2.5)px
     height (117/2.5)px
@@ -247,6 +249,32 @@ body.no-video #main
         padding 0 0.7em
     .logo
       display none
+
+  .header-toggle
+    padding 0 1.5em
+    display none
+    position relative
+    z-index 2
+    background #fff
+  @media breakpoint1
+    padding 0
+    .header-toggle
+      display block
+    nav
+      background #fff
+      display block
+      height auto
+      transition all 0.2s
+      transform translateY(-100%)
+      &.nav-visible
+        transform translateY(0px)
+      a
+        display block
+        border-bottom 1px solid #eee
+        &:first-child
+          border-top 1px solid #eee
+        &:last-child
+          border 0
 
 #footer
   font-size 0.8em

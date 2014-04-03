@@ -47,6 +47,7 @@ class ViewModel
   constructor: ->
     @currentView = ko.observable 'main'
     @dynamicPage = ko.observable null
+    @navigationVisible = ko.observable false
 
     page '/', @setView 'main'
     page '/contacts', =>
@@ -65,6 +66,9 @@ class ViewModel
 
     page '/renting', @setView 'renting'
     page()
+
+  toggleNavigation: ->
+    @navigationVisible not @navigationVisible()
 
   setDynamic: (name) -> (ctx) =>
     @dynamicPage

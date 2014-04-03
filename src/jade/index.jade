@@ -10,8 +10,10 @@ html
     #fb-root
 
     header#header(data-bind='header: { threshold: 150, max: 500 }')
+      .header-toggle(data-bind='click: toggleNavigation')
+        i.fa.fa-bars
       img.logo(src='/images/header-logo.png')
-      nav
+      nav(data-bind='css: { "nav-visible": navigationVisible }')
         a(href='/') Tulikipinä
         a(href='/adventures') Arctic Adventures
         a(href='/summer') Kesä
