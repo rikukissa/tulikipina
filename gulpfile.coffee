@@ -13,6 +13,7 @@ livereload = require 'gulp-livereload'
 plumber    = require 'gulp-plumber'
 prefix     = require 'gulp-autoprefixer'
 tinypng    = require 'gulp-tinypng'
+cson       = require 'gulp-cson'
 express    = require 'express'
 reloadServer = lr()
 
@@ -60,6 +61,13 @@ compressAssets = (debug = false) ->
     .pipe tinypng 'kaWxVgMUeNBvNBGxLx9yKFWuNTHQZbiP'
     .pipe gulp.dest 'public/'
 
+compileContent = (debug = false) ->
+  gulp
+    .src('src/coffee/**/*.cson')
+    .pipe cson()
+    .pipe gulp.dest 'public/'
+    .pipe livereload(reloadServer)
+
 copyFonts = (debug = false) ->
   gulp
     .src('vendor/font-awesome/fonts/*.*')
@@ -74,6 +82,7 @@ gulp.task 'stylus-production', ['fonts-production'], -> compileStylus()
 gulp.task 'coffee-production', -> compileCoffee()
 gulp.task 'assets-production', ['copy-assets', 'compress-assets']
 gulp.task 'fonts-production', -> copyFonts()
+gulp.task 'content-production', -> compileContent()
 
 # Development tasks
 gulp.task "jade", -> compileJade(true)
@@ -81,6 +90,7 @@ gulp.task 'stylus', -> compileStylus(true)
 gulp.task 'coffee', -> compileCoffee(true)
 gulp.task 'assets', -> copyAssets 'src/assets/**/*.*'
 gulp.task 'fonts', -> copyFonts(true)
+gulp.task 'content', -> compileContent(true)
 
 gulp.task "server", ->
   app = express()
@@ -97,10 +107,11 @@ gulp.task "watch", ->
   reloadServer.listen 35729, (err) ->
     console.error err if err?
 
+    gulp.watch "src/coffee/**/*.cson", ["content"]
     gulp.watch "src/coffee/**/*.coffee", ["coffee"]
     gulp.watch "src/jade/**/*.jade", ["jade"]
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 
-gulp.task "build", ["coffee-production", "jade-production", "stylus-production", "assets-production", "fonts-production"]
-gulp.task "default", ["coffee", "jade", "stylus", "assets", "fonts", "watch", "server"]
+gulp.task "build", ["coffee-production", "jade-production", "stylus-production", "assets-production", "fonts-production", "content-production"]
+gulp.task "default", ["coffee", "jade", "stylus", "assets", "fonts", "content", "watch", "server"]

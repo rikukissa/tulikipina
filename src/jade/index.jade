@@ -39,6 +39,18 @@ html
     include sections/winter
     include sections/renting
 
+    .section(data-bind='if: currentView() === "dynamic"')
+      div(data-bind='loadContent: dynamicPage')
+        // ko with: content
+        .cover(data-bind='style: { "background-image": "url(http://lorempizza.com/380/240)"}')
+        .section-content
+          .row
+            h1(data-bind='text: title')
+            p.description(data-bind='text: description')
+          hr
+          .row(data-bind='markdown: content')
+        // /ko
+
     #footer
       a(href='/') Tulikipinä
       a(href='/contacts') Yhteystiedot

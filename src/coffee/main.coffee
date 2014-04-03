@@ -6,12 +6,45 @@ scrollTo = require 'scrollTo'
 ko.bindingHandlers.header = require './bindingHandlers/header.coffee'
 ko.bindingHandlers.map    = require './bindingHandlers/map.coffee'
 
+contentService = new class ContentService
+  constructor: ->
+    @contentPromise = null
+
+  get: (section, page) ->
+    unless @contentPromise?
+      @contentPromise = $.get('/content.json')
+
+    @contentPromise.then (data) ->
+      data[section][page]
+
+ko.bindingHandlers.loadContent =
+  init: (element, valueAccessor, allBindings, viewModel, bindingContext) ->
+    content = ko.observable null
+
+    {section, page} = ko.unwrap valueAccessor()
+    contentService.get section, page
+      .then (data) ->
+        content data
+
+    innerBindingContext = bindingContext.extend
+      content: content
+
+    ko.applyBindingsToDescendants innerBindingContext, element
+    controlsDescendantBindings: true
+
+markdown = require 'markdown'
+
+ko.bindingHandlers.markdown =
+  init: (element, valueAccessor) ->
+    $(element).html markdown.parse ko.unwrap valueAccessor()
+
 require './integrations.coffee'
 
 
 class ViewModel
   constructor: ->
     @currentView = ko.observable 'main'
+    @dynamicPage = ko.observable null
 
     page '/', @setView 'main'
     page '/contacts', =>
@@ -23,10 +56,20 @@ class ViewModel
       @setView('adventures_' + params.adventure)()
 
     page '/summer', @setView 'summer'
+    page '/summer/:page', @setDynamic 'summer'
+
     page '/winter', @setView 'winter'
+    page '/winter/:page', @setDynamic 'winter'
+
     page '/renting', @setView 'renting'
     page()
 
+  setDynamic: (name) -> (ctx) =>
+    @dynamicPage
+      section: name
+      page: ctx.params.page
+
+    @currentView 'dynamic'
 
   setView: (name) -> =>
     @currentView name

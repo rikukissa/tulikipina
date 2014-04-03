@@ -13,6 +13,7 @@ maxWidth = 1280px
 
 breakpoint1 = "all and (max-width: 550px)"
 breakpoint2 = "all and (max-width: 700px)"
+breakpoint3 = "all and (max-width: 900px)"
 
 .section
   box-sizing border-box
@@ -85,6 +86,7 @@ hr
       width auto
       max-width initial
       float none
+
 .row-full
   width auto
   max-width initial
@@ -94,10 +96,36 @@ hr
 #main
   .list-feature
     margin 3em auto 2em auto
+
   .cover
     background-image url('/images/covers/index.png')
+
   .map-container
-    padding-left 1em
+    padding-left 3em
+    @media breakpoint2
+      padding-left 0
+
+  .map
+    width 600px
+    height 300px
+    @media breakpoint3
+      width 400px
+    @media breakpoint2
+      width 100%
+
+  .introduction
+    ul
+      margin 0
+      padding-left 4em
+      @media breakpoint1
+        padding 0
+    li
+      padding 1em 0
+
+    img
+      width 15em
+      border-radius 10em
+
 #adventures
   .cover
     background-image url('/images/covers/adventures.png')
@@ -217,32 +245,34 @@ hr
       content ' - '
       margin-left 1em
 
-.list-feature
-  position relative
+.aside
   display table
-  .list-feature-image,
-  .list-feature-content
+
+  .aside-column
     width auto
     display table-cell
     vertical-align middle
-    float none
-  ul
-    margin 0
-    padding-left 4em
-  li
-    padding 1em 0
-
-  img
-    width 15em
-    border-radius 10em
 
   @media breakpoint1
-    padding-left 0
-    margin-top 3em
-    ul
-      padding-left 0
+    display block
+    .aside-column
+      display block
+      &:not(:last-child)
+        margin-bottom 2em
     img
-      display none
+      margin auto
+      display block
+
+  &.aside-resp
+    @media breakpoint2
+      display block
+      .aside-column
+        display block
+        &:not(:last-child)
+          margin-bottom 2em
+      img
+        margin auto
+        display block
 
 .facebook-feed
   max-width 900px
@@ -301,7 +331,4 @@ hr
     float left
     margin-right 1em
 
-.map
-  width 100%
-  height 300px
 
