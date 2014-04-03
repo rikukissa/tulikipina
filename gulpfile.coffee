@@ -73,7 +73,7 @@ gulp.task 'compress-assets', -> compressAssets()
 
 # Build tasks
 gulp.task "jade-production", -> compileJade()
-gulp.task 'stylus-production', ['fonts-production'], -> compileStylus()
+gulp.task 'stylus-production', -> compileStylus()
 gulp.task 'coffee-production', -> compileCoffee()
 gulp.task 'assets-production', ['copy-assets', 'compress-assets']
 gulp.task 'content-production', -> compileContent()
