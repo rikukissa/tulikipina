@@ -93,12 +93,28 @@ hr
 
 
 // Views
+body.no-video #main
+  .cover
+    background-image url('/images/covers/index.png')
+
 #main
   .list-feature
     margin 3em auto 2em auto
 
   .cover
-    background-image url('/images/covers/index.png')
+    position relative
+
+    video
+      position absolute
+      bottom 0px
+      right 0px
+      min-width 100%
+      min-height 100%
+      width auto
+      height auto
+
+    &.no-video
+      background-image url('/images/covers/index.png')
 
   .map-container
     padding-left 3em
