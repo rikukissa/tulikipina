@@ -16,9 +16,9 @@ html
       nav(data-bind='css: { "nav-visible": navigationVisible }')
         a(href='/') Tulikipinä
         a(href='/adventures') Arctic Adventures
-        a(href='/summer') Kesä
-        a(href='/winter') Talvi
-        a(href='/renting') Vuokraus
+        a(href='/summer') Summer
+        a(href='/winter') Winter
+        a(href='/renting') Rental gears
 
     mixin section(name)
       .section(id=name, data-bind='if: currentView() === "#{name}"')
@@ -55,8 +55,9 @@ html
 
     #footer
       a(href='/') Tulikipinä
-      a(href='/contacts') Yhteystiedot
+      a(href='/contacts') Contact
       a(href='https://www.facebook.com/tulikipina', target='_blank') Facebook
+      a(href='http://www.tripadvisor.com/Attraction_Review-g189922-d3853721-Reviews-Tulikipina_Artic_Adventures-Rovaniemi_Lapland.html', target='_blank') TripAdvisor
 
     script(src='http://maps.google.com/maps/api/js?sensor=true')
     script(src='/js/bundle.js')
