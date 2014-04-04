@@ -18,6 +18,7 @@ breakpoint3 = "all and (max-width: 800px)"
 breakpoint4 = "all and (max-width: 900px)"
 
 .section
+  display none
   box-sizing border-box
   color textColor
   background #fff
@@ -35,8 +36,9 @@ breakpoint4 = "all and (max-width: 900px)"
     font-size 1.25em
     @media breakpoint1
       width auto
-  &.hidden
-    display none
+
+.section-visible
+  display block
 
 .section-content
   margin 1em 0
@@ -215,7 +217,7 @@ body.no-video #main
   .overlay-text
     vertical-align middle
     display table-cell
-  @media breakpoint2
+  @media breakpoint4
     width auto
     float none
     padding 0

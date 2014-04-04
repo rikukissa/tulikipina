@@ -21,7 +21,7 @@ html
         a(href='/renting') Rental gears
 
     mixin section(name)
-      .section(id=name, data-bind='if: currentView() === "#{name}"')
+      .section(id=name, data-bind='if: currentView() === "#{name}", css: { "section-visible": currentView() === "#{name}" }')
         .cover
         .section-content
           block
@@ -41,7 +41,7 @@ html
     include sections/winter
     include sections/renting
 
-    .section(data-bind='if: currentView() === "dynamic"')
+    .section(data-bind='if: currentView() === "dynamic", css: { "section-visible": currentView() === "dynamic" }')
       div(data-bind='loadContent: dynamicPage')
         // ko with: content
         .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
