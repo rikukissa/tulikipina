@@ -12,7 +12,7 @@ lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
 plumber    = require 'gulp-plumber'
 prefix     = require 'gulp-autoprefixer'
-tinypng    = require 'gulp-tinypng'
+imagemin   = require 'gulp-imagemin'
 cson       = require 'gulp-cson'
 express    = require 'express'
 reloadServer = lr()
@@ -46,7 +46,7 @@ compileStylus = (debug = false) ->
   styles.pipe(CSSmin()) unless debug
 
   styles
-    .pipe(prefix('last 1 version', '> 1%', 'ie 8', 'ie 7'))
+    .pipe(prefix('last 2 versions', 'Chrome 33', 'Firefox 28', 'Explorer 11', 'iOS 7', 'Safari 7'))
     .pipe(gulp.dest('public/css/'))
     .pipe livereload reloadServer
 
@@ -57,8 +57,10 @@ copyAssets = (paths = []) ->
 
 compressAssets = (debug = false) ->
   gulp
-    .src('src/assets/**/*.png')
-    .pipe tinypng 'kaWxVgMUeNBvNBGxLx9yKFWuNTHQZbiP'
+    .src([
+      'src/assets/**/*.jpg'
+    ])
+    .pipe imagemin()
     .pipe gulp.dest 'public/'
 
 compileContent = (debug = false) ->
