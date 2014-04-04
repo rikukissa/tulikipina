@@ -14,7 +14,8 @@ maxWidth = 1280px
 
 breakpoint1 = "all and (max-width: 550px)"
 breakpoint2 = "all and (max-width: 700px)"
-breakpoint3 = "all and (max-width: 900px)"
+breakpoint3 = "all and (max-width: 800px)"
+breakpoint4 = "all and (max-width: 900px)"
 
 .section
   box-sizing border-box
@@ -126,7 +127,7 @@ body.no-video #main
   .map
     width 600px
     height 300px
-    @media breakpoint3
+    @media breakpoint4
       width 400px
     @media breakpoint2
       width 100%
@@ -251,30 +252,32 @@ body.no-video #main
       color textColor
       text-decoration none
 
-  @media breakpoint2
-    nav
-      letter-spacing 0
-      a
-        padding 0 0.7em
-    .logo
-      display none
-
   .header-toggle
     padding 0 1.5em
     display none
     position relative
     z-index 2
     background #fff
-  @media breakpoint1
+
+  @media breakpoint3
     padding 0
+
+    .logo
+      position absolute
+      right 10px
+      top 50%
+      margin-top -23px
+      z-index 3
+
     .header-toggle
       display block
+
     nav
       background #fff
       display block
       height auto
       transition all 0.2s
-      transform translateY(-100%)
+      transform translateY(-120%)
       &.nav-visible
         transform translateY(0px)
       a
