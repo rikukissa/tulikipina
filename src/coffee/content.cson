@@ -1,6 +1,7 @@
 summer:
   rafting:
     title: "White Water Rafting"
+    cover: "/images/covers/summer/rafting.jpg"
     description: "River Rafting Experience"
     content: """
       Enjoy the midnight sun in different way and come ride with us! Feel the speed and joy of rafting just outside the town, only 20 kilometers from Rovaniemi.
@@ -42,6 +43,7 @@ summer:
     """
   climbing:
     title: "Climbing"
+    cover: "/images/covers/summer/climbing.jpg"
     description: "We offer safe bottom roping on natural cliffs. Our qualified instructors are accredited by the Finnish Climbing Association SKIL ry."
     content: """
       Climbing is always secured. We will make all the prepartions and bring all the equipment needed: shoes, helmets, harnesses and ropes.
@@ -79,6 +81,7 @@ summer:
     """
   abseiling:
     title: "Rope Descending, Rappelling, Abseiling..."
+    cover: "/images/covers/summer/abseiling.jpg"
     description: "Rope descending is controlled descent down from cliffs or buildings using a rope."
     content: """
       It is not technically tricky or even physically hard, but may require significant fortitude as you ask yourself: do I have the guts?
@@ -100,6 +103,7 @@ winter:
 
   icefishing:
     title: "Ice fishing"
+    cover: "/images/covers/winter/ice-fishing.jpg"
     description: "Winter is also a good fishing season in Lapland. Ice fishing offers a relaxing nature experience and fresh air."
     content: """
       You will be picked up from your hotel and after a short car ride and a walk through snowy forest, we will arrive to a small frozen wilderness lake.
