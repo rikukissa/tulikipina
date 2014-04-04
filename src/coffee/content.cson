@@ -23,6 +23,7 @@ summer:
     """
   trekking:
     title: "Hikes and treks"
+    cover: "/images/covers/summer/trekking.jpg"
     description: "Lappish terrain is perfectly suited for extended treks and day trip hikes."
     content: """
       Lapland and Rovaniemi region offers lots of hiking trails, and the fact that there aren't too many people living up here means that you will find plenty of open wilderness to explore.
@@ -114,6 +115,7 @@ winter:
 
   trekking:
     title: "Snowshoe Treks"
+    cover: "/images/covers/winter/trekking.jpg"
     description: "Snowshoe walking is easy way to experience the snowy nature of Lapland and it's wildlife."
     content: """
       You can feel the silence of the surrounding forest and the colours of Polar night. 
