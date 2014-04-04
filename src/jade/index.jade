@@ -28,7 +28,7 @@ html
 
     mixin grid-item(background)
       a.grid-item(href!=attributes.href)
-        .grid-item-content(style='background-image: url(\"#{background}\")')
+        .grid-item-content(data-bind="style: { 'backgroundImage': 'url(#{background})' }")
           .overlay
             .overlay-text
               block
@@ -44,7 +44,7 @@ html
     .section(data-bind='if: currentView() === "dynamic"')
       div(data-bind='loadContent: dynamicPage')
         // ko with: content
-        .cover(data-bind='style: { "background-image": "url(http://lorempizza.com/380/240)"}')
+        .cover(data-bind='style: { backgroundImage: "url(http://lorempizza.com/380/240)"}')
         .section-content
           .row
             h1(data-bind='text: title')
