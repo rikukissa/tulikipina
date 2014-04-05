@@ -105,6 +105,10 @@ body.no-video #main
 #main
   .section-content
     margin-bottom 0
+    box-shadow 0 5px 4px rgba(0, 0, 0, 0.05)
+    z-index 2
+    position relative
+
   .list-feature
     margin 3em auto 2em auto
 
@@ -126,8 +130,10 @@ body.no-video #main
   #map
     width 100% !important
     height 100% !important
+
   .map-cover
     margin-top 0
+
   .introduction
     ul
       margin 0
@@ -140,6 +146,11 @@ body.no-video #main
     img
       width 15em
       border-radius 10em
+  #contacts
+    .aside
+      margin-top 3em
+    .aside-column:last-child
+      padding-left 3em
 
 #adventures
   .cover
@@ -298,7 +309,6 @@ body.no-video #main
       margin-left 1em
 
 .aside
-  width 100%
   display table
 
   .aside-column
@@ -356,7 +366,7 @@ body.no-video #main
   padding 0
   list-style none
   li
-    padding 3px
+    padding 0.6em 0
     padding-left 2em
     position relative
     i
