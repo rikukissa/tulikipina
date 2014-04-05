@@ -103,6 +103,8 @@ body.no-video #main
     background-image url('/images/covers/index.jpg')
 
 #main
+  .section-content
+    margin-bottom 0
   .list-feature
     margin 3em auto 2em auto
 
@@ -121,19 +123,11 @@ body.no-video #main
     &.no-video
       background-image url('/images/covers/index.jpg')
 
-  .map-container
-    padding-left 3em
-    @media breakpoint2
-      padding-left 0
-
-  .map
-    width 600px !important
-    height 300px !important
-    @media breakpoint4
-      width 400px !important
-    @media breakpoint2
-      width 100% !important
-
+  #map
+    width 100% !important
+    height 100% !important
+  .map-cover
+    margin-top 0
   .introduction
     ul
       margin 0
@@ -142,7 +136,7 @@ body.no-video #main
         padding 0
     li
       padding 1em 0
-
+  .aside
     img
       width 15em
       border-radius 10em
@@ -292,7 +286,7 @@ body.no-video #main
 
 #footer
   font-size 0.8em
-  padding 1em 0
+  padding 2em 0
   text-align center
   a
     color linkColor
@@ -304,6 +298,7 @@ body.no-video #main
       margin-left 1em
 
 .aside
+  width 100%
   display table
 
   .aside-column

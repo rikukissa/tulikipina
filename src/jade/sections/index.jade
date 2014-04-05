@@ -23,7 +23,7 @@
     hr
     .row#contacts
       h2 Contact information
-      .aside.aside-resp
+      .aside
         .aside-column
           ul.contacts
             li
@@ -38,7 +38,9 @@
           ul.contacts
             li
               i.fa.fa-map-marker
-              | Leimaajankuja 2 C 6, 96460 Rovaniemi
+              | Leimaajankuja 2 C 6, 96460 Rovaniemi Finland
             li Tulikipinä 1710555-4
-        .aside-column.map-container
-          .map(data-bind='map: {}')
+        .aside-column
+          img(src='/images/landscape.jpg')
+  .cover.map-cover
+    #map(data-bind='map: {}')
