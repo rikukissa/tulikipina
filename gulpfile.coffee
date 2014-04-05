@@ -1,3 +1,4 @@
+fs         = require 'fs'
 path       = require 'path'
 gulp       = require 'gulp'
 gutil      = require 'gulp-util'
@@ -8,16 +9,21 @@ browserify = require 'gulp-browserify'
 rename     = require 'gulp-rename'
 uglify     = require 'gulp-uglify'
 coffeeify  = require 'coffeeify'
+rimraf     = require 'rimraf'
 lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
 plumber    = require 'gulp-plumber'
 prefix     = require 'gulp-autoprefixer'
 imagemin   = require 'gulp-imagemin'
 cson       = require 'gulp-cson'
+replace    = require 'gulp-replace'
+rev        = require 'gulp-rev'
 express    = require 'express'
 reloadServer = lr()
 
 production = process.env.NODE_ENV is 'production'
+
+rimraf.sync './public'
 
 gulp.task 'coffee', ->
   bundle = gulp
@@ -71,6 +77,24 @@ gulp.task 'content', ->
     .pipe gulp.dest 'public/'
     .pipe livereload(reloadServer)
 
+gulp.task 'revision-files', ["coffee", "stylus", "compress"],  ->
+  gulp
+    .src ['public/**/*.js', 'public/**/*.css', 'public/videos*/**/*', 'public/images*/**/*']
+    .pipe rev()
+    .pipe gulp.dest './public/'
+    .pipe rev.manifest()
+    .pipe gulp.dest './'
+
+gulp.task 'replace-references', ['revision-files'], ->
+  revisions = JSON.parse fs.readFileSync './rev-manifest.json'
+
+  build = gulp.src ['public/*.html', 'public/css*/*.css']
+
+  for location, revision of revisions
+    build = build.pipe replace location, revision
+
+  build.pipe gulp.dest 'public/'
+
 gulp.task "server", ->
   app = express()
 
@@ -92,5 +116,11 @@ gulp.task "watch", ->
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 
-gulp.task "build", ["coffee", "jade", "stylus", "assets", "content", "compress"]
+gulp.task "revision", ["revision-files", "replace-references"]
+
+buildTasks = ["coffee", "jade", "stylus", "assets", "content"]
+buildTasks = buildTasks.concat ["compress", "revision"] if production
+
+gulp.task "build", buildTasks
+
 gulp.task "default", ["build", "watch", "server"]

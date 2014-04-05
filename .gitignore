@@ -3,3 +3,4 @@ public
 vendor
 .DS_Store
 .gulp
+rev-manifest.json
