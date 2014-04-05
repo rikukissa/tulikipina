@@ -17,75 +17,59 @@ cson       = require 'gulp-cson'
 express    = require 'express'
 reloadServer = lr()
 
-compileCoffee = (debug = false) ->
+production = process.env.NODE_ENV is 'production'
+
+gulp.task 'coffee', ->
   bundle = gulp
     .src('./src/coffee/main.coffee', read: false)
     .pipe(plumber())
-    .pipe(browserify(debug: debug))
+    .pipe(browserify(debug: not production))
     .pipe(rename('bundle.js'))
 
-  bundle.pipe(uglify()) unless debug
+  bundle.pipe(uglify()) if production
 
   bundle
     .pipe(gulp.dest('./public/js/'))
     .pipe(livereload(reloadServer))
 
-compileJade = (debug = false) ->
+gulp.task "jade", ->
   gulp
     .src('src/jade/*.jade')
-    .pipe(jade(pretty: debug))
+    .pipe(jade(pretty: not production))
     .pipe(gulp.dest('public/'))
     .pipe livereload(reloadServer)
 
-compileStylus = (debug = false) ->
+gulp.task 'stylus', ->
   styles = gulp
     .src('src/stylus/style.styl')
     .pipe(stylus({set: ['include css']}))
     .on('error', gutil.log)
     .on('error', gutil.beep)
-  styles.pipe(CSSmin()) unless debug
+
+  styles.pipe(CSSmin()) if production
 
   styles
     .pipe(prefix('last 2 versions', 'Chrome 33', 'Firefox 28', 'Explorer 11', 'iOS 7', 'Safari 7'))
     .pipe(gulp.dest('public/css/'))
     .pipe livereload reloadServer
 
-copyAssets = (paths = []) ->
+gulp.task 'assets', ->
   gulp
-    .src paths.concat ['src/assets/**/*.*', 'vendor/font-awesome/fonts*/*.*']
+    .src ['src/assets/**/*.*', 'vendor/font-awesome/fonts*/*.*']
     .pipe gulp.dest 'public/'
 
-compressAssets = (debug = false) ->
+gulp.task 'compress', ['assets'], ->
   gulp
-    .src([
-      'src/assets/**/*.jpg'
-    ])
+    .src 'public/images/**/*.*'
     .pipe imagemin()
-    .pipe gulp.dest 'public/'
+    .pipe gulp.dest 'public/images/'
 
-compileContent = (debug = false) ->
+gulp.task 'content', ->
   gulp
     .src('src/coffee/**/*.cson')
     .pipe cson()
     .pipe gulp.dest 'public/'
     .pipe livereload(reloadServer)
-
-gulp.task 'copy-assets', -> copyAssets ['!src/assets/**/*.png']
-gulp.task 'compress-assets', -> compressAssets()
-
-# Build tasks
-gulp.task "jade-production", -> compileJade()
-gulp.task 'stylus-production', -> compileStylus()
-gulp.task 'coffee-production', -> compileCoffee()
-gulp.task 'assets-production', ['copy-assets', 'compress-assets']
-gulp.task 'content-production', -> compileContent()
-
-# Development tasks
-gulp.task "jade", -> compileJade(true)
-gulp.task 'stylus', -> compileStylus(true)
-gulp.task 'coffee', -> compileCoffee(true)
-gulp.task 'assets', -> copyAssets()
-gulp.task 'content', -> compileContent(true)
 
 gulp.task "server", ->
   app = express()
@@ -108,5 +92,5 @@ gulp.task "watch", ->
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 
-gulp.task "build", ["coffee-production", "jade-production", "stylus-production", "assets-production", "content-production"]
-gulp.task "default", ["coffee", "jade", "stylus", "assets", "content", "watch", "server"]
+gulp.task "build", ["coffee", "jade", "stylus", "assets", "content", "compress"]
+gulp.task "default", ["build", "watch", "server"]
