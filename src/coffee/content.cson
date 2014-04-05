@@ -62,6 +62,7 @@ summer:
     """
   kayaking:
     title: "Kayaking and canoeing"
+    cover: "/images/covers/summer/kayaking.jpg"
     description: "Enjoy nature's wonder by paddling with our kayaks or canoes. Excursions are also suitable for beginners."
     content: """
       We offer introduction and training if needed. We always plan the paddling trips based on customers' needs and wishes.
