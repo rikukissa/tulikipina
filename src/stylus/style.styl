@@ -40,6 +40,8 @@ breakpoint4 = "all and (max-width: 900px)"
     @media breakpoint1
       width auto
 
+  table
+    width 100%
 .section-visible
   display block
 
@@ -182,6 +184,50 @@ body.no-video #main
 #renting
   .cover
     background-image url('http://lorempizza.com/380/240')
+
+  .feature
+    margin-bottom 3em
+    table
+      margin-top 3em
+      clear both
+      border-collapse collapse
+      td
+        width 40%
+        text-align center
+        padding 0.5em 0.4em
+        border-bottom 1px solid #ddd
+
+      td:first-child
+        text-align left
+        width 30%
+
+      td:last-child
+        width 30%
+        font-weight 400
+
+      tr:nth-child(odd)
+        td
+          background #fcfcfc
+
+      @media breakpoint2
+        display block
+        tr, td, tbody
+          display block
+        td
+          width auto !important
+          border-bottom 0
+        td:first-child
+          border-bottom 1px solid #ddd
+        td:empty
+          padding 0
+        td
+          background transparent !important
+          text-align left
+        td:last-child
+          margin-bottom 2em
+          font-weight 300
+        td:first-child
+          font-weight 400
 
 // Components
 .grid
@@ -408,12 +454,14 @@ body.no-video #main
     border-radius 25px
     margin-right 1em
 
-colors = (#FF0000 #FF7400 #009999 #00CC00 #A60000 #FFB273 #5CCCCC)
+
+colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
 
 .adventure-info
   padding 3em 2em
   ul
     padding-left 2em
+
 ul
   list-style none
   padding 0
