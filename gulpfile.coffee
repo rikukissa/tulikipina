@@ -5,10 +5,10 @@ gutil      = require 'gulp-util'
 jade       = require 'gulp-jade'
 stylus     = require 'gulp-stylus'
 CSSmin     = require 'gulp-minify-css'
-browserify = require 'gulp-browserify'
+browserify = require 'browserify'
+watchify   = require 'watchify'
 rename     = require 'gulp-rename'
 uglify     = require 'gulp-uglify'
-coffeeify  = require 'coffeeify'
 rimraf     = require 'rimraf'
 lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
@@ -19,24 +19,40 @@ cson       = require 'gulp-cson'
 replace    = require 'gulp-replace'
 rev        = require 'gulp-rev'
 express    = require 'express'
+source     = require 'vinyl-source-stream'
 reloadServer = lr()
 
 production = process.env.NODE_ENV is 'production'
 
+
 rimraf.sync './public'
 
 gulp.task 'coffee', ->
-  bundle = gulp
-    .src('./src/coffee/main.coffee', read: false)
-    .pipe(plumber())
-    .pipe(browserify(debug: not production))
-    .pipe(rename('bundle.js'))
+  opts =
+    entries: ['./src/coffee/main.coffee']
+    extensions: ['.coffee']
 
-  bundle.pipe(uglify()) if production
+  bundle = unless production
+    watchify opts
+  else
+    browserify opts
 
-  bundle
-    .pipe(gulp.dest('./public/js/'))
-    .pipe(livereload(reloadServer))
+  rebundle = ->
+
+    build = bundle.bundle
+        debug: not production
+      .on 'error', gutil.log
+      .pipe(source('bundle.js'))
+
+    build.pipe(streamify(uglify())) if production
+
+    build
+      .pipe(gulp.dest('./public/js/'))
+      .pipe(livereload(reloadServer))
+
+  bundle.on 'update', rebundle unless production
+
+  rebundle()
 
 gulp.task "jade", ->
   gulp

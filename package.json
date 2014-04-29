@@ -40,7 +40,9 @@
     "gulp-imagemin": "~0.2.0",
     "gulp-rev": "~0.3.2",
     "gulp-replace": "~0.2.0",
-    "rimraf": "~2.2.6"
+    "rimraf": "~2.2.6",
+    "watchify": "~0.8.2",
+    "vinyl-source-stream": "~0.1.1"
   },
   "browser": {
     "jquery": "./vendor/jquery/dist/jquery.js",
