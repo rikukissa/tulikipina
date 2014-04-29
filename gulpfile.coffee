@@ -20,6 +20,7 @@ replace    = require 'gulp-replace'
 rev        = require 'gulp-rev'
 express    = require 'express'
 source     = require 'vinyl-source-stream'
+streamify  = require 'gulp-streamify'
 reloadServer = lr()
 
 production = process.env.NODE_ENV is 'production'
