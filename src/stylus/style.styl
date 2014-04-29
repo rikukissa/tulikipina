@@ -9,9 +9,11 @@ body, html
 
 textColor = #46474b
 textColorDark = #202123
-linkColor = #00AED9
+linkColor = #33CCCC
 descriptionColor = #6e7076
 maxWidth = 1280px
+textColorLight = #777
+borderColor = #dee5f0
 
 breakpoint1 = "all and (max-width: 550px)"
 breakpoint2 = "all and (max-width: 700px)"
@@ -61,7 +63,7 @@ h1,h2,h3
 
 hr
   border 0
-  border-top 1px solid #dee5f0
+  border-top 1px solid borderColor
   width 70%
   margin 3em auto
 
@@ -95,8 +97,11 @@ hr
 
 .row-full
   width auto
+  margin-left -2em
+  margin-right -2em
   max-width initial
 
+  padding 2em
 
 // Views
 body.no-video #main
@@ -142,7 +147,8 @@ body.no-video #main
       @media breakpoint1
         padding 0
     li
-      padding 1em 0
+      padding-top 0.5em
+      padding-bottom 0.5em
   .aside
     img
       width 15em
@@ -384,17 +390,61 @@ body.no-video #main
   display block
   color textColor
   overflow hidden
-
+  .feature-description
+    color textColorLight
+    &:hover
+      text-decoration underline
   h3
     margin 0
     font-weight 400
     text-transform none
+    color textColor
   p
     margin 0.5em 0
+    font-size 0.9em
   img
-    width 100px
+    width 50px
     float left
+    border-radius 25px
     margin-right 1em
 
+colors = (#FF0000 #FF7400 #009999 #00CC00 #A60000 #FFB273 #5CCCCC)
 
+.adventure-info
+  padding 3em 2em
+  ul
+    padding-left 2em
+ul
+  list-style none
+  padding 0
+  li
+    padding-left 1.5em
+    margin-bottom 1em
+    position relative
 
+    &:before
+      width 0.8em
+      height 0.8em
+      display block
+      position absolute
+      border-radius 1em
+      top 50%
+      margin-top -0.35em
+      left 0
+      background blue
+      content ''
+  li:last-child
+    margin-bottom 0
+  for num in (1..7)
+    li:nth-child({num}):before
+      background colors[num - 1]
+
+  h2
+    font-size 1.25em
+    margin-bottom 1.5em
+
+.dynamic-content
+  ul
+    margin 3em 0
+    border 3px solid borderColor
+    padding 1em
