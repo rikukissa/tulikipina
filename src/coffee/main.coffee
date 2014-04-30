@@ -78,6 +78,7 @@ class ViewModel
     @currentView 'dynamic'
 
   setView: (name) -> =>
+    @navigationVisible false
     @currentView name
 
 ko.applyBindings new ViewModel

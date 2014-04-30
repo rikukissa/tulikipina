@@ -31,14 +31,9 @@ breakpoint4 = "all and (max-width: 900px)"
     margin-top -1.25em
 
   .description
-    width 80%
-    max-width 700px
-    margin auto
     text-align center
     color descriptionColor
     font-size 1.25em
-    @media breakpoint1
-      width auto
 
   table
     width 100%
@@ -48,7 +43,7 @@ breakpoint4 = "all and (max-width: 900px)"
 .section-content
   margin 1em 0
   padding 0 2em
-  padding-bottom 4em
+  padding-bottom 2em
   overflow hidden
 
 a
@@ -70,11 +65,12 @@ hr
   margin 3em auto
 
 .cover
-  margin-top 65px
   height 500px
   background-size cover
   background-repeat no-repeat
   background-position center center
+  &:first-child
+    margin-top 65px
 
 .row
   max-width 960px
@@ -113,12 +109,8 @@ body.no-video #main
 #main
   .section-content
     margin-bottom 0
-    box-shadow 0 5px 4px rgba(0, 0, 0, 0.05)
     z-index 2
     position relative
-
-  .list-feature
-    margin 3em auto 2em auto
 
   .cover
     position relative
@@ -139,9 +131,6 @@ body.no-video #main
     width 100% !important
     height 100% !important
 
-  .map-cover
-    margin-top 0
-
   .introduction
     ul
       margin 0
@@ -151,23 +140,26 @@ body.no-video #main
     li
       padding-top 0.5em
       padding-bottom 0.5em
+
   .aside
     img
       width 15em
       border-radius 10em
+
   #contacts
+    h2
+      margin-top 2em
     .aside
-      margin-top 3em
-    .aside-column:last-child
-      padding-left 3em
+      margin-top 2em
+      margin-bottom 2em
+
 
 #adventures
   .cover
     background-image url('/images/covers/adventures.jpg')
 
-#summer
-  .cover
-    background-image url('/images/covers/summer.jpg')
+.cover-summer, #summer .cover
+  background-image url('/images/covers/summer.jpg')
 
 #winter
   .cover
@@ -184,50 +176,48 @@ body.no-video #main
 #renting
   .cover
     background-image url('http://lorempizza.com/380/240')
-
   .feature
+    margin-bottom 0
+  table
     margin-bottom 3em
-    table
-      margin-top 3em
-      clear both
-      border-collapse collapse
+    border-collapse collapse
+    td
+      width 40%
+      text-align center
+      padding 0.5em 0.4em
+      border-bottom 1px solid #ddd
+
+    td:first-child
+      text-align left
+      width 30%
+
+    td:last-child
+      width 30%
+      font-weight 400
+
+    tr:nth-child(odd)
       td
-        width 40%
-        text-align center
-        padding 0.5em 0.4em
-        border-bottom 1px solid #ddd
+        background #fcfcfc
 
-      td:first-child
-        text-align left
-        width 30%
-
-      td:last-child
-        width 30%
-        font-weight 400
-
-      tr:nth-child(odd)
-        td
-          background #fcfcfc
-
-      @media breakpoint2
+    @media breakpoint2
+      display block
+      tr, td, tbody
         display block
-        tr, td, tbody
-          display block
-        td
-          width auto !important
-          border-bottom 0
-        td:first-child
-          border-bottom 1px solid #ddd
-        td:empty
-          padding 0
-        td
-          background transparent !important
-          text-align left
-        td:last-child
-          margin-bottom 2em
-          font-weight 300
-        td:first-child
-          font-weight 400
+      td
+        width auto !important
+        border-bottom 0
+      td:first-child
+        border-bottom 1px solid #ddd
+      td:empty
+        padding 0
+      td
+        background transparent !important
+        text-align left
+      td:last-child
+        margin-bottom 2em
+        font-weight 300
+      td:first-child
+        font-weight 400
 
 // Components
 .grid
@@ -292,7 +282,6 @@ body.no-video #main
   line-height 65px
   z-index 2
   background #fff
-  transition opacity 0.4s
   user-select none
   .logo
     width (103/2.5)px
@@ -322,7 +311,9 @@ body.no-video #main
 
   @media breakpoint3
     padding 0
-
+    opacity 1 !important
+    display block !important
+    z-index 3
     .logo
       position absolute
       right 10px
@@ -346,8 +337,7 @@ body.no-video #main
         border-bottom 1px solid #eee
         &:first-child
           border-top 1px solid #eee
-        &:last-child
-          border 0
+
 
 #footer
   font-size 0.8em
@@ -380,17 +370,6 @@ body.no-video #main
       margin auto
       display block
 
-  &.aside-resp
-    @media breakpoint2
-      display block
-      .aside-column
-        display block
-        &:not(:last-child)
-          margin-bottom 2em
-      img
-        margin auto
-        display block
-
 .facebook-feed
   max-width 900px
   .facebook-icon
@@ -421,7 +400,7 @@ body.no-video #main
   list-style none
   li
     padding 0.6em 0
-    padding-left 2em
+    padding-left 1.5em
     position relative
     i
       position absolute
@@ -431,28 +410,42 @@ body.no-video #main
 
 .feature
   position relative
-  padding 1em
+  padding 1em 0
   margin 1em 0
   display block
   color textColor
   overflow hidden
+  display table
+
+  .feature-image,
   .feature-description
-    color textColorLight
-    &:hover
+    display table-cell
+    vertical-align middle
+
+  .feature-description
+    padding-left 1em
+    a
+      color textColorLight
+    a:hover
       text-decoration underline
-  h3
-    margin 0
-    font-weight 400
-    text-transform none
-    color textColor
-  p
-    margin 0.5em 0
-    font-size 0.9em
-  img
-    width 50px
-    float left
-    border-radius 25px
-    margin-right 1em
+
+  a.feature-title
+    &:hover
+      text-decoration none
+  .feature-title
+
+    h3
+      margin 0
+      font-weight 400
+      text-transform none
+      color textColor
+      text-decoration none
+
+  .feature-image
+    img
+      width 50px
+      border-radius 25px
+      vertical-align bottom
 
 
 colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
