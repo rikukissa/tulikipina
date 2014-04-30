@@ -4,9 +4,10 @@ page     = require 'page.js'
 scrollTo = require 'scrollTo'
 Modernizr = require 'modernizr'
 
-ko.bindingHandlers.header = require './bindingHandlers/header.coffee'
-ko.bindingHandlers.map    = require './bindingHandlers/map.coffee'
-ko.bindingHandlers.video  = require './bindingHandlers/video.coffee'
+ko.bindingHandlers.header    = require './bindingHandlers/header.coffee'
+ko.bindingHandlers.map       = require './bindingHandlers/map.coffee'
+ko.bindingHandlers.video     = require './bindingHandlers/video.coffee'
+ko.bindingHandlers.facebook  = require './bindingHandlers/facebook.coffee'
 
 contentService = new class ContentService
   constructor: ->

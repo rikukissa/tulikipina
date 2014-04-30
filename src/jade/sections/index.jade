@@ -24,24 +24,30 @@
 
   .section-content
     .row#contacts
-      h2 Contact us
-      .aside
-
-        .aside-column
-          ol.contacts
-            li
-              i.fa.fa-user
-              | Vesa Rouvila
-            li
-              i.fa.fa-envelope
-              | info@tulikipina.com
-            li
-              i.fa.fa-phone
-              |0405720174
-          ol.contacts
-            li
-              i.fa.fa-map-marker
-              | Leimaajankuja 2 C 6, 96460 Rovaniemi Finland
-            li Tulikipinä 1710555-4
+      .column.column1-2
+        h2 Contact us
+        ol.contacts
+          li
+            i.fa.fa-user
+            | Vesa Rouvila
+          li
+            i.fa.fa-envelope
+            | info@tulikipina.com
+          li
+            i.fa.fa-phone
+            |0405720174
+        ol.contacts
+          li
+            i.fa.fa-map-marker
+            | Leimaajankuja 2 C 6, 96460 Rovaniemi Finland
+          li Tulikipinä 1710555-4
+      .column.column1-2.facebook
+        a(href='https://www.facebook.com/tulikipina', target='_blank')
+          h2 Recent posts
+        .facebook-feed(data-bind='facebook: {}')
+          // ko foreach: feed
+          .facebook-message
+            a.message-body(data-bind='attr: { href: $data.link }, text: $data.message', target='_blank')
+          // /ko
   .cover.map-cover
     #map(data-bind='map: {}')

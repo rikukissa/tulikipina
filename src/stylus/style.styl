@@ -371,29 +371,20 @@ body.no-video #main
       display block
 
 .facebook-feed
-  max-width 900px
-  .facebook-icon
-    width 48px
-    height 48px
-    background url('/images/facebook-icon.png')
-    background-size 100%
+  a
+    color linkColor
+  .facebook-message
+    color linkColor
     margin-bottom 1em
-  .timestamp
-    font-size 0.75em
-    color #888
-    margin-bottom 5px
-  .item
-    margin-left 1em
-    margin-bottom 0.5em
-    background #f4f6f8
-    padding 0.5em
-  .item:nth-child(odd)
-    background transparent
-  .fb-like
-    margin 0 auto
-    width 450px
-    display block
-    margin-top 2.5em
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+
+  .facebook-message:first-child
+    margin-top 2em
+
+.facebook h2
+  color textColor
 
 .contacts
   padding 0

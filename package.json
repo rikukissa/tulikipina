@@ -16,7 +16,8 @@
   "author": "",
   "dependencies": {
     "coffee-script": "~1.7.1",
-    "knockout": "~3.1.0"
+    "knockout": "~3.1.0",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "gulp-rename": "~0.2.1",
