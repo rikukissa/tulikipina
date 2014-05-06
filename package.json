@@ -17,8 +17,7 @@
   "dependencies": {
     "coffee-script": "~1.7.1",
     "knockout": "~3.1.0",
-    "lodash": "~2.4.1",
-    "html5-history-api": "~4.1.2"
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "gulp-rename": "~0.2.1",
@@ -49,17 +48,17 @@
     "event-stream": "~3.1.5"
   },
   "browser": {
-    "jquery": "./vendor/jquery/jquery.js",
-    "page.js": "./vendor/page.js/index.js",
+    "jquery": "./vendor/jquery/dist/jquery.js",
     "gmaps": "./vendor/gmaps/gmaps.js",
     "scrollTo": "./vendor/jquery.scrollTo/jquery.scrollTo.js",
-    "modernizr": "./vendor/modernizr/modernizr.js"
+    "modernizr": "./vendor/modernizr/modernizr.js",
+    "routie": "./vendor/routie/dist/routie.js"
   },
   "browserify-shim": {
     "jquery": "$",
-    "page.js": "page",
     "gmaps": "GMaps",
-    "modernizr": "Modernizr"
+    "modernizr": "Modernizr",
+    "routie": "routie"
   },
   "browserify": {
     "transform": [

@@ -1,7 +1,7 @@
-$        = require 'jquery'
-ko       = require 'knockout'
-page     = require 'page.js'
-scrollTo = require 'scrollTo'
+$         = require 'jquery'
+ko        = require 'knockout'
+routie    = require 'routie'
+scrollTo  = require 'scrollTo'
 Modernizr = require 'modernizr'
 
 ko.bindingHandlers.header    = require './bindingHandlers/header.coffee'
@@ -50,31 +50,32 @@ class ViewModel
     @dynamicPage = ko.observable null
     @navigationVisible = ko.observable false
 
-    page '/', @setView 'main'
-    page '/contacts', =>
+    routie '/',           @setView 'main'
+    routie '/summer',     @setView 'summer'
+    routie '/winter',     @setView 'winter'
+    routie '/renting',    @setView 'renting'
+    routie '/adventures', @setView 'adventures'
+
+    routie '/summer/:page', @setDynamic 'summer'
+    routie '/winter/:page', @setDynamic 'winter'
+
+    routie '/contacts', =>
       @setView('main')()
-      $.scrollTo '#contacts', 500
 
-    page '/adventures', @setView 'adventures'
-    page '/adventures/:adventure', ({params}) =>
-      @setView('adventures_' + params.adventure)()
+      process.nextTick ->
+        $.scrollTo '#contacts', 500
 
-    page '/summer', @setView 'summer'
-    page '/summer/:page', @setDynamic 'summer'
+    routie '/adventures/:adventure', (adventure) =>
+      @setView('adventures_' + adventure)()
 
-    page '/winter', @setView 'winter'
-    page '/winter/:page', @setDynamic 'winter'
-
-    page '/renting', @setView 'renting'
-    page()
 
   toggleNavigation: ->
     @navigationVisible not @navigationVisible()
 
-  setDynamic: (name) -> (ctx) =>
+  setDynamic: (name) -> (page) =>
     @dynamicPage
       section: name
-      page: ctx.params.page
+      page: page
 
     @currentView 'dynamic'
 
