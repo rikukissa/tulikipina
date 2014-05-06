@@ -26,11 +26,11 @@ html
   body
     #fb-root
 
-    header#header(data-bind='header: { threshold: 150, max: 500 }')
+    #header(data-bind='header: { threshold: 150, max: 500 }')
       .header-toggle(data-bind='click: toggleNavigation')
         i.fa.fa-bars
       img.logo(src='images/header-logo.png')
-      nav(data-bind='css: { "nav-visible": navigationVisible }')
+      .nav(data-bind='css: { "nav-visible": navigationVisible }')
         a(href='#!/', data-bind='css: { selected: currentView() === "main" }') Tulikipinä
         a(href='#!/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
         a(href='#!/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
