@@ -15,7 +15,7 @@ contentService = new class ContentService
 
   get: (section, page) ->
     unless @contentPromise?
-      @contentPromise = $.get('/content.json')
+      @contentPromise = $.get 'content.json'
 
     @contentPromise.then (data) ->
       data[section][page]
