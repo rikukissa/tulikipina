@@ -31,11 +31,11 @@ html
         i.fa.fa-bars
       img.logo(src='images/header-logo.png')
       nav(data-bind='css: { "nav-visible": navigationVisible }')
-        a(href='#/', data-bind='css: { selected: currentView() === "main" }') Tulikipinä
-        a(href='#/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
-        a(href='#/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
-        a(href='#/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
-        a(href='#/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gears
+        a(href='#!/', data-bind='css: { selected: currentView() === "main" }') Tulikipinä
+        a(href='#!/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
+        a(href='#!/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
+        a(href='#!/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
+        a(href='#!/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gears
 
     mixin section(name)
       .section(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "section-visible": currentView() === "#{name}" }')
@@ -71,8 +71,8 @@ html
         // /ko
 
     #footer
-      a(href='#/') Tulikipinä
-      a(href='#/contacts') Contact us
+      a(href='#!/') Tulikipinä
+      a(href='#!/contacts') Contact us
       a(href='https://www.facebook.com/tulikipina', target='_blank') Facebook
       a(href='http://www.tripadvisor.com/Attraction_Review-g189922-d3853721-Reviews-Tulikipina_Artic_Adventures-Rovaniemi_Lapland.html', target='_blank') TripAdvisor
 

@@ -50,22 +50,22 @@ class ViewModel
     @dynamicPage = ko.observable null
     @navigationVisible = ko.observable false
 
-    routie '/',           @setView 'main'
-    routie '/summer',     @setView 'summer'
-    routie '/winter',     @setView 'winter'
-    routie '/renting',    @setView 'renting'
-    routie '/adventures', @setView 'adventures'
+    routie '!/',           @setView 'main'
+    routie '!/summer',     @setView 'summer'
+    routie '!/winter',     @setView 'winter'
+    routie '!/renting',    @setView 'renting'
+    routie '!/adventures', @setView 'adventures'
 
-    routie '/summer/:page', @setDynamic 'summer'
-    routie '/winter/:page', @setDynamic 'winter'
+    routie '!/summer/:page', @setDynamic 'summer'
+    routie '!/winter/:page', @setDynamic 'winter'
 
-    routie '/contacts', =>
+    routie '!/contacts', =>
       @setView('main')()
 
       process.nextTick ->
         $.scrollTo '#contacts', 500
 
-    routie '/adventures/:adventure', (adventure) =>
+    routie '!/adventures/:adventure', (adventure) =>
       @setView('adventures_' + adventure)()
 
 
