@@ -31,11 +31,11 @@ html
         i.fa.fa-bars
       img.logo(src='images/header-logo.png')
       nav(data-bind='css: { "nav-visible": navigationVisible }')
-        a(href='#/') Tulikipinä
-        a(href='#/adventures') Arctic Adventures
-        a(href='#/summer') Summer
-        a(href='#/winter') Winter
-        a(href='#/renting') Rental gears
+        a(href='#/', data-bind='css: { selected: currentView() === "main" }') Tulikipinä
+        a(href='#/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
+        a(href='#/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
+        a(href='#/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
+        a(href='#/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gears
 
     mixin section(name)
       .section(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "section-visible": currentView() === "#{name}" }')
