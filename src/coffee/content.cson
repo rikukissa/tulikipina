@@ -20,7 +20,7 @@ summer:
       * Departure time will be agreed with the participants.
       * Price **65 €** per person.
       * Groups from 2 to 4 persons, including transportation from hotel, beverages and snacks
-      * Please [ask for an offer](/contacts) for bigger groups.
+      * Please [ask for an offer](#/contacts) for bigger groups.
     """
   trekking:
     title: "Hikes and treks"
@@ -95,7 +95,7 @@ summer:
 
       * We can also offer a transportation for small groups, 2-4 persons.
       * Abseiling nearby Rovaniemi takes about 1-2 hours.
-      * Descending is possible also during winter. Just [ask for an offer](/contacts)!
+      * Descending is possible also during winter. Just [ask for an offer](#/contacts)!
 
     """
 
@@ -197,5 +197,5 @@ winter:
 
       * We can also offer a transportation for small groups, 2-4 persons.
       * Abseiling nearby Rovaniemi takes about 1-2 hours.
-      * Descending is possible also during summer. Just [ask for an offer](/contacts)!
+      * Descending is possible also during summer. Just [ask for an offer](#/contacts)!
     """
