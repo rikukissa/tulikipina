@@ -49,7 +49,7 @@
     "event-stream": "~3.1.5"
   },
   "browser": {
-    "jquery": "./vendor/jquery/dist/jquery.js",
+    "jquery": "./vendor/jquery/jquery.js",
     "page.js": "./vendor/page.js/index.js",
     "gmaps": "./vendor/gmaps/gmaps.js",
     "scrollTo": "./vendor/jquery.scrollTo/jquery.scrollTo.js",
