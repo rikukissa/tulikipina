@@ -21,6 +21,7 @@ rev        = require 'gulp-rev'
 express    = require 'express'
 source     = require 'vinyl-source-stream'
 streamify  = require 'gulp-streamify'
+es         = require 'event-stream'
 reloadServer = lr()
 
 production = process.env.NODE_ENV is 'production'
@@ -29,31 +30,42 @@ production = process.env.NODE_ENV is 'production'
 rimraf.sync './public'
 
 gulp.task 'coffee', ->
-  opts =
-    entries: ['./src/coffee/main.coffee']
-    extensions: ['.coffee']
 
-  bundle = unless production
-    watchify opts
-  else
-    browserify opts
+  entries = [
+    path: './src/coffee/main.coffee'
+    file: 'bundle.js'
+  ,
+    path: './src/coffee/ie.coffee'
+    file: 'ie.js'
+  ]
 
-  rebundle = ->
+  es.concat.apply es, entries.map (entry) ->
 
-    build = bundle.bundle
-        debug: not production
-      .on 'error', gutil.log
-      .pipe(source('bundle.js'))
+    opts =
+      entries: [entry.path]
+      extensions: ['.coffee']
 
-    build.pipe(streamify(uglify())) if production
+    bundle = unless production
+      watchify opts
+    else
+      browserify opts
 
-    build
-      .pipe(gulp.dest('./public/js/'))
-      .pipe(livereload(reloadServer))
+    rebundle = ->
 
-  bundle.on 'update', rebundle unless production
+      build = bundle.bundle
+          debug: not production
+        .on 'error', gutil.log
+        .pipe(source(entry.file))
 
-  rebundle()
+      build.pipe(streamify(uglify())) if production
+
+      build
+        .pipe(gulp.dest('./public/js/'))
+        .pipe(livereload(reloadServer))
+
+    bundle.on 'update', rebundle unless production
+
+    rebundle()
 
 gulp.task "jade", ->
   gulp
