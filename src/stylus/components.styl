@@ -1,0 +1,330 @@
+.cover
+  height 500px
+  background-size cover
+  background-repeat no-repeat
+  background-position center center
+
+
+.grid
+  padding 0 1em
+  margin 0 auto
+  max-width maxWidth
+
+.grid-row
+  overflow hidden
+
+.grid-item
+  float left
+  display block
+  width (100/3)%
+  height 200px
+  padding 1em
+  box-sizing border-box
+  overflow hidden
+  position relative
+  cursor pointer
+  color inherit
+  .grid-item-content
+    width 100%
+    height 100%
+    position relative
+    background-size cover
+    background-position center center
+
+  .overlay
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+
+    text-align center
+    font-size 1.5em
+    color textColorDark
+    background rgba(255,255,255, 0.5)
+    opacity 1
+    transition opacity 0.3s
+    display table
+    &:hover
+      opacity 0
+
+  .overlay-text
+    vertical-align middle
+    display table-cell
+
+  @media breakpoint4
+    width auto
+    float none
+    padding 0
+    margin-bottom 1em
+
+
+#header
+  width 100%
+  height 65px
+  padding 0 0.5em
+  position fixed
+  top 0
+  left 0
+  line-height 65px
+  z-index 2
+  background #fff
+  user-select none
+  .logo
+    width (103/2.5)px
+    height (117/2.5)px
+    vertical-align middle
+
+  .nav
+    -webkit-font-smoothing antialiased
+    text-transform uppercase
+    letter-spacing 1px
+    height 100%
+    display inline-block
+    font-size 1em
+    margin-left 0.5em
+    a
+      height 100%
+      padding 0 1em
+      display inline-block
+      color textColor
+      text-decoration none
+    .selected
+      background #f1f1f1
+      color textColorDark
+  .header-toggle
+    padding 0 1.5em
+    display none
+    position relative
+    z-index 2
+    background #fff
+
+  @media breakpoint3
+    padding 0
+    opacity 1 !important
+    display block !important
+    z-index 3
+    .logo
+      position absolute
+      right 10px
+      top 50%
+      margin-top -23px
+      z-index 3
+
+    .header-toggle
+      display block
+
+    .nav
+      background #fff
+      margin 0
+      display block
+      height auto
+      transition all 0.2s
+      transform translateY(-120%)
+      &.nav-visible
+        transform translateY(0px)
+      a
+        display block
+        border-bottom 1px solid #eee
+        &:first-child
+          border-top 1px solid #eee
+
+
+#footer
+  padding 2em 0
+  text-align center
+  a
+    color linkColor
+    display inline-block
+    margin 0 0.5em
+    &:not(:last-child):after
+      color textColor
+      content ' - '
+      margin-left 1em
+
+.aside
+  display table
+
+  .aside-column
+    width auto
+    display table-cell
+    vertical-align middle
+
+  @media breakpoint1
+    display block
+    .aside-column
+      display block
+      &:not(:last-child)
+        margin-bottom 2em
+    img
+      margin auto
+      display block
+
+.facebook-feed
+  a
+    color linkColor
+  .facebook-message
+    color linkColor
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    padding 0.5em 0
+
+.facebook
+  h2
+    color textColor
+
+.contacts
+  margin 0
+  padding 0
+  list-style none
+  display block
+  li
+    padding 0.5em 0
+    padding-left 1.5em
+    position relative
+    i
+      position absolute
+      top 50%
+      left 0
+      margin-top -0.5em
+
+
+.adventure
+  padding 1em 0
+  display block
+  display table
+
+  .adventure-image,
+  .adventure-description
+    display table-cell
+    vertical-align middle
+
+  .adventure-description
+    padding-left 1em
+    a
+      color textColorLight
+    a:hover
+      text-decoration underline
+
+  a.adventure-title
+    &:hover
+      text-decoration none
+
+  .adventure-title
+    h4
+      margin 0
+      font-size 1.2em
+      font-weight 400
+      text-transform none
+      color textColor
+      text-decoration none
+
+  .adventure-image
+    img
+      width 50px
+      border-radius 25px
+      vertical-align bottom
+
+.rental-products
+  .products-title
+    font-weight 400
+    text-transform none
+    color textColor
+    text-decoration none
+    margin 1em 0
+    font-size 1.5em
+
+  .products-description
+    font-style italic
+    margin-top -1em
+    margin-bottom 2em
+
+  .products-table
+    width 100%
+    border-collapse collapse
+    td
+      width 40%
+      text-align center
+      padding 0.5em 0.4em
+      border-bottom 1px solid #ddd
+
+    td:first-child
+      width 30%
+      text-align left
+
+    td:last-child
+      width 30%
+
+      text-align right
+    tr:nth-child(odd)
+      td
+        background #fcfcfc
+
+    @media breakpoint2
+      display block
+      tr, td, tbody
+        display block
+      td
+        width auto !important
+        border-bottom 0
+      td:first-child
+        border-bottom 1px solid #ddd
+      td:empty
+        padding 0
+      td
+        background transparent !important
+        text-align left
+      td:last-child
+        margin-bottom 2em
+        font-weight 300
+      td:first-child
+        font-weight 400
+
+colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
+
+.adventure-info
+  padding 3em 2em
+  ul
+    padding-left 2em
+
+ul
+  list-style none
+  padding 0
+  li
+    padding-left 1.5em
+    margin-bottom 1em
+    position relative
+
+    &:before
+      width 0.8em
+      height 0.8em
+      display block
+      position absolute
+      border-radius 1em
+      top 50%
+      margin-top -0.35em
+      left 0
+      background #DDE6D5
+      content ''
+  li:last-child
+    margin-bottom 0
+  for num in (1..7)
+    li:nth-child({num}):before
+      background colors[num - 1]
+
+  h2
+    font-size 1.25em
+    margin-bottom 1.5em
+
+.markdown
+  ul
+    margin 3em 0
+    border 3px solid borderColor
+    padding 1em
+
+  h2
+    margin-top 2em
+
+  a
+    color linkColor

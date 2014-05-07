@@ -1,0 +1,101 @@
+body, html
+  margin 0
+  height 100%
+  font-family 'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
+  font-weight 300
+  font-size 14px
+a
+  text-decoration none
+  color linkColor
+  img
+    border 0
+
+h1
+  font-size 3.5em
+  text-align center
+  text-transform uppercase
+  @media breakpoint1
+    font-size 3em
+
+h1, h2
+  font-weight 300
+  margin 0
+
+h3
+  font-weight 400
+  font-size 1.5em
+  margin-bottom 0
+  margin-top 2em
+
+hr
+  border 0
+  border-top 1px solid borderColor
+  width 70%
+  margin 3em auto
+
+.section
+  display none
+  box-sizing border-box
+  color textColor
+  background #fff
+  position relative
+
+  .subtitle
+    margin-top 0.5em
+
+  .section-nav
+    margin-top 0.5em
+
+  .subtitle
+    text-align center
+    color descriptionColor
+    font-size 1.25em
+
+  .cover:first-child
+    margin-top 65px
+
+.section-visible
+  display block
+
+.section-content
+  overflow hidden
+  padding 3em 0
+
+.section-nav
+  text-align center
+  margin-top -2em
+  a
+    margin 1em
+    display inline-block
+
+.row, .section-nav
+  max-width 960px
+  padding 0 2em
+  margin auto
+  overflow hidden
+
+  @media breakpoint4
+    padding 0 1em
+
+  .column
+    width (100/3)%
+    float left
+    box-sizing border-box
+
+  .column1-2
+    width 50%
+
+  @media breakpoint2
+    .column
+      width auto
+      max-width initial
+      float none
+    .column1-2:last-child
+      margin-top 2em
+
+.row-full
+  width auto
+  margin-left -2em
+  margin-right -2em
+  max-width initial
+  padding 2em

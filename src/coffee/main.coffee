@@ -56,8 +56,16 @@ class ViewModel
     routie '!/renting',    @setView 'renting'
     routie '!/adventures', @setView 'adventures'
 
-    routie '!/summer/:page', @setDynamic 'summer'
-    routie '!/winter/:page', @setDynamic 'winter'
+    routie '!/summer/:page',  @setDynamic 'summer'
+    routie '!/winter/:page',  @setDynamic 'winter'
+
+    routie '!/renting/:page', (products) =>
+      @setView('renting')()
+
+      process.nextTick ->
+        $.scrollTo '#renting-' + products, 500,
+          offset:
+            top: -50
 
     routie '!/contacts', =>
       @setView('main')()

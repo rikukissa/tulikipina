@@ -1,15 +1,27 @@
+mixin rental-products(title, description)
+  .rental-products(id!=attributes.id)
+    h3.products-title= title
+    if description
+      p.products-description= description
+    table.products-table
+      block
+
 +section("renting")
   h1 Rental gears
-  p.description
-    |[Description about section]
+  .section-nav
+    a(href='#!/renting/tents') Tents
+    a(href='#!/renting/backbacks') Backbacks
+    a(href='#!/renting/pulkas') Pulkas/Sledges
+    a(href='#!/renting/canoes') Canoes
+    a(href='#!/renting/kayaks') Kayaks
+    a(href='#!/renting/cooking-stoves') Cooking stoves
+    a(href='#!/renting/snowshoes') Snowshoes
+    a(href='#!/renting/snowsafety') Snowsafety
+
   hr
   .row
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Tents
-    table
+    +rental-products("Tents")(id='renting-tents')
       tr
         td Vaude Space 3
         td 4 season dome for 3, 2 entrances, weight 3,7 kg
@@ -24,11 +36,7 @@
         td 8€ / day<br/>50€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Backpacks
-    table
+    +rental-products("Backpacks")(id='renting-backbacks')
       tr
         td Vaude Terkum 75+10,
         td
@@ -50,47 +58,28 @@
         td 4€ / day<br/>24€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Pulkas/Sledges
-    table
+    +rental-products("Pulkas/Sledges")(id='renting-pulkas')
       tr
         td Savotta Paljakka
         td
         td 20€ / day<br/>100€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Canoes
-
-        span Including basic equipment as life vests and paddles, not transportation of canoes.
-    table
+    +rental-products("Canoes", "Including basic equipment as life vests and paddles, not transportation of canoes.")(id='renting-canoes')
       tr
         td Mad River Canoe 14 TT
         td for two, capacity 386 kg.
         td 25€ / day<br/>150€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Kayaks
-        span Including basic equipment as life vests and paddles, not transportation of kayaks.
-    table
+    +rental-products("Kayaks", "Including basic equipment as life vests and paddles, not transportation of kayaks.")(id='renting-kayaks')
       tr
         td Sea Bird
         td for tours, 4 m
         td 25€ / day<br/>150€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Cooking stoves
-    table
+    +rental-products("Cooking stoves")(id='renting-cooking-stoves')
       tr
         td Edelrid Hexon Multifuel
         td (220g) multifuel stove
@@ -106,33 +95,20 @@
         td
         td 5€ / can
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Snowshoes
-    table
+    +rental-products("Snowshoes")(id='renting-snowshoes')
       tr
         td Tubbs Mountaineer/Venture/Xpedition/Vaude
         td
         td 10€ / day<br/>60€ / week
 
 
-    .feature
-      .feature-description
-        .feature-title
-          h3 Snowsafety
-    table
+    +rental-products("Snowsafety")(id='renting-snowsafety')
       tr
         td Avalanche Transceiver Arva Axis, probe Nic, showel Bca/Nic
         td
         td 8€ / day<br/>50€ / week
 
-    .feature
-      .feature-description
-        a.feature-title(href='#!/contacts')
-          h3 Other gears
+    .rental-products
+      h3.products-title Other gears
+      p.products-description
         a(href='#!/contacts') Ask for an offer.
-
-
-
-

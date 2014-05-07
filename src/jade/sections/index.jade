@@ -7,7 +7,7 @@
   .section-content
     .row
       h1 Tulikipinä
-      p.description
+      h2.subtitle
         |Tulikipinä offers different kinds of nature activities and outdoor sports for both groups and individuals. Our main goal is to offer recreational activities and fun for small groups for a reasonable price.
       hr
       .aside.introduction
@@ -19,11 +19,12 @@
             li We offer both ready-to-go packages and tailor made trips. We also rent out our kayaks, canoes and other trekking equipment.
             li In the summertime all adventures are also available during nighttime under the Midnight Sun.
             li In winter, when Polar Darkness is surrounding us, nothing is more magical than the snowy forest under the bright moonlight reflecting off of the white snow!
-      hr
+
   .cover.cover-summer
 
   .section-content
     .row#contacts
+
       .column.column1-2
         h2 Contact us
         ol.contacts
@@ -41,6 +42,7 @@
             i.fa.fa-map-marker
             | Leimaajankuja 2 C 6, 96460 Rovaniemi Finland
           li Tulikipinä 1710555-4
+
       .column.column1-2.facebook
         a(href='https://www.facebook.com/tulikipina', target='_blank')
           h2 Recent posts
@@ -50,5 +52,6 @@
             a.message-body(data-bind='attr: { href: $data.link }, text: $data.message', target='_blank')
           // /ko
         .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+
   .cover.map-cover
     #map(data-bind='map: {}')
