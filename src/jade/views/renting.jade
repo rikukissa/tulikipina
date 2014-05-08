@@ -14,12 +14,13 @@
           // ko if: category.description
           p.products-description(data-bind='markdown: category.description')
           // /ko
-          table.products-table(data-bind='foreach: category.items')
-            tr
-              td(data-bind='markdown: title')
-              td
-                // ko if: $data.description
-                span(data-bind='markdown: description')
-                // /ko
-              td(data-bind='markdown: price')
+          table.products-table
+            tbody(data-bind='foreach: category.items')
+              tr
+                td(data-bind='markdown: title')
+                td
+                  // ko if: $data.description
+                  span(data-bind='markdown: description')
+                  // /ko
+                td(data-bind='markdown: price')
 
