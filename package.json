@@ -6,8 +6,7 @@
   "scripts": {
     "prepublish": "bower install",
     "start": "gulp",
-    "build": "NODE_ENV=production gulp build",
-    "deploy": "NODE_ENV=production gulp build && ./deploy.sh"
+    "build": "NODE_ENV=production gulp build"
   },
   "keywords": [
     "gulp",
