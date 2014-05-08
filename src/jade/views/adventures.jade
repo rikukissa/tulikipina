@@ -3,12 +3,12 @@
     .cover
     .view-content
       .row(data-bind='with: data')
-        h1(data-bind='text: main.title')
-        h2.subtitle(data-bind='text: main.description')
+        h1(data-bind='text: title')
+        h2.subtitle(data-bind='text: description')
 
         hr
 
-        .markdown(data-bind='markdown: main.content')
+        .markdown(data-bind='markdown: content')
 
         // ko foreach: $parent.adventures
         .adventure(data-bind='with: $parent.adventures[$data].intro')

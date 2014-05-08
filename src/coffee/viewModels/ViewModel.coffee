@@ -6,6 +6,11 @@ module.exports = class ViewModel
   constructor: (@name) ->
     @data = ko.observable null
 
-    contentService.get(@name)
-      .then (data) =>
-        @data data
+    @contentPromise = contentService.get(@name)
+
+    @contentPromise.then (data) =>
+      @data data
+
+  show: ->
+    @contentPromise.then (data) ->
+      document.title = data.title

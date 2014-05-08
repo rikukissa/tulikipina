@@ -240,18 +240,17 @@ winter:
       """
 
 adventures:
-  main:
-    title: "Arctic adventures"
-    description: "If you appreciate nature`s peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
-    content: """
-      We offer longer 3-14 days treks in Lapland by feet, bikes, canoes or kayaks.
-      Also catching fish for dinner or picking eatable Finnish wilderness treats increases your experience in a fresh way.
+  title: "Arctic adventures"
+  description: "If you appreciate nature`s peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
+  content: """
+    We offer longer 3-14 days treks in Lapland by feet, bikes, canoes or kayaks.
+    Also catching fish for dinner or picking eatable Finnish wilderness treats increases your experience in a fresh way.
 
 
-      We will make an unforgettable experience for you; just let us know all your wishes!
+    We will make an unforgettable experience for you; just let us know all your wishes!
 
-      ### Adventures
-    """
+    ### Adventures
+  """
 
   adventures:
     "paddling-yllas":
