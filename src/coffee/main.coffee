@@ -5,94 +5,47 @@ routie    = require 'routie'
 scrollTo  = require 'scrollTo'
 Modernizr = require 'modernizr'
 
-ko.bindingHandlers.header    = require './bindingHandlers/header.coffee'
-ko.bindingHandlers.map       = require './bindingHandlers/map.coffee'
-ko.bindingHandlers.video     = require './bindingHandlers/video.coffee'
-ko.bindingHandlers.facebook  = require './bindingHandlers/facebook.coffee'
-ko.bindingHandlers.markdown  = require './bindingHandlers/markdown.coffee'
+ko.bindingHandlers.header    = require './bindingHandlers/header'
+ko.bindingHandlers.map       = require './bindingHandlers/map'
+ko.bindingHandlers.video     = require './bindingHandlers/video'
+ko.bindingHandlers.facebook  = require './bindingHandlers/facebook'
+ko.bindingHandlers.markdown  = require './bindingHandlers/markdown'
 
-contentService = new class ContentService
+contentService = require './services/content'
+
+require './integrations'
+
+ViewModel     = require './viewModels/ViewModel'
+GridViewModel = require './viewModels/GridViewModel'
+
+class MainViewModel extends ViewModel
   constructor: ->
-    @contentPromise = null
+    super
 
-  get: (view) ->
-    unless @contentPromise?
-      @contentPromise = $.get 'content.json'
+    @routes =
+      '': ->
+      'contacts': ->
+        $.scrollTo '#contacts', 500,
+          offset:
+            top: -50
 
-    if view
-      return @contentPromise.then (data) -> data[view]
-
-    @contentPromise
-
-require './integrations.coffee'
-
-class MainViewModel
-  constructor: ->
-    @routes = ['', 'contacts']
-    @data = ko.observable null
-
-    contentService.get('main')
-      .then (data) =>
-        @data data
-
-  show: ->
-    $.scrollTo '#contacts', 500,
-      offset:
-        top: -50
-
-class GridViewModel
-  constructor: ->
-    @page = ko.observable 'main'
-    @activity = ko.observable null
-    @data = ko.observable null
-
-    contentService.get(@name).then (data) =>
-      @data data
-
-    @rows = ko.computed =>
-      data = @data()
-      return [] unless data?
-
-      rows = []
-      currentRow = []
-
-      for id, activity of data.activities
-        if currentRow.length is 0
-          rows.push currentRow
-
-        currentRow.push
-          id: id
-          activity: activity
-
-        if currentRow.length is 3
-          currentRow = []
-
-      rows
-
-  show: (page) ->
-
-    @page if page? then 'activity' else 'main'
-    @activity page
 
 class SummerViewModel extends GridViewModel
   constructor: ->
-    @name = 'summer'
-    @routes = ['summer', 'summer/:page']
     super
+    @routes = ['summer', 'summer/:page']
 
 class WinterViewModel extends GridViewModel
   constructor: ->
-    @name = 'winter'
+    super
     @routes = ['winter', 'winter/:page']
+
+class AdventuresViewModel extends ViewModel
+  constructor: ->
     super
 
-class AdventuresViewModel
-  constructor: ->
     @routes = ['adventures', 'adventures/:page']
     @page = ko.observable 'main'
-    @data = ko.observable null
-    contentService.get('adventures').then (data) =>
-      @data data
 
     @adventures = ko.computed =>
       data = @data()
@@ -103,12 +56,10 @@ class AdventuresViewModel
   show: (adventure) ->
     @page adventure or 'main'
 
-class RentingViewModel
+class RentingViewModel extends ViewModel
   constructor: ->
+    super
     @routes = ['renting', 'renting/:page']
-    @data = ko.observable null
-    contentService.get('renting').then (data) =>
-      @data data
 
     @categories = ko.computed =>
       data = @data()
@@ -155,22 +106,32 @@ class Application
     routes = {}
 
     for name, viewModel of @views
-      for route in viewModel.routes
 
-        routes[@routePrefix + route] = do (name, viewModel) => =>
-          @setView name
-          viewModel.show.apply viewModel, arguments
+      if _.isArray viewModel.routes
+        for route in viewModel.routes
+          do (name, viewModel) =>
+            routes[@routePrefix + route] = =>
+              @setView name
+              viewModel.show.apply viewModel, arguments
+
+      else
+        for route, handler of viewModel.routes
+          do (name, handler) =>
+            routes[@routePrefix + route] = =>
+              @setView name
+              handler.apply viewModel, arguments
+
 
     routie routes
 
     this
 
 app = new Application()
-  .viewModel('main', new MainViewModel)
-  .viewModel('summer', new SummerViewModel)
-  .viewModel('winter', new WinterViewModel)
-  .viewModel('adventures', new AdventuresViewModel)
-  .viewModel('renting', new RentingViewModel)
+  .viewModel 'main',  new MainViewModel 'main'
+  .viewModel 'summer', new SummerViewModel 'summer'
+  .viewModel 'winter', new WinterViewModel 'winter'
+  .viewModel 'adventures', new AdventuresViewModel 'adventures'
+  .viewModel 'renting', new RentingViewModel 'renting'
 
 ko.applyBindings app.init()
 
