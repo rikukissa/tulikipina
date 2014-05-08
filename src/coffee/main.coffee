@@ -22,44 +22,65 @@ class MainViewModel extends ViewModel
   constructor: ->
     super
 
-    @routes =
-      '': ->
+    @routes = [
+      ''
       'contacts': ->
         $.scrollTo '#contacts', 500,
           offset:
             top: -50
-
+    ]
 
 class SummerViewModel extends GridViewModel
   constructor: ->
     super
-    @routes = ['summer', 'summer/:page']
+    @routes = [
+      'summer': ->
+        @page 'main'
+      'summer/:page': (page) ->
+        @page 'activity'
+        @activity page
+    ]
 
 class WinterViewModel extends GridViewModel
   constructor: ->
     super
-    @routes = ['winter', 'winter/:page']
+    @routes = [
+      'winter': ->
+        @page 'main'
+      'winter/:page': (page) ->
+        @page 'activity'
+        @activity page
+    ]
 
 class AdventuresViewModel extends ViewModel
   constructor: ->
     super
-
-    @routes = ['adventures', 'adventures/:page']
     @page = ko.observable 'main'
+
+    @routes = [
+      'adventures': ->
+        @page 'main'
+
+      'adventures/:adventure': (adventure) ->
+        @page adventure
+    ]
 
     @adventures = ko.computed =>
       data = @data()
       return [] unless data?
       _.keys data.adventures
 
-
-  show: (adventure) ->
-    @page adventure or 'main'
-
 class RentingViewModel extends ViewModel
   constructor: ->
     super
-    @routes = ['renting', 'renting/:page']
+
+    @routes = [
+      'renting'
+      'renting/:page': (products) ->
+        $.scrollTo '#renting-' + products, 500,
+          offset:
+            top: -50
+    ]
 
     @categories = ko.computed =>
       data = @data()
@@ -72,13 +93,6 @@ class RentingViewModel extends ViewModel
 
       categories
 
-  show: (products) ->
-    return unless products?
-
-    $.scrollTo '#renting-' + products, 500,
-      offset:
-        top: -50
-
 class Application
   constructor: ->
     @routePrefix = '!/'
@@ -88,10 +102,8 @@ class Application
     @currentView = ko.observable 'main'
     @navigationVisible = ko.observable false
 
-
   toggleNavigation: ->
     @navigationVisible not @navigationVisible()
-
 
   setView: (name) ->
     @navigationVisible false
@@ -105,22 +117,21 @@ class Application
   init: ->
     routes = {}
 
+    registerRoute = (name, route, handler, vm) =>
+      routes[@routePrefix + route] = =>
+        @setView name
+        handler?.apply vm, arguments
+        vm.show?.apply vm, arguments
+
     for name, viewModel of @views
+      for route in viewModel.routes
 
-      if _.isArray viewModel.routes
-        for route in viewModel.routes
-          do (name, viewModel) =>
-            routes[@routePrefix + route] = =>
-              @setView name
-              viewModel.show.apply viewModel, arguments
+        if typeof route is "string"
+          registerRoute name, route, null, viewModel
+          continue
 
-      else
-        for route, handler of viewModel.routes
-          do (name, handler) =>
-            routes[@routePrefix + route] = =>
-              @setView name
-              handler.apply viewModel, arguments
-
+        for path, handler of route
+          registerRoute name, path, handler, viewModel
 
     routie routes
 

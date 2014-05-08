@@ -28,7 +28,3 @@ module.exports = class GridViewModel extends ViewModel
 
       rows
 
-
-  show: (page) ->
-    @page if page? then 'activity' else 'main'
-    @activity page
