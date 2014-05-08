@@ -1,13 +1,13 @@
 +view("winter")
   .page.page-visible(data-bind='css: { "page-visible": page() === "main" }')
     .cover
-    .view-content
-      .row(data-bind='with: data')
+    // ko with: data
+    .view-header
         h1(data-bind='text: title')
         h2.subtitle(data-bind='text: subtitle')
 
-        hr
-
+    .view-content
+      .row
         .markdown(data-bind='markdown: content')
 
         .grid(data-bind='foreach: $parent.rows')
@@ -16,13 +16,15 @@
               .grid-item-content(data-bind='style: { backgroundImage: "url(" + activity.thumbnail + ")"}')
                 .overlay
                   .overlay-text(data-bind='text: activity.title')
-
+    // /ko
   .page.page-visible(data-bind='with: data, css: { "page-visible": page() === "activity" }')
     div(data-bind='with: activities[$parent.activity()]')
       .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
-      .view-content
+
+      .view-header
         .row
           h1(data-bind='text: title')
           h2.subtitle(data-bind='text: subtitle')
-        hr
+
+      .view-content
         .row.markdown(data-bind='markdown: content')

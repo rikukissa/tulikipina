@@ -1,12 +1,13 @@
 +view("renting")
   .page.page-visible(data-bind='with: data')
     .cover
-    .view-content
-      h1(data-bind='text: title')
-      .view-nav(data-bind='foreach: $parent.categories')
-        a(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
+    .view-header
+      .row
+        h1(data-bind='text: title')
+        .view-nav(data-bind='foreach: $parent.categories')
+          a(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
 
-      hr
+    .view-content
       .row(data-bind='foreach: $parent.categories')
         .rental-products(data-bind='attr: { id: "renting-" + id }')
           h3.products-title(data-bind='text: category.title')

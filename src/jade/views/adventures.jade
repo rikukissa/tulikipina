@@ -1,13 +1,14 @@
 +view("adventures")
   .page.page-visible(data-bind='css: { "page-visible": page() === "main" }')
     .cover
-    .view-content
-      .row(data-bind='with: data')
+
+    // ko with: data
+    .view-header
+      .row
         h1(data-bind='text: title')
         h2.subtitle(data-bind='text: subtitle')
-
-        hr
-
+    .view-content
+      .row
         .markdown(data-bind='markdown: content')
 
         // ko foreach: $parent.adventures
@@ -20,17 +21,19 @@
               h4(data-bind='text: title')
             a(data-bind='attr: { href: "#!/adventures/" + $parent }, text: description')
         // /ko
-
+    // /ko
   .page.page-visible(data-bind='css: { "page-visible": page() !== "main" }, with: data')
     // ko with: adventures[$parent.page()]
 
     .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
 
-    .view-content
+    .view-header
       .row
         h1(data-bind='text: title')
         h2.subtitle(data-bind='text: subtitle')
-        hr
+
+    .view-content
+      .row
         .markdown(data-bind='markdown: content')
 
       .row
