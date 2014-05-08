@@ -1,6 +1,6 @@
 main:
   title: "Tulikipinä"
-  description: "Tulikipinä offers different kinds of nature activities and outdoor sports for both groups and individuals. Our main goal is to offer recreational activities and fun for small groups for a reasonable price."
+  subtitle: "Tulikipinä offers different kinds of nature activities and outdoor sports for both groups and individuals. Our main goal is to offer recreational activities and fun for small groups for a reasonable price."
   content: """
     * We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
     * We offer both ready-to-go packages and tailor made trips. We also rent out our kayaks, canoes and other trekking equipment.
@@ -19,7 +19,7 @@ main:
 
 summer:
   title: "Summer"
-  description: "Activity, transport and beverages in one package - easy, efficient and convenient!"
+  subtitle: "Activity, transport and beverages in one package - easy, efficient and convenient!"
   content: """
     If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us! All our summer adventures are also available during nighttime under the Midnight Sun.
     ### Activities
@@ -29,7 +29,7 @@ summer:
       thumbnail: "images/thumbnails/summer/rafting.jpg"
       title: "White Water Rafting"
       cover: "images/covers/summer/rafting.jpg"
-      description: "River Rafting Experience"
+      subtitle: "River Rafting Experience"
       content: """
         Enjoy the midnight sun in different way and come ride with us! Feel the speed and joy of rafting just outside the town, only 20 kilometers from Rovaniemi.
 
@@ -53,7 +53,7 @@ summer:
       thumbnail: "images/thumbnails/summer/trekking.jpg"
       title: "Hikes and treks"
       cover: "images/covers/summer/trekking.jpg"
-      description: "Lappish terrain is perfectly suited for extended treks and day trip hikes."
+      subtitle: "Lappish terrain is perfectly suited for extended treks and day trip hikes."
       content: """
         Lapland and Rovaniemi region offers lots of hiking trails, and the fact that there aren't too many people living up here means that you will find plenty of open wilderness to explore.
 
@@ -73,7 +73,7 @@ summer:
       thumbnail: "images/thumbnails/summer/climbing.jpg"
       title: "Climbing"
       cover: "images/covers/summer/climbing.jpg"
-      description: "We offer safe bottom roping on natural cliffs. Our qualified instructors are accredited by the Finnish Climbing Association SKIL ry."
+      subtitle: "We offer safe bottom roping on natural cliffs. Our qualified instructors are accredited by the Finnish Climbing Association SKIL ry."
       content: """
         Climbing is always secured. We will make all the prepartions and bring all the equipment needed: shoes, helmets, harnesses and ropes.
         Basic training in climbing is included in the price. You will be in safe hands with a professional instructor.
@@ -93,7 +93,7 @@ summer:
       thumbnail: "images/thumbnails/summer/kayaking.jpg"
       title: "Kayaking and canoeing"
       cover: "images/covers/summer/kayaking.jpg"
-      description: "Enjoy nature's wonder by paddling with our kayaks or canoes. Excursions are also suitable for beginners."
+      subtitle: "Enjoy nature's wonder by paddling with our kayaks or canoes. Excursions are also suitable for beginners."
       content: """
         We offer introduction and training if needed. We always plan the paddling trips based on customers' needs and wishes.
 
@@ -114,7 +114,7 @@ summer:
       thumbnail: "images/thumbnails/summer/abseiling.jpg"
       title: "Rope Descending, Rappelling, Abseiling..."
       cover: "images/covers/summer/abseiling.jpg"
-      description: "Rope descending is controlled descent down from cliffs or buildings using a rope."
+      subtitle: "Rope descending is controlled descent down from cliffs or buildings using a rope."
       content: """
         It is not technically tricky or even physically hard, but may require significant fortitude as you ask yourself: do I have the guts?
 
@@ -131,7 +131,7 @@ summer:
       """
 winter:
   title: "Winter"
-  description: "Activity, transport and beverages in one package - easy, efficient and convenient!"
+  subtitle: "Activity, transport and beverages in one package - easy, efficient and convenient!"
   content: """
     If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us!
 
@@ -142,7 +142,7 @@ winter:
       thumbnail: "images/thumbnails/winter/ice-fishing.jpg"
       title: "Ice fishing"
       cover: "images/covers/winter/ice-fishing.jpg"
-      description: "Winter is also a good fishing season in Lapland. Ice fishing offers a relaxing nature experience and fresh air."
+      subtitle: "Winter is also a good fishing season in Lapland. Ice fishing offers a relaxing nature experience and fresh air."
       content: """
         You will be picked up from your hotel and after a short car ride and a walk through snowy forest, we will arrive to a small frozen wilderness lake.
         Our guide will prepare your rod and baits and teach you how to fish after drilling a hole to the ice. If we are lucky, we can fry your catch over the campfire.
@@ -159,7 +159,7 @@ winter:
       thumbnail: "images/thumbnails/winter/trekking.jpg"
       title: "Snowshoe Treks"
       cover: "images/covers/winter/trekking.jpg"
-      description: "Snowshoe walking is easy way to experience the snowy nature of Lapland and it's wildlife."
+      subtitle: "Snowshoe walking is easy way to experience the snowy nature of Lapland and it's wildlife."
       content: """
         You can feel the silence of the surrounding forest and the colours of Polar night. 
         During the treks, you will see paths and signs of wild animals, learn about the constellations and stars and listen for the hush of the nighttime forest.
@@ -223,7 +223,7 @@ winter:
       thumbnail: "images/thumbnails/winter/abseiling.jpg"
       title: "Abseiling"
       cover: "images/covers/winter/trekking.jpg"
-      description: "Rope Descending, Rappelling or Abseiling..."
+      subtitle: "Rope Descending, Rappelling or Abseiling..."
       content: """
         Rope descending is controlled descent down from cliffs or buildings using a rope.
         It is not technically tricky or even physically hard, but may require significant fortitude as you ask yourself: do I have the guts?
@@ -241,7 +241,7 @@ winter:
 
 adventures:
   title: "Arctic adventures"
-  description: "If you appreciate nature`s peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
+  subtitle: "If you appreciate nature`s peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
   content: """
     We offer longer 3-14 days treks in Lapland by feet, bikes, canoes or kayaks.
     Also catching fish for dinner or picking eatable Finnish wilderness treats increases your experience in a fresh way.
@@ -262,7 +262,7 @@ adventures:
         thumbnail: "images/thumbnails/adventures/paddling-yllas.jpg"
 
       title: "Paddling through Ylläs-Pallas National Park"
-      description: """
+      subtitle: """
         Explore the river Ounasjoki from Hetta to Kittilä. This is the trip where you really forget the everyday life back home!
       """
       cover: "images/covers/adventures/paddling-yllas.jpg"
@@ -336,7 +336,7 @@ adventures:
         thumbnail: "images/thumbnails/adventures/gold-miners-route.jpg"
       cover: "images/covers/adventures/gold-miners-route.jpg"
       title: "Follow the gold miners route"
-      description: """
+      subtitle: """
         The River Ivalojoki is one of the most impressive canoeing routes in Finland. It is surrounded by a
         ruggedly beautiful wilderness. Especially outside the flood seasons, this route is also suitable for
         beginners.
