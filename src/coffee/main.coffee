@@ -1,6 +1,6 @@
 $         = require 'jquery'
 _         = require 'lodash'
-window.ko = ko = require 'knockout'
+ko        = require 'knockout'
 routie    = require 'routie'
 scrollTo  = require 'scrollTo'
 Modernizr = require 'modernizr'
