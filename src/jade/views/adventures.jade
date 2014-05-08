@@ -11,16 +11,16 @@
       .row
         .markdown(data-bind='markdown: content')
 
-        // ko foreach: $parent.adventures
-        .adventure(data-bind='with: $parent.adventures[$data].intro')
-          .adventure-image
-            a(data-bind='attr: { href: "#!/adventures/" + $parent }')
-              img(data-bind='attr: { src: thumbnail }')
-          .adventure-description
-            a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
-              h4(data-bind='text: title')
-            a(data-bind='attr: { href: "#!/adventures/" + $parent }, text: description')
-        // /ko
+        .adventures(data-bind='foreach: $parent.adventures')
+          .adventure(data-bind='with: $parent.adventures[$data].intro')
+            .adventure-image
+              a(data-bind='attr: { href: "#!/adventures/" + $parent }')
+                img(data-bind='attr: { src: thumbnail }')
+            .adventure-description
+              a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
+                h4(data-bind='text: title')
+              a(data-bind='attr: { href: "#!/adventures/" + $parent }, text: description')
+
     // /ko
   .page.page-visible(data-bind='css: { "page-visible": page() !== "main" }, with: data')
     // ko with: adventures[$parent.page()]
