@@ -37,38 +37,16 @@ html
         a(href='#!/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
         a(href='#!/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gears
 
-    mixin section(name)
-      .section(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "section-visible": currentView() === "#{name}" }')
-        .cover
-        .section-content
+    mixin view(name)
+      .view(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "view-visible": currentView() === "#{name}" }')
+        div(data-bind='with: views["#{name}"]')
           block
 
-    mixin grid-item(background)
-      a.grid-item(href!=attributes.href)
-        .grid-item-content(data-bind="style: { 'backgroundImage': 'url(#{background})' }")
-          .overlay
-            .overlay-text
-              block
-
-    include sections/index
-    include sections/adventures
-    include sections/adventures/paddling-yllas
-    include sections/adventures/gold-miners-route
-    include sections/summer
-    include sections/winter
-    include sections/renting
-
-    .section.dynamic-content(data-bind='if: currentView() === "dynamic", css: { "section-visible": currentView() === "dynamic" }')
-      div(data-bind='loadContent: dynamicPage')
-        // ko with: content
-        .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
-        .section-content
-          .row
-            h1(data-bind='text: title')
-            h2.subtitle(data-bind='text: description')
-          hr
-          .row.markdown(data-bind='markdown: content')
-        // /ko
+    include views/index
+    include views/adventures
+    include views/summer
+    include views/winter
+    include views/renting
 
     #footer
       a(href='#!/') Tulikipinä

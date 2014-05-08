@@ -1,0 +1,42 @@
++view("adventures")
+  .page.page-visible(data-bind='css: { "page-visible": page() === "main" }')
+    .cover
+    .view-content
+      .row(data-bind='with: data')
+        h1(data-bind='text: main.title')
+        h2.subtitle(data-bind='text: main.description')
+
+        hr
+
+        .markdown(data-bind='markdown: main.content')
+
+        // ko foreach: $parent.adventures
+        .adventure(data-bind='with: $parent.adventures[$data].intro')
+          .adventure-image
+            a(data-bind='attr: { href: "#!/adventures/" + $parent }')
+              img(data-bind='attr: { src: thumbnail }')
+          .adventure-description
+            a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
+              h4(data-bind='text: title')
+            a(data-bind='attr: { href: "#!/adventures/" + $parent }, text: description')
+        // /ko
+
+  .page.page-visible(data-bind='css: { "page-visible": page() !== "main" }, with: data')
+    // ko with: adventures[$parent.page()]
+
+    .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
+
+    .view-content
+      .row
+        h1(data-bind='text: title')
+        h2.subtitle(data-bind='text: description')
+        hr
+        .markdown(data-bind='markdown: content')
+
+      .row
+        .adventure-info(data-bind='markdown: includes')
+
+      .row
+        .markdown(data-bind='markdown: timeline')
+    // /ko
+

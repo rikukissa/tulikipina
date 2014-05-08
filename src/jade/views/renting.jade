@@ -1,0 +1,24 @@
++view("renting")
+  .page.page-visible(data-bind='with: data')
+    .cover
+    .view-content
+      h1(data-bind='text: title')
+      .view-nav(data-bind='foreach: $parent.categories')
+        a(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
+
+      hr
+      .row(data-bind='foreach: $parent.categories')
+        .rental-products(data-bind='attr: { id: "renting-" + id }')
+          h3.products-title(data-bind='text: category.title')
+          // ko if: category.description
+          p.products-description(data-bind='markdown: category.description')
+          // /ko
+          table.products-table(data-bind='foreach: category.items')
+            tr
+              td(data-bind='markdown: title')
+              td
+                // ko if: $data.description
+                span(data-bind='markdown: description')
+                // /ko
+              td(data-bind='markdown: price')
+

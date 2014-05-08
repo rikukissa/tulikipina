@@ -33,7 +33,7 @@ hr
   width 70%
   margin 3em auto
 
-.section
+.view
   display none
   box-sizing border-box
   color textColor
@@ -43,7 +43,7 @@ hr
   .subtitle
     margin-top 0.5em
 
-  .section-nav
+  .view-nav
     margin-top 0.5em
 
   .subtitle
@@ -54,21 +54,27 @@ hr
   .cover:first-child
     margin-top 65px
 
-.section-visible
+.view-visible
   display block
 
-.section-content
+.view-content
   overflow hidden
   padding 3em 0
 
-.section-nav
+.view-nav
   text-align center
   margin-top -2em
   a
     margin 1em
     display inline-block
 
-.row, .section-nav
+.page
+  display none
+
+  &.page-visible
+    display block
+
+.row, .view-nav
   max-width 960px
   padding 0 2em
   margin auto
