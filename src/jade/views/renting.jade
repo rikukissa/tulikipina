@@ -15,10 +15,18 @@
           p.products-description(data-bind='markdown: category.description')
           // /ko
           table.products-table
+            thead
+              tr
+                th
+                th
+                th
+                  // ko if: category.thumbnail
+                  img.product-image(data-bind='attr: { src: category.thumbnail }')
+                  // /ko
             tbody(data-bind='foreach: category.items')
               tr
                 td(data-bind='markdown: title')
-                td
+                td.product-description
                   // ko if: $data.description
                   div(data-bind='markdown: description')
                   // /ko

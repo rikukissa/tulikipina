@@ -379,6 +379,7 @@ renting:
   categories:
     tents:
       title: "Tents"
+      thumbnail: "images/thumbnails/renting/tents.png"
       items: [
         title: "Vaude Space 3"
         description: "4 season dome for 3, 2 entrances, weight 3,7 kg"
@@ -394,6 +395,7 @@ renting:
       ]
     backpacks:
       title: "Backpacks"
+      thumbnail: "images/thumbnails/renting/backpacks.png"
       items: [
         title: "Vaude Terkum 75+10"
         price: "**8€** / day<br/>**48€** / week"
@@ -409,12 +411,14 @@ renting:
       ]
     pulkas:
       title: "Pulkas/Sledges"
+      thumbnail: "images/thumbnails/renting/sledges.png"
       items: [
         title: "Savotta Paljakka"
         price: "**20€** / day<br/>**100€** / week"
       ]
     canoes:
       title: "Canoes"
+      thumbnail: "images/thumbnails/renting/canoes.png"
       description: "Including basic equipment as life vests and paddles, not transportation of canoes."
       items: [
         title: "Mad River Canoe 14 TT"
@@ -424,6 +428,7 @@ renting:
 
     kayaks:
       title: "Kayaks"
+      thumbnail: "images/thumbnails/renting/kayaks.png"
       description: "Including basic equipment as life vests and paddles, not transportation of kayaks."
       items: [
         title: "Sea Bird Discovery"
@@ -432,6 +437,7 @@ renting:
       ]
     stoves:
       title: "Cooking stoves"
+      thumbnail: "images/thumbnails/renting/stoves.png"
       items: [
         title: "Edelrid Hexon Multifuel"
         description: "(220g) multifuel stove"
@@ -446,12 +452,14 @@ renting:
       ]
     snowshows:
       title: "Snowshoes"
+      thumbnail: "images/thumbnails/renting/snowshoes.png"
       items: [
         title: "Tubbs Mountaineer/Venture/Xpedition/Vaude"
         price: "**10€** / day<br/>**60€** / week"
       ]
     snowsafety:
       title: "Snowsafety"
+      thumbnail: "images/thumbnails/renting/snowsafety.png"
       items: [
         title: "Avalanche Transceiver Arva Axis, probe Nic, showel Bca/Nic"
         price: "**8€** / day<br/>**50€** / week"

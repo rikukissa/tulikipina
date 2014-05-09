@@ -274,6 +274,19 @@
       vertical-align bottom
 
 .rental-products
+  position relative
+
+  .product-image
+    position absolute
+    right 0
+    bottom -20px
+    width 75px
+    right -10px
+    border-radius 100%
+    border 5px solid #fff
+    transition all .2s
+    &:hover, &:active
+      width 100px
   .products-title
     font-weight 400
     text-transform none
@@ -294,7 +307,8 @@
     strong
       font-size 1.4em
       color #8CC061
-
+    th
+      position relative
     td
       padding 0em 1em
 
@@ -319,34 +333,38 @@
 
     @media breakpoint2
       display block
-      tr, td, tbody
+      tr, td, thead, tbody, th
         display block
 
-      tr
-        overflow hidden
+      tbody
+        tr
+          overflow hidden
 
       td
         background transparent !important
         width auto !important
         border-bottom 0
 
-      td:empty
-        padding 0
       p
         margin 0
       td
         text-align left
+        margin-right 70px
 
       td:last-child
         font-weight 300
         padding 1em
         float right
-
+        margin-right 0
       td:first-child
         font-weight 400
         padding-top 1em
-
-
+      .product-image
+        bottom -60px
+        left auto
+        right -10px
+      .product-description
+        min-height 1em
 colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
 
 .adventure-info
