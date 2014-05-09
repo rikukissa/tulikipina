@@ -35,7 +35,7 @@ html
         a(href='#!/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
         a(href='#!/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
         a(href='#!/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
-        a(href='#!/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gears
+        a(href='#!/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gear
 
     mixin view(name)
       .view(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "view-visible": currentView() === "#{name}" }')

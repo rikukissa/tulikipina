@@ -375,7 +375,7 @@ adventures:
         Back to Rovaniemi, end of expedition. Possibility to visit the fell Kaunispää and the Fell Center Kiilopää. We'll reserve the rights to make changes to the daytrips, the routes or camping areas due to weather, water or safety conditions.
       """
 renting:
-  title: "Rental gears"
+  title: "Rental gear"
   categories:
     tents:
       title: "Tents"
