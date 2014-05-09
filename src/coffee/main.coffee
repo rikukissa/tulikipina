@@ -30,28 +30,6 @@ class MainViewModel extends ViewModel
             top: -50
     ]
 
-class SummerViewModel extends GridViewModel
-  constructor: ->
-    super
-    @routes = [
-      'summer': ->
-        @page 'main'
-      'summer/:page': (page) ->
-        @page 'activity'
-        @activity page
-    ]
-
-class WinterViewModel extends GridViewModel
-  constructor: ->
-    super
-    @routes = [
-      'winter': ->
-        @page 'main'
-      'winter/:page': (page) ->
-        @page 'activity'
-        @activity page
-    ]
-
 class AdventuresViewModel extends ViewModel
   constructor: ->
     super
@@ -139,8 +117,8 @@ class Application
 
 app = new Application()
   .viewModel 'main',  new MainViewModel 'main'
-  .viewModel 'summer', new SummerViewModel 'summer'
-  .viewModel 'winter', new WinterViewModel 'winter'
+  .viewModel 'summer', new GridViewModel 'summer'
+  .viewModel 'winter', new GridViewModel 'winter'
   .viewModel 'adventures', new AdventuresViewModel 'adventures'
   .viewModel 'renting', new RentingViewModel 'renting'
 
