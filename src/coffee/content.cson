@@ -382,36 +382,36 @@ renting:
       items: [
         title: "Vaude Space 3"
         description: "4 season dome for 3, 2 entrances, weight 3,7 kg"
-        price: "15€ / day<br/>90€ / week"
+        price: "**15€** / day<br/>**90€** / week"
       ,
         title: "Vaude Ferret UL2"
         description: "3 season tunnel for 2. Weight only 2,0 kg!"
-        price: "8€ / day<br/>50€ / week"
+        price: "**8€** / day<br/>**50€** / week"
       ,
         title: "Fjällraven Shape R/S 2"
         description: "3 season tunnel for 2. Weight 2.8 kg."
-        price: "8€ / day<br/>50€ / week"
+        price: "**8€** / day<br/>**50€** / week"
       ]
     backpacks:
       title: "Backpacks"
       items: [
         title: "Vaude Terkum 75+10"
-        price: "8€ / day<br/>48€ / week"
+        price: "**8€** / day<br/>**48€** / week"
       ,
         title: "Vaude Terkum 65+10"
-        price: "8€ / day<br/>48€ / week"
+        price: "**8€** / day<br/>**48€** / week"
       ,
         title: "Vaude Astralight 50"
-        price: "4€ / day<br/>24€ / week"
+        price: "**4€** / day<br/>**24€** / week"
       ,
         title: "Vaude Daytour 30"
-        price: "4€ / day<br/>24€ / week"
+        price: "**4€** / day<br/>**24€** / week"
       ]
     pulkas:
       title: "Pulkas/Sledges"
       items: [
         title: "Savotta Paljakka"
-        price: "20€ / day<br/>100€ / week"
+        price: "**20€** / day<br/>**100€** / week"
       ]
     canoes:
       title: "Canoes"
@@ -419,7 +419,7 @@ renting:
       items: [
         title: "Mad River Canoe 14 TT"
         description: "for two, capacity 386 kg."
-        price: "25€ / day<br/>150€ / week"
+        price: "**25€** / day<br/>**150€** / week"
       ]
 
     kayaks:
@@ -428,33 +428,33 @@ renting:
       items: [
         title: "Sea Bird Discovery"
         description: "recreational/trek kayak. capasity 140 kg"
-        price: "25€ / day<br/>150€ / week"
+        price: "**25€** / day<br/>**150€** / week"
       ]
     stoves:
       title: "Cooking stoves"
       items: [
         title: "Edelrid Hexon Multifuel"
         description: "(220g) multifuel stove"
-        price: "5€ / day<br/>30€ / week"
+        price: "**5€** / day<br/>**30€** / week"
       ,
         title: "Edelrid Kiro TI"
         description: "(72g) gas stove"
-        price: "5€ / day<br/>30€ / week"
+        price: "**5€** / day<br/>**30€** / week"
       ,
         title: "GAS Edelrid 230g"
-        price: "5€ / can"
+        price: "**5€** / can"
       ]
     snowshows:
       title: "Snowshoes"
       items: [
         title: "Tubbs Mountaineer/Venture/Xpedition/Vaude"
-        price: "10€ / day<br/>60€ / week"
+        price: "**10€** / day<br/>**60€** / week"
       ]
     snowsafety:
       title: "Snowsafety"
       items: [
         title: "Avalanche Transceiver Arva Axis, probe Nic, showel Bca/Nic"
-        price: "8€ / day<br/>50€ / week"
+        price: "**8€** / day<br/>**50€** / week"
       ]
     other:
       title: "Other"

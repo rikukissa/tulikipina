@@ -277,56 +277,75 @@
   .products-title
     font-weight 400
     text-transform none
-    color textColor
+    color textColorLight
     text-decoration none
     margin 1em 0
     font-size 1.5em
 
   .products-description
-    font-style italic
     margin-top -1em
     margin-bottom 2em
 
   .products-table
     width 100%
     border-collapse collapse
+    color textColorLight
+
+    strong
+      font-size 1.4em
+      color #8CC061
 
     td
-      width 40%
-      text-align center
-      padding 0.5em 0.4em
+      padding 0em 1em
 
     td:first-child
       width 30%
       text-align left
+      font-weight 400
+      font-size 1.1em
+      color textColor
 
     td:last-child
-      width 30%
+      width 100px
 
-      text-align right
+
     tr:nth-child(odd)
+      background #faf7f2
       td
-        background #f9f9f9
+        background #faf7f2
+        color #9a9389
+      td:first-child
+        color #696259
 
     @media breakpoint2
       display block
       tr, td, tbody
         display block
-      td
-        width auto !important
-        border-bottom 0
-      td:first-child
-        border-bottom 1px solid #ddd
-      td:empty
-        padding 0
+
+      tr
+        overflow hidden
+
       td
         background transparent !important
+        width auto !important
+        border-bottom 0
+
+      td:empty
+        padding 0
+      p
+        margin 0
+      td
         text-align left
+
       td:last-child
-        margin-bottom 2em
         font-weight 300
+        padding 1em
+        float right
+
       td:first-child
         font-weight 400
+        padding-top 1em
+
 
 colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
 
