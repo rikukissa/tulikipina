@@ -1,3 +1,4 @@
+_  = require 'lodash'
 ko = require 'knockout'
 
 ViewModel = require './ViewModel'
@@ -12,19 +13,8 @@ module.exports = class GridViewModel extends ViewModel
       data = @data()
       return [] unless data?
 
-      rows = []
-      currentRow = []
-
-      for id, activity of data.activities
-        if currentRow.length is 0
-          rows.push currentRow
-
-        currentRow.push
-          id: id
-          activity: activity
-
-        if currentRow.length is 3
-          currentRow = []
-
-      rows
-
+      _.chain(data.activities).map (activity, id) ->
+        { id, activity }
+      .groupBy (item, i) ->
+        Math.floor i / 3
+      .toArray().value()
