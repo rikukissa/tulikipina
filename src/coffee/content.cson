@@ -426,8 +426,8 @@ renting:
       title: "Kayaks"
       description: "Including basic equipment as life vests and paddles, not transportation of kayaks."
       items: [
-        title: "Mad River Canoe 14 TT"
-        description: "for two, capacity 386 kg."
+        title: "Sea Bird Discovery"
+        description: "recreational/trek kayak. capasity 140 kg"
         price: "25€ / day<br/>150€ / week"
       ]
     stoves:
