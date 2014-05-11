@@ -27,6 +27,8 @@
         .row
           h1(data-bind='text: title')
           h2.subtitle(data-bind='text: subtitle')
+          .view-nav
+            a.btn(href='#!/summer', data-bind='text: $parent.button.backToMain')
 
       .view-content
         .row.markdown(data-bind='markdown: content')

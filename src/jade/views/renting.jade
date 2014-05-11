@@ -5,7 +5,7 @@
       .row
         h1(data-bind='text: title')
         .view-nav(data-bind='foreach: $parent.categories')
-          a(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
+          a.btn(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
 
     .view-content
       .row(data-bind='foreach: $parent.categories')

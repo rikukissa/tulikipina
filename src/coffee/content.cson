@@ -24,6 +24,8 @@ summer:
     ### Activities
     If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us! All our summer adventures are also available during nighttime under the Midnight Sun.
   """
+  button:
+    backToMain: "Back to other activities"
   activities:
     rafting:
       thumbnail: "images/thumbnails/summer/rafting.jpg"
@@ -136,6 +138,8 @@ winter:
     ### Activities
     If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us!
   """
+  button:
+    backToMain: "Back to other activities"
   activities:
     icefishing:
       thumbnail: "images/thumbnails/winter/ice-fishing.jpg"
@@ -248,7 +252,8 @@ adventures:
     We will make an unforgettable experience for you; just let us know all your wishes!
 
   """
-
+  button:
+    backToMain: "Back to other adventures"
   adventures:
     "paddling-yllas":
       intro:
