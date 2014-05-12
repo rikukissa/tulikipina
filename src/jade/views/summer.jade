@@ -9,6 +9,9 @@
           h2(data-bind='markdown: subtitle')
 
     .view-content
+      .row
+        blockquote(data-bind='text: content')
+
       .grid(data-bind='foreach: $parent.rows')
         .grid-row(data-bind='foreach: $data')
           a.grid-item(data-bind='attr: { href: "#!/summer/" + id }')

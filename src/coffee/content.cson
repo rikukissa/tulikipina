@@ -20,10 +20,7 @@ main:
 summer:
   title: "Summer"
   subtitle: "Activity, transport and beverages in one package - easy, efficient and convenient!<br />If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us"
-  content: """
-    ### Activities
-    If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us! All our summer adventures are also available during nighttime under the Midnight Sun.
-  """
+  content: "All our summer adventures are also available during nighttime under the Midnight Sun."
   button:
     backToMain: "Back to other activities"
   activities:
@@ -134,10 +131,7 @@ summer:
 winter:
   title: "Winter"
   subtitle: "Activity, transport and beverages in one package - easy, efficient and convenient! <br/> If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us"
-  content: """
-    ### Activities
-    If you need a few hours adventure in Rovaniemi region, don´t hesitate to contact us!
-  """
+  content: "In winter, when Polar Darkness is surrounding us, nothing is more magical than the snowy forest under the bright moonlight reflecting off of the white snow!"
   button:
     backToMain: "Back to other activities"
   activities:
