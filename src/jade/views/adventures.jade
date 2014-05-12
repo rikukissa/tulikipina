@@ -9,7 +9,7 @@
 
     .view-content
       .row
-        .markdown(data-bind='markdown: content')
+        blockquote(data-bind='text: content')
 
         .adventures(data-bind='foreach: $parent.adventures')
           .adventure(data-bind='with: $parent.adventures[$data].intro')
