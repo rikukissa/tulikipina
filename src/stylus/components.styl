@@ -165,8 +165,19 @@
       color textColor
       text-decoration none
     .selected
-      background #f1f1f1
-      color textColorDark
+      position relative
+      &:after
+        width 0
+        height 0
+        border-left 10px solid transparent
+        border-right 10px solid transparent
+        border-bottom 10px solid #3D3D3D
+        content ''
+        position absolute
+        bottom 0
+        left 50%
+        margin-left -5px
+
   .header-toggle
     padding 0 1.5em
     display none
