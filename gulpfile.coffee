@@ -96,7 +96,7 @@ gulp.task 'stylus', ->
     .pipe cmq()
     .on 'error', err
 
-  styles.pipe(CSSmin()) if production
+  styles = styles.pipe(CSSmin()) if production
 
   styles
     .pipe(prefix('last 2 versions', 'Chrome 33', 'Firefox 28', 'Explorer 11', 'iOS 7', 'Safari 7'))
