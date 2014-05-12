@@ -12,6 +12,7 @@ uglify     = require 'gulp-uglify'
 rimraf     = require 'rimraf'
 lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
+cmq        = require 'gulp-combine-media-queries'
 plumber    = require 'gulp-plumber'
 prefix     = require 'gulp-autoprefixer'
 imagemin   = require 'gulp-imagemin'
@@ -82,6 +83,7 @@ gulp.task 'stylus', ->
       gutil.beep()
       gutil.log err
       this.emit 'end'
+    .pipe cmq()
 
   styles.pipe(CSSmin()) if production
 
