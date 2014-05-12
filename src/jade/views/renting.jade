@@ -14,19 +14,16 @@
 
       .rental-products(data-bind='attr: { id: "renting-" + id }')
         .products-intro
-          h2.products-title(data-bind='text: category.title')
-          // ko if: category.description
-          p.products-description(data-bind='markdown: category.description')
+          // ko if: category.thumbnail
+          .products-image
+            img(data-bind='attr: { src: category.thumbnail }')
           // /ko
+          .products-info
+            h2.products-title(data-bind='text: category.title')
+            // ko if: category.description
+            .products-description(data-bind='markdown: category.description')
+            // /ko
         table.products-table
-          thead
-            tr
-              th
-              th
-              th
-                // ko if: category.thumbnail
-                img.product-image(data-bind='attr: { src: category.thumbnail }')
-                // /ko
           tbody(data-bind='foreach: category.items')
             tr
               td(data-bind='markdown: title')

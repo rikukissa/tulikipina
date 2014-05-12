@@ -378,32 +378,35 @@ blockquote
 .rental-products
   position relative
 
-  .product-image
-    position absolute
-    right 0
-    bottom -20px
-    width 75px
-    right -10px
-    border-radius 100%
-    border 5px solid #fff
-    transition all .2s
-    &:hover, &:active
-      width 100px
+  .products-info, .products-image
+    display table-cell
+    vertical-align middle
+
+  .products-image
+    width 50px
+    img
+      margin-right 1em
+      width 50px
+      height 50px
 
   .products-intro
+    width 100%
+    display table
     padding-left 1em
+    position relative
+    vertical-align middle
+    margin-bottom 1em
   .products-title
     titleFont()
     font-weight 400
     text-transform none
     color textColorLight
     text-decoration none
-    margin 1em 0
     font-size 1.5em
 
   .products-description
-    margin-top -1em
-    margin-bottom 2em
+    p
+      margin 0
 
   .products-table
     width 100%
@@ -465,10 +468,6 @@ blockquote
       td:first-child
         font-weight 400
         padding-top 1em
-      .product-image
-        bottom -60px
-        left auto
-        right -10px
       .product-description
         min-height 1em
 colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
