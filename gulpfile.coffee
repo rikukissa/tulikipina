@@ -13,10 +13,11 @@ rimraf     = require 'rimraf'
 lr         = require 'tiny-lr'
 livereload = require 'gulp-livereload'
 cmq        = require 'gulp-combine-media-queries'
-plumber    = require 'gulp-plumber'
+concat     = require 'gulp-concat'
 prefix     = require 'gulp-autoprefixer'
 imagemin   = require 'gulp-imagemin'
 cson       = require 'gulp-cson'
+less       = require 'gulp-less'
 replace    = require 'gulp-replace'
 rev        = require 'gulp-rev'
 express    = require 'express'
@@ -76,14 +77,24 @@ gulp.task "jade", ->
     .pipe livereload(reloadServer)
 
 gulp.task 'stylus', ->
-  styles = gulp
+  err = (err) ->
+    gutil.beep()
+    gutil.log err
+    this.emit 'end'
+
+  styl = gulp
     .src('src/stylus/style.styl')
     .pipe(stylus({set: ['include css']}))
-    .on 'error', (err) ->
-      gutil.beep()
-      gutil.log err
-      this.emit 'end'
+    .on 'error', err
+
+  les = gulp.src('src/less/*.less')
+    .pipe less()
+    .on 'error', err
+
+  styles = es.merge styl, les
+    .pipe concat 'style.css'
     .pipe cmq()
+    .on 'error', err
 
   styles.pipe(CSSmin()) if production
 
@@ -147,6 +158,7 @@ gulp.task "watch", ->
     gulp.watch "src/coffee/**/*.coffee", ["coffee"]
     gulp.watch "src/jade/**/*.jade", ["jade"]
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
+    gulp.watch "src/less/**/*.less", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 
 gulp.task "revision", ["revision-files", "replace-references"]
