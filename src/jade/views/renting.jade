@@ -1,9 +1,12 @@
 +view("renting")
   .page.page-visible(data-bind='with: data')
     .cover
+      .cover-overlay
+        .cover-overlay-content
+          h1(data-bind='text: title')
+
     .view-header
       .row
-        h1(data-bind='text: title')
         .view-nav(data-bind='foreach: $parent.categories')
           a.btn(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
 

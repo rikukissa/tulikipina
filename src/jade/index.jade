@@ -39,8 +39,11 @@ html
 
     mixin view(name)
       .view(class!=attributes.class, id=name, data-bind='if: currentView() === "#{name}", css: { "view-visible": currentView() === "#{name}" }')
-        div(data-bind='with: views["#{name}"]')
-          block
+        | <!-- ko with: views["#{name}"] -->
+
+        block
+
+        | <!-- /ko -->
 
     include views/index
     include views/adventures

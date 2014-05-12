@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,700')
+@import url('http://fonts.googleapis.com/css?family=Roboto+Condensed')
 @import '../../vendor/font-awesome/css/font-awesome.css'
 
 @import 'variables'
@@ -8,12 +9,16 @@
 // Views
 
 #main
+  .cover:first-child
+    height 700px
+    @media breakpoint1
+      height 400px
+
   .view-content
     z-index 2
     position relative
 
   .cover:first-child
-    position relative
     overflow hidden
     background-image url('../images/covers/index.jpg')
     video
@@ -82,5 +87,5 @@
 
   .view-nav
     a
-      margin-bottom 2em
+      margin 0.75em 1em
 

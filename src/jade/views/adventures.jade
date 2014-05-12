@@ -1,12 +1,11 @@
 +view("adventures")
   .page.page-visible(data-bind='css: { "page-visible": page() === "main" }')
-    .cover
-
     // ko with: data
-    .view-header
-      .row
-        h1(data-bind='text: title')
-        h2.subtitle(data-bind='text: subtitle')
+    .cover
+      .cover-overlay
+        .cover-overlay-content
+          h1(data-bind='text: title')
+          h2(data-bind='text: subtitle')
 
     .view-content
       .row
@@ -27,11 +26,12 @@
     // ko with: adventures[$parent.page()]
 
     .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
-
+      .cover-overlay
+        .cover-overlay-content
+          h1(data-bind='text: title')
+          h2(data-bind='text: subtitle')
     .view-header
       .row
-        h1(data-bind='text: title')
-        h2.subtitle(data-bind='text: subtitle')
         .view-nav
           a.btn(href='#!/adventures', data-bind='text: $parent.button.backToMain')
     .view-content
