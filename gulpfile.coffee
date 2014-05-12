@@ -78,8 +78,10 @@ gulp.task 'stylus', ->
   styles = gulp
     .src('src/stylus/style.styl')
     .pipe(stylus({set: ['include css']}))
-    .on('error', gutil.log)
-    .on('error', gutil.beep)
+    .on 'error', (err) ->
+      gutil.beep()
+      gutil.log err
+      this.emit 'end'
 
   styles.pipe(CSSmin()) if production
 
