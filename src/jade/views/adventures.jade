@@ -19,7 +19,7 @@
             .adventure-description
               a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
                 h4(data-bind='text: title')
-              a(data-bind='attr: { href: "#!/adventures/" + $parent }, text: description')
+              a(data-bind='attr: { href: "#!/adventures/" + $parent }, markdown: description')
 
     // /ko
   .page.page-visible(data-bind='css: { "page-visible": page() !== "main" }, with: data')
