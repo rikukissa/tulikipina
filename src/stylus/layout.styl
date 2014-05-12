@@ -20,6 +20,11 @@ h1
 h1, h2
   font-weight 300
   margin 0
+  titleFont()
+h2
+  i
+    font-size 2em
+    margin-right 0.3em
 
 h3
   font-weight 400
@@ -74,7 +79,7 @@ hr
     display block
 
 .row, .view-nav
-  max-width 960px
+  max-width maxWidth
   padding 0 2em
   margin auto
   overflow hidden
@@ -89,6 +94,9 @@ hr
 
   .column1-2
     width 50%
+
+  .column1-4
+    width 25%
 
   @media breakpoint2
     .column

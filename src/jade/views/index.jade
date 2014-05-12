@@ -10,20 +10,42 @@
           h2(data-bind='markdown: subtitle')
 
     .view-content
-      .row
-        .aside.introduction
-          .aside-column
-            img(src='images/winter-hiking.jpg')
-          .aside-column(data-bind='markdown: content')
+      .row.intro
+        .column
+          .intro-icon.intro-icon-combined
+            .icon-overlay
+              i.fa.fa-cogs
+            i.fa.fa-ban
+          .intro-text.
+            We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
+
+        .column
+          .intro-icon
+            i.fa.fa-compass
+          .intro-text.
+            We offer both ready-to-go packages and tailor made trips. We also rent out our kayaks, canoes and other trekking equipment.
+
+        .column
+          .intro-icon
+            i.fa.fa-picture-o
+          .intro-text.
+            In the summertime all adventures are also available during nighttime under the Midnight Sun.
+        //- .column.column1-4
+        //-   .intro-icon
+        //-     i.fa.fa-sun-o
+        //-   .intro-text.
+        //-     In winter, when Polar Darkness is surrounding us, nothing is more magical than the snowy forest under the bright moonlight reflecting off of the white snow!
 
 
     .cover.cover-summer
 
-    .view-content
-      .row#contacts
-
+    .view-content#contacts
+      .row
         .column.column1-2(data-bind='with: contacts')
-          h2(data-bind='text: title')
+          h2
+            i.fa.fa-phone
+            span(data-bind='text: title')
+
           ol.contacts
             li
               i.fa.fa-user
@@ -42,16 +64,18 @@
               span(data-bind='text: address')
 
             li(data-bind='text: company')
-
         .column.column1-2.facebook(data-bind='with: feed')
           a(href='https://www.facebook.com/tulikipina', target='_blank')
-            h2(data-bind='text: title')
+            h2
+              i.fa.fa-facebook
+              span(data-bind='text: title')
+
           .facebook-feed(data-bind='facebook: {}')
             // ko foreach: feed
             .facebook-message
               a.message-body(data-bind='attr: { href: $data.link }, text: $data.message', target='_blank')
             // /ko
-          .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+          .fb-like(data-href='https://www.facebook.com/tulikipina', data-colorscheme='dark' data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
 
     .cover.map-cover
       #map(data-bind='map: {}')

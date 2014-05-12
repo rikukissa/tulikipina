@@ -47,6 +47,7 @@
     text-align center
     color #fff
     padding 1em
+    text-shadow 1px 1px 1px rgba(0, 0, 0, 0.2)
     h1
       font-size 7em
       titleFont()
@@ -56,6 +57,7 @@
       margin auto
       color #F4F5F2
       font-size 1.5em
+      font-family inherit
     @media breakpoint1
       h1
         font-size 4em
@@ -103,7 +105,7 @@
     height 100%
     bottom 0
     left 0
-
+    text-shadow 1px 1px 1px rgba(0, 0, 0, 0.2)
     text-align center
     font-size 1.3em
     color #fff
@@ -261,37 +263,50 @@
     background-size 100%
     vertical-align middle
 
-.aside
-  display table
+.intro
+  text-align center
+  .intro-icon
+    position relative
+    font-size 9em
+    display inline-block
 
-  .aside-column
-    width auto
-    display table-cell
-    vertical-align middle
+  .intro-icon-combined
+    i
+      position relative
+      color rgba(0, 0, 0, 0.3)
 
-  @media breakpoint1
-    display block
-    .aside-column
-      display block
-      &:not(:last-child)
-        margin-bottom 2em
-    img
-      margin auto
-      display block
-
-.facebook-feed
-  a
-    color linkColor
-  .facebook-message
-    color linkColor
-    white-space nowrap
-    overflow hidden
-    text-overflow ellipsis
-    padding 0.5em 0
+  .icon-overlay
+    position absolute
+    top 50%
+    margin-top -0.6em
+    left 0
+    font-size 0.7em
+    i
+      color inherit
+  .intro-text
+    font-size 1.2em
+  .column
+    padding 0 1em
 
 .facebook
-  h2
-    color textColor
+  background #3D3D3D
+  a
+    h2
+      color #fff
+    i
+      color #111
+  .facebook-feed
+    margin-bottom 2em
+    a
+      color linkColor
+
+    .facebook-message
+      color linkColor
+      white-space nowrap
+      overflow hidden
+      text-overflow ellipsis
+      padding 0.5em 0
+
 
 .contacts
   margin 0
