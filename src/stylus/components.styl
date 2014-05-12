@@ -416,8 +416,7 @@ blockquote
     strong
       font-size 1.4em
       color #8CC061
-    th
-      position relative
+
     td
       padding 0em 1em
 
@@ -442,7 +441,7 @@ blockquote
 
     @media breakpoint2
       display block
-      tr, td, thead, tbody, th
+      tr, td, tbody
         display block
 
       tbody
@@ -470,6 +469,7 @@ blockquote
         padding-top 1em
       .product-description
         min-height 1em
+
 colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
 
 .adventure-info
@@ -498,13 +498,10 @@ ul
       content ''
   li:last-child
     margin-bottom 0
-  for num in (1..7)
+
+  for num in (1..5)
     li:nth-child({num}):before
       background colors[num - 1]
-
-  h2
-    font-size 1.25em
-    margin-bottom 1.5em
 
 .markdown
   ul
