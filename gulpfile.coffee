@@ -93,7 +93,7 @@ gulp.task 'stylus', ->
 
   styles = es.merge styl, les
     .pipe concat 'style.css'
-    .pipe cmq()
+    #.pipe cmq()
     .on 'error', err
 
   styles = styles.pipe(CSSmin()) if production
