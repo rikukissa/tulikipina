@@ -13,4 +13,4 @@ module.exports = class ViewModel
 
   show: ->
     @contentPromise.then (data) ->
-      document.title = data.title
+      document.title = "Tulikipinä - #{data.title}"
