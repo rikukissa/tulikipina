@@ -99,7 +99,7 @@ gulp.task 'stylus', ->
   styles = styles.pipe(CSSmin()) if production
 
   styles
-    .pipe(prefix('last 2 versions', 'Chrome 33', 'Firefox 28', 'Explorer 11', 'iOS 7', 'Safari 7'))
+    .pipe(prefix('last 2 versions', 'Chrome 33', 'Firefox 28', 'Explorer >= 8', 'iOS 7', 'Safari 7'))
     .pipe(gulp.dest('public/css/'))
     .pipe livereload reloadServer
 
