@@ -1,6 +1,6 @@
 $         = require 'jquery'
 _         = require 'lodash'
-window.ko = ko        = require 'knockout'
+ko        = require 'knockout'
 routie    = require 'routie'
 scrollTo  = require 'scrollTo'
 Modernizr = require 'modernizr'
@@ -78,6 +78,7 @@ class Application
     @views = {}
 
     @currentView = ko.observable 'main'
+    @currentViewModel = null
     @navigationVisible = ko.observable false
 
   toggleNavigation: ->
@@ -97,6 +98,11 @@ class Application
 
     registerRoute = (name, route, handler, vm) =>
       routes[@routePrefix + route] = =>
+        if @currentViewModel? and @currentViewModel isnt vm
+          @currentViewModel.leave?.apply @currentViewModel, arguments
+
+        @currentViewModel = vm
+
         @setView name
         handler?.apply vm, arguments
         vm.show?.apply vm, arguments

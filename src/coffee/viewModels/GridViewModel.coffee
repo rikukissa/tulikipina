@@ -9,6 +9,7 @@ module.exports = class GridViewModel extends ViewModel
 
     @page = ko.observable 'main'
     @activity = ko.observable null
+    @previousActivity = ko.observable null
 
     @rows = ko.computed =>
       data = @data()
@@ -22,11 +23,16 @@ module.exports = class GridViewModel extends ViewModel
 
 
     routes = {}
+
     routes[@name] = ->
       @page 'main'
 
     routes[@name + '/:page'] = (page) ->
       @page 'activity'
       @activity page
+      @previousActivity page
 
     @routes = [routes]
+
+  leave: ->
+    @previousActivity null

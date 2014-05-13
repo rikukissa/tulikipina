@@ -92,6 +92,14 @@ blockquote
 .grid-row
   overflow hidden
 
+@keyframes fadeOpacity
+  0%
+    opacity 0
+
+  100%
+    opacity 1
+
+
 .grid-item
   float left
   display block
@@ -154,6 +162,9 @@ blockquote
     padding 0
     margin-bottom 1em
 
+  &.previous-grid-item
+    .overlay
+      animation fadeOpacity 0.5s
 
 #header
   width 100%
