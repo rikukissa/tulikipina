@@ -217,7 +217,7 @@ winter:
     abseiling:
       thumbnail: "images/thumbnails/winter/abseiling.jpg"
       title: "Abseiling"
-      cover: "images/covers/winter/trekking.jpg"
+      cover: "images/covers/winter/abseiling.jpg"
       subtitle: "Rope Descending, Rappelling or Abseiling..."
       content: """
         Rope descending is controlled descent down from cliffs or buildings using a rope.
