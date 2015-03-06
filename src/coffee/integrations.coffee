@@ -27,3 +27,4 @@ do (d = document, s = "script", id = "facebook-jssdk") ->
 ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
 ga "create", "UA-26992885-1", "tulikipina.fi"
 ga "send", "pageview"
+

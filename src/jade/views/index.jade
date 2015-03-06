@@ -29,6 +29,14 @@
     .cover.cover-summer
 
     .view-content#contacts
+      .tripadvisor
+        #TA_selfserveprop641.TA_selfserveprop
+          ul#kX9C6GN9vyF.TA_links.2s5f3uD7
+            li#MGNrt94.hD8E9Dnf
+              a(target='_blank', href='http://www.tripadvisor.fi/')
+                img(src='http://www.tripadvisor.fi/img/cdsi/img2/branding/150_logo-11900-2.png', alt='TripAdvisor')
+
+        script(src='http://www.jscache.com/wejs?wtype=selfserveprop&uniq=641&locationId=3853721&lang=fi&rating=true&nreviews=5&writereviewlink=true&popIdx=true&iswide=false&border=true&display_version=2')
       .row
         .column(data-bind='with: contacts')
           h2
@@ -65,7 +73,7 @@
             .facebook-message
               a.message-body(data-bind='attr: { href: $data.link }, text: $data.message', target='_blank')
             // /ko
-          .fb-like(data-href='https://www.facebook.com/tulikipina', data-colorscheme='dark', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+          .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
 
     .cover.map-cover
       #map(data-bind='map: {}')

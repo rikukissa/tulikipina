@@ -39,38 +39,39 @@
   .intro
     margin 3em auto
 
-  .facebook
-    background #46474B
-    a
-      color #fff
-
 
 #contacts
-  padding 0
+  .column
+    padding 2em
+    display table-cell
   .row
-    max-width none
+    vertical-align middle
     width 100%
     padding 0
-    border-collapse collapse
-    vertical-align middle
     display table
-
-  .column
-    padding 3em 2em
-    display table-cell
-    overflow hidden
-    float none
-
-  @media breakpoint2
-    .row
-      display block
-    .column
-      width 100%
-      display block
-
   h2
     margin-bottom 1em
 
+  @media breakpoint2
+    padding-right 0
+    .column
+      width auto
+      float none
+      display block
+    .tripadvisor
+      display none
+  padding 0
+  padding-right 240px
+  min-height 430px
+  box-sizing border-box
+
+
+.tripadvisor
+  position absolute
+  right 0
+  top 0
+  li:before
+    content none
 #adventures
   .cover
     background-image url('../images/covers/adventures.jpg')
