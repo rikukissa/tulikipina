@@ -11,8 +11,6 @@ ko.bindingHandlers.video     = require './bindingHandlers/video'
 ko.bindingHandlers.facebook  = require './bindingHandlers/facebook'
 ko.bindingHandlers.markdown  = require './bindingHandlers/markdown'
 
-contentService = require './services/content'
-
 require './integrations'
 
 ViewModel     = require './viewModels/ViewModel'

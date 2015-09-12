@@ -114,13 +114,6 @@ gulp.task 'compress', ['assets'], ->
     .pipe imagemin()
     .pipe gulp.dest 'public/images/'
 
-gulp.task 'content', ->
-  gulp
-    .src('src/coffee/**/*.cson')
-    .pipe cson()
-    .pipe gulp.dest 'public/'
-    .pipe livereload(reloadServer)
-
 gulp.task 'revision-files', ["coffee", "stylus", "compress"],  ->
   gulp
     .src ['public/**/*.js', 'public/**/*.css', 'public/videos*/**/*', 'public/images*/**/*']
@@ -154,7 +147,6 @@ gulp.task "watch", ->
   reloadServer.listen 35729, (err) ->
     console.error err if err?
 
-    gulp.watch "src/coffee/**/*.cson", ["content"]
     gulp.watch "src/coffee/**/*.coffee", ["coffee"]
     gulp.watch "src/jade/**/*.jade", ["jade"]
     gulp.watch "src/stylus/**/*.styl", ["stylus"]
@@ -163,7 +155,7 @@ gulp.task "watch", ->
 
 gulp.task "revision", ["revision-files", "replace-references"]
 
-buildTasks = ["coffee", "jade", "stylus", "assets", "content"]
+buildTasks = ["coffee", "jade", "stylus", "assets"]
 buildTasks = buildTasks.concat ["compress", "revision"] if production
 
 gulp.task "build", buildTasks

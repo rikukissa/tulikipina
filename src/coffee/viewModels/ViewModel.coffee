@@ -4,13 +4,7 @@ contentService = require '../services/content'
 
 module.exports = class ViewModel
   constructor: (@name) ->
-    @data = ko.observable null
-
-    @contentPromise = contentService.get(@name)
-
-    @contentPromise.then (data) =>
-      @data data
+    @data = ko.observable contentService.get @name
 
   show: ->
-    @contentPromise.then (data) ->
-      document.title = "Tulikipinä - #{data.title}"
+    document.title = "Tulikipinä - #{@data().title}"
