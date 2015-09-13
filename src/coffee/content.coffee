@@ -1,11 +1,30 @@
 module.exports =
   main:
     title: "Tulikipinä"
-    subtitle: "Different kinds of nature activities and outdoor sports for both groups and individuals. <br/>Our main goal is to offer recreational activities and fun for small groups for a reasonable price."
-    keypoints:
-      0: "We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility."
-      1: "We offer both ready-to-go packages and tailor made trips. We also rent out our kayaks, canoes and other trekking equipment."
-      2: "In the summertime all adventures are also available during nighttime under the Midnight Sun."
+    about: """
+      ### About us
+
+      Tulikipinä is an outdoor adventure company located in Rovaniemi, Finland.<br />
+      We offer fun and reasonable priced outdoor experiences for both groups and individuals during all seasons.
+      <br />
+      <br />
+      Our nature activities include
+      [ice fishing](#!/winter/icefishing),
+      [snowshow treks](#!/winter/trekking) and
+      [abseiling](#!/winter/abseiling)
+      in wintertime and
+      [rafting](#!/summer/rafting),
+      [hikes](#!/summer/trekking),
+      [climbing](#!/summer/climbing),
+      [kayaking](#!/summer/kayaking) and
+      [abseiling](#!/summer/abseiling) in summertime.
+
+      We offer both ready-to-go packages and tailor made trips. We also [rent](#!/renting) out our kayaks, canoes and other trekking equipment.
+
+      ### Our values
+
+      We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
+    """
     contacts:
       title: "Contact us"
       name: "Vesa Rouvila"

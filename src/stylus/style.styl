@@ -1,6 +1,6 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,700')
-@import url('http://fonts.googleapis.com/css?family=Roboto+Condensed')
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto+Condensed')
 
+@import '../../node_modules/leaflet/dist/leaflet.css'
 @import 'variables'
 @import 'layout'
 @import 'components'
@@ -8,6 +8,8 @@
 // Views
 
 #main
+  h1
+    font-weight 300
   .cover:first-child
     height 700px
     @media breakpoint1
@@ -32,49 +34,30 @@
     &:after
       background transparent
 
-  #map
-    width 100% !important
-    height 100% !important
-
-  .intro
-    margin 3em auto
-
-
-#contacts
-  .column
-    padding 2em
-    display table-cell
-  .row
-    vertical-align middle
-    width 100%
-    padding 0
-    display table
-  h2
-    margin-bottom 1em
-
-  @media breakpoint2
-    padding-right 0
-    .column
-      width auto
-      float none
-      display block
-    .tripadvisor
-      display none
-  padding 0
-  padding-right 240px
-  min-height 430px
-  box-sizing border-box
-
-
-.tripadvisor
+#map
+  width 66%
+  height 100%
   position absolute
   right 0
   top 0
-  li:before
-    content none
+
+
+@media breakpoint2
+  #map
+    display none
+
 #adventures
   .cover
     background-image url('../images/covers/adventures.jpg')
+
+.cover-instagram
+  overflow hidden
+  height auto
+  min-height 300px
+  @media breakpoint4
+    min-height auto
+.cover-winter
+  background-image url('../images/covers/index.jpg')
 
 .cover-summer, #summer .cover
   background-image url('../images/covers/summer.jpg')

@@ -105,7 +105,7 @@ gulp.task 'stylus', ->
 
 gulp.task 'assets', ->
   gulp
-    .src ['src/assets/**/*', 'src/assets/**/.*', 'vendor/font-awesome/fonts*/*.*']
+    .src ['src/assets/**/*', 'src/assets/**/.*', 'vendor/font-awesome/fonts*/*.*', 'node_modules/leaflet/dist/images*/*.*']
     .pipe gulp.dest 'public/'
 
 gulp.task 'compress', ['assets'], ->
@@ -149,7 +149,7 @@ gulp.task "watch", ->
 
     gulp.watch "src/coffee/**/*.coffee", ["coffee"]
     gulp.watch "src/jade/**/*.jade", ["jade"]
-    gulp.watch "src/stylus/**/*.styl", ["stylus"]
+    gulp.watch "src/**/*.styl", ["stylus"]
     gulp.watch "src/less/**/*.less", ["stylus"]
     gulp.watch "src/assets/**/*.*", ["assets"]
 

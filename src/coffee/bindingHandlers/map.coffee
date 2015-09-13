@@ -1,20 +1,20 @@
-GMaps = require 'gmaps'
+L = require 'leaflet'
+L.Icon.Default.imagePath = 'images/'
+
+COORDS = [66.498150, 25.714149]
 
 module.exports =
   init: (el, valueAccessor) ->
-    process.nextTick ->
-      map = new GMaps
-        div: el
-        lat: 66.498150
-        lng: 25.714149
-        zoom: 8
-        scrollwheel: false
-        navigationControl: false
-        mapTypeControl: false
-        scaleControl: false
-        draggable: false
 
-      map.addMarker
-        lat: 66.498150
-        lng: 25.714149
-        title: 'Rovaniemi'
+    process.nextTick ->
+      map = new L.Map el,
+        scrollWheelZoom: false
+
+      osm = new L.TileLayer 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+      map.setView new L.LatLng(COORDS...), 11
+
+      L.marker(COORDS, title: 'Rovaniemi').addTo(map)
+
+      map.addLayer osm
+

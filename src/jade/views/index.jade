@@ -1,79 +1,62 @@
-+view("main")
++view("main")(class='view-visible')
   .page.page-visible(data-bind='with: data')
     .cover
-      video(loop='', preload='none', data-bind='video: {}')
+      video(loop='', preload='none', data-bind='video: {}', poster='images/covers/video.png')
         source(src='videos/Ivalojoki_Skiexpo_2.mp4', type='video/mp4')
         source(src='videos/Ivalojoki_Skiexpo_2.ogg', type='video/ogg')
       .cover-overlay
         .cover-overlay-content
-          h1(data-bind='text: title')
-          h2(data-bind='markdown: subtitle')
+          img(src='images/logo.png')
 
     .view-content
-      .row.intro
-        .column
-          .intro-icon.intro-icon-combined
-            .icon-overlay
-              i.fa.fa-cogs
-            i.fa.fa-ban
-          .intro-text(data-bind='text: keypoints[0]')
-
-        .column
-          .intro-icon
-            i.fa.fa-compass
-          .intro-text(data-bind='text: keypoints[1]')
-        .column
-          .intro-icon
-            i.fa.fa-picture-o
-          .intro-text(data-bind='text: keypoints[2]')
-    .cover.cover-summer
-
-    .view-content#contacts
-      .tripadvisor
-        #TA_selfserveprop641.TA_selfserveprop
-          ul#kX9C6GN9vyF.TA_links.2s5f3uD7
-            li#MGNrt94.hD8E9Dnf
-              a(target='_blank', href='http://www.tripadvisor.fi/')
-                img(src='http://www.tripadvisor.fi/img/cdsi/img2/branding/150_logo-11900-2.png', alt='TripAdvisor')
-
-        script(src='http://www.jscache.com/wejs?wtype=selfserveprop&uniq=641&locationId=3853721&lang=eng&rating=true&nreviews=5&writereviewlink=true&popIdx=true&iswide=false&border=true&display_version=2')
       .row
-        .column(data-bind='with: contacts')
-          h2
-            i.fa.fa-phone
+        .column.column2-3(data-bind='markdown: about')
+        .column.facebook(data-bind='with: feed')
+          h3
+            a(href='https://www.facebook.com/tulikipina', target='_blank')
+              i.fa.fa-facebook
             span(data-bind='text: title')
 
-          ol.contacts
-            li
-              i.fa.fa-user
-              span(data-bind='text: name')
-            li
-              i.fa.fa-envelope
-              span(data-bind='text: email')
+          .facebook-feed(data-bind='facebook: {}')
+            .facebook-feed__wrapper
+              // ko foreach: feed
+              .facebook-message
+                .message-body
+                  a(data-bind='attr: { href: $data.link }', target='_blank')
+                    h4(data-bind='text: $data.message')
+                  .message-body__timestamp
+                    span(data-bind='timeago: $data.created_time')
+                  p
+                    img(data-bind='if: $data.picture, attr: { src: $data.picture }')
+                    span(data-bind='text: $data.description')
+              // /ko
+    .cover.cover-instagram
+      tk-instagram
 
-            li
-              i.fa.fa-phone
-              span(data-bind='text: phone')
-
-          ol.contacts
-            li
-              i.fa.fa-map-marker
-              span(data-bind='text: address')
-
-            li(data-bind='text: company')
-
-        .column.column2-3.facebook(data-bind='with: feed')
-          a(href='https://www.facebook.com/tulikipina', target='_blank')
-            h2
-              i.fa.fa-facebook
+    .view-content#contacts
+      .row
+        .column
+          div(data-bind='with: contacts')
+            h3
               span(data-bind='text: title')
 
-          .facebook-feed(data-bind='facebook: {}')
-            // ko foreach: feed
-            .facebook-message
-              a.message-body(data-bind='attr: { href: $data.link }, text: $data.message', target='_blank')
-            // /ko
-          .fb-like(data-href='https://www.facebook.com/tulikipina', data-layout='standard', data-action='like', data-show-faces='true', data-share='true')
+            ol.contacts
+              li
+                i.fa.fa-user
+                span(data-bind='text: name')
+              li
+                i.fa.fa-envelope
+                span(data-bind='text: email')
 
-    .cover.map-cover
+              li
+                i.fa.fa-phone
+                span(data-bind='text: phone')
+
+            ol.contacts
+              li
+                i.fa.fa-map-marker
+                span(data-bind='text: address')
+
+              li(data-bind='text: company')
+
       #map(data-bind='map: {}')

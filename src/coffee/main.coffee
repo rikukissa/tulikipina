@@ -10,7 +10,9 @@ ko.bindingHandlers.map       = require './bindingHandlers/map'
 ko.bindingHandlers.video     = require './bindingHandlers/video'
 ko.bindingHandlers.facebook  = require './bindingHandlers/facebook'
 ko.bindingHandlers.markdown  = require './bindingHandlers/markdown'
+ko.bindingHandlers.timeago   = require './bindingHandlers/timeago'
 
+ko.components.register 'tk-instagram', require './components/instagram'
 require './integrations'
 
 ViewModel     = require './viewModels/ViewModel'
@@ -126,5 +128,5 @@ app = new Application()
   .viewModel 'adventures', new AdventuresViewModel 'adventures'
   .viewModel 'renting', new RentingViewModel 'renting'
 
-ko.applyBindings app.init()
+$ -> ko.applyBindings app.init()
 

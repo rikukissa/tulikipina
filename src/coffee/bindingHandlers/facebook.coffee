@@ -10,7 +10,7 @@ module.exports =
     .then ({data}) ->
       messages = ko.utils.arrayFilter data, (message) ->
         message.type isnt 'status' and message.message?
-      .slice 0, 4
+
 
       feed messages
 

@@ -1,3 +1,5 @@
+@import '../coffee/components/instagram'
+
 .btn
   background transparent
   border 2px solid #fff
@@ -197,18 +199,7 @@ blockquote
       color textColor
       text-decoration none
     .selected
-      position relative
-      &:after
-        width 0
-        height 0
-        border-left 10px solid transparent
-        border-right 10px solid transparent
-        border-bottom 10px solid #3D3D3D
-        content ''
-        position absolute
-        bottom 0
-        left 50%
-        margin-left -5px
+      color #EA202D
 
   .header-toggle
     padding 0 1.5em
@@ -297,7 +288,7 @@ blockquote
   text-align center
   .intro-icon
     position relative
-    font-size 9em
+    font-size 3em
     display inline-block
 
   .intro-icon-combined
@@ -319,15 +310,43 @@ blockquote
     padding 0 1em
 
 .facebook
+  @media breakpoint3
+    display none
+  .facebook-feed__wrapper
+    max-height 230px
+    overflow auto
+
   .facebook-feed
     margin-bottom 2em
-    a
-      color linkColor
-
+    position relative
     .facebook-message
-      color linkColor
-      padding 0.5em 0
+      margin-bottom 1em
 
+    &:after
+      position absolute
+      left 0
+      bottom 0
+      height 2em
+      width 100%
+      content ''
+      background linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)
+
+
+  .message-body
+    overflow hidden
+    h4
+      margin 0
+    p
+      margin 0.5em 0
+    img
+      float left
+      max-width 4em
+      max-height 3em
+      margin-right 1em
+      margin-top 0.75em
+  .message-body__timestamp
+    font-size 0.8em
+    color descriptionColor
 
 .contacts
   margin 0
@@ -484,10 +503,8 @@ blockquote
       .product-description
         min-height 1em
 
-colors = (#DDE6D5 #8DB6FD #DA6161 #F4F3F0 #F2CF5B #DDE6D5 #8DB6FD #DA6161 #F4F3F0)
-
 .adventure-info
-  padding 3em 2em
+  padding 2em 0 0 0
   ul
     padding-left 2em
 
@@ -495,36 +512,33 @@ ul
   list-style none
   padding 0
   li
-    padding-left 1.5em
     margin-bottom 1em
     position relative
 
     &:before
-      width 0.8em
-      height 0.8em
-      display block
-      position absolute
+      width 5px
+      height 5px
+      display inline-block
+      vertical-align middle
+      margin-right 0.5em
       border-radius 1em
       top 50%
-      margin-top -0.35em
       left 0
-      background #DDE6D5
+      background #8DB6FD
       content ''
+
   li:last-child
     margin-bottom 0
 
-  for num in (1..5)
-    li:nth-child({num}):before
-      background colors[num - 1]
 
 .markdown
   ul
     margin 3em 0
-    border 3px solid borderColor
-    padding 1em
+    padding 0
 
   h2
     margin-top 2em
 
   a
     color linkColor
+
