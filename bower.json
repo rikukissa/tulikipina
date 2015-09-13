@@ -15,7 +15,6 @@
   "dependencies": {
     "font-awesome": "~4.0.3",
     "jquery.scrollTo": "1.4.11",
-    "gmaps": "~0.4.11",
     "modernizr": "~2.7.2",
     "routie": "~0.3.2",
     "jquery": "1.11.0"

@@ -61,7 +61,6 @@
   },
   "browserify-shim": {
     "jquery": "$",
-    "gmaps": "GMaps",
     "modernizr": "Modernizr",
     "routie": "routie"
   },
