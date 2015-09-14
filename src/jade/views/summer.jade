@@ -1,7 +1,7 @@
 +view("summer")
   .page.page-visible(data-bind='css: { "page-visible": page() === "home" }')
 
-    // ko with: data
+    // ko with: content
     .cover
       .cover-overlay
         .cover-overlay-content
@@ -21,7 +21,7 @@
                   .overlay-text(data-bind='text: activity.title')
 
     // /ko
-  .page.page-visible(data-bind='with: data, css: { "page-visible": page() === "activity" }')
+  .page.page-visible(data-bind='with: content, css: { "page-visible": page() === "activity" }')
     div(data-bind='with: activities[$parent.activity()]')
       .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
 

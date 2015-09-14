@@ -299,38 +299,38 @@ module.exports =
               * 5 nights in tents, 1 night in a cabin at Kittilä/Levi, farewell dinner in a restaurant (optional).
           """
           timeline: """
-            ####Day 1
+            #### Day 1
 
             300 km drive from Rovaniemi to Hetta. In the middle of the way we have a possibility for
             dinner at the Levi Skiing Resort. In Hetta we'll visit Fell Lapland Nature and Culture Centre Skierri
             which presents the genuine Nomadic Sámi Culture.
             Paddling starts, basics about paddling. Camping nearby Yrjö Kokkos birdtower.Total daytrip 10 km.
 
-            ####Day 2
+            #### Day 2
 
             Paddling and fishing. Camping at Sioskoski dayhut. Total daytrip is about 13 km.
 
-            ####Day 3
+            #### Day 3
 
             10 km paddle to Ketomella. We'll make a short hike to lake Hietajärvi. Possibility for
             swimming and fishing. Total daytrip is about 10 km paddling and 6 km hiking.
 
-            ####Day 4
+            #### Day 4
 
             Paddle to Raattama village. We'll visit at reindeer family, have a dinner, sauna and
             accommodation in small huts (optional). Total daytrip is about 20 km.
 
-            ####Day 5
+            #### Day 5
 
             A challenging paddling day to Tepasto village. We will meet the biggest rapids today! Total
             daytrip is about 27 km.
 
-            ####Day 6
+            #### Day 6
 
             Last paddling day. We'll paddle near to Levi Skiing Resort, relax in a cottage having a
             sauna and good dinner at local restaurant (optional). Total daytrip is about 15-25 km.
 
-            ####Day 7
+            #### Day 7
 
             Back to Rovaniemi, end of expedition. Possibility to visit the Arktikum and Santa Claus Village.
             We'll reserve the rights to make changes to the daytrips, the routes or camping areas due to
@@ -370,19 +370,19 @@ module.exports =
               * 2 nights in tents, 1 night in a cabin at Saariselkä, farewell dinner in a restaurant (optional).
           """
           timeline: """
-            ####Day 1
+            #### Day 1
 
             300 km drive from Rovaniemi to Kuttura. We'll paddle about 20 km to the Crown Station of Kultala.
 
-            ####Day 2
+            #### Day 2
 
             Paddling through the gold mining history. We'll camp at the rapid Ritakoski. Total daytrip is 23 km.
 
-            ####Day 3
+            #### Day 3
 
             Today we meet the most challenging rapids. Paddling ends to the Tolonen village. Last night will be spent in a cottage, relaxing, having a sauna and good dinner at a local restaurant (optional).
 
-            ####Day 4
+            #### Day 4
 
             Back to Rovaniemi, end of expedition. Possibility to visit the fell Kaunispää and the Fell Center Kiilopää. We'll reserve the rights to make changes to the daytrips, the routes or camping areas due to weather, water or safety conditions.
           """

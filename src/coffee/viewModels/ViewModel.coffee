@@ -2,9 +2,8 @@ ko = require 'knockout'
 
 contentService = require '../services/content'
 
-module.exports = class ViewModel
-  constructor: (@name) ->
-    @data = ko.observable contentService.view @name
-
+module.exports = (name) ->
+  name: name
+  content: contentService.view name
   show: ->
-    document.title = "Tulikipinä - #{@data().title}"
+    document.title = "Tulikipinä - #{@content.title}"

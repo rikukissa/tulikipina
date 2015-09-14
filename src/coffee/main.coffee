@@ -18,7 +18,7 @@ ko.components.register 'tk-contacts', require './components/contacts'
 require './integrations'
 
 ViewModel     = require './viewModels/ViewModel'
-GridViewModel = require './viewModels/GridViewModel'
+Grid          = require './viewModels/Grid'
 Adventures    = require './viewModels/Adventures'
 Renting       = require './viewModels/Renting'
 Home          = require './viewModels/Home'
@@ -75,11 +75,11 @@ class Application
     this
 
 app = new Application()
-  .viewModel 'home',  new Home()
-  .viewModel 'summer', new GridViewModel 'summer'
-  .viewModel 'winter', new GridViewModel 'winter'
-  .viewModel 'adventures', new Adventures()
-  .viewModel 'renting', new Renting()
+  .viewModel 'home',  Home ViewModel 'home'
+  .viewModel 'summer', Grid ViewModel 'summer'
+  .viewModel 'winter', Grid ViewModel 'winter'
+  .viewModel 'adventures', Adventures ViewModel 'adventures'
+  .viewModel 'renting', Renting ViewModel 'renting'
 
 $ -> ko.applyBindings app.init()
 

@@ -1,12 +1,9 @@
 ko = require 'knockout'
+_  = require 'lodash'
 
-ViewModel = require './ViewModel'
-
-module.exports = class RentingViewModel extends ViewModel
-  constructor: ->
-    super 'renting'
-
-    @routes = [
+module.exports = (vm) ->
+  _.extend vm,
+    routes: [
       'renting'
       'renting/:page': (products) ->
         $.scrollTo '#renting-' + products, 500,
@@ -14,13 +11,5 @@ module.exports = class RentingViewModel extends ViewModel
             top: -50
     ]
 
-    @categories = ko.computed =>
-      data = @data()
-      return [] unless data?
-
-      categories = []
-
-      for id, category of data.categories
-        categories.push { id, category }
-
-      categories
+    categories: _.map vm.content.categories, (category, id) ->
+      { id, category }

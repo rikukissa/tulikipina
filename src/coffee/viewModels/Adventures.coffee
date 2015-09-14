@@ -1,23 +1,17 @@
 ko = require 'knockout'
 _  = require 'lodash'
 
-ViewModel = require './ViewModel'
+module.exports = (vm) ->
+  subView = ko.observable 'home'
 
-module.exports = class AdventuresViewModel extends ViewModel
-  constructor: ->
-    super 'adventures'
-
-    @page = ko.observable 'home'
-
-    @routes = [
+  _.extend vm,
+    page: subView
+    routes: [
       'adventures': ->
-        @page 'home'
+        subView 'home'
 
       'adventures/:adventure': (adventure) ->
-        @page adventure
+        subView adventure
     ]
 
-    @adventures = ko.computed =>
-      data = @data()
-      return [] unless data?
-      _.keys data.adventures
+    adventures: _.keys vm.content.adventures

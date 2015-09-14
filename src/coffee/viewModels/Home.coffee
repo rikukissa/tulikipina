@@ -1,12 +1,8 @@
-ko = require 'knockout'
+_  = require 'lodash'
 
-ViewModel = require './ViewModel'
-
-module.exports = class HomeViewModel extends ViewModel
-  constructor: ->
-    super 'home'
-
-    @routes = [
+module.exports = (vm) ->
+  _.extend vm,
+    routes: [
       ''
       'contacts': ->
         $.scrollTo '#contacts', 500,
