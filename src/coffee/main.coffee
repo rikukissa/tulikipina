@@ -13,6 +13,8 @@ ko.bindingHandlers.markdown  = require './bindingHandlers/markdown'
 ko.bindingHandlers.timeago   = require './bindingHandlers/timeago'
 
 ko.components.register 'tk-instagram', require './components/instagram'
+ko.components.register 'tk-contacts', require './components/contacts'
+
 require './integrations'
 
 ViewModel     = require './viewModels/ViewModel'

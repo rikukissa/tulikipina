@@ -67,7 +67,8 @@
   "browserify": {
     "transform": [
       "coffeeify",
-      "browserify-shim"
+      "browserify-shim",
+      "browserify-plain-jade"
     ]
   }
 }

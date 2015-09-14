@@ -4,7 +4,7 @@ contentService = require '../services/content'
 
 module.exports = class ViewModel
   constructor: (@name) ->
-    @data = ko.observable contentService.get @name
+    @data = ko.observable contentService.view @name
 
   show: ->
     document.title = "Tulikipinä - #{@data().title}"

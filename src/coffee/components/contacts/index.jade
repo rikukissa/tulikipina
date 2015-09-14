@@ -1,0 +1,21 @@
+.contacts(data-bind='with: contacts')
+  h3
+    span(data-bind='text: title')
+
+  ol.contacts__list
+    li
+      i.fa.fa-user
+      span(data-bind='text: name')
+    li
+      i.fa.fa-envelope
+      span(data-bind='text: email')
+
+    li
+      i.fa.fa-phone
+      span(data-bind='text: phone')
+
+    li
+      i.fa.fa-map-marker
+      span(data-bind='text: address')
+
+    li(data-bind='text: company')

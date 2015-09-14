@@ -2,5 +2,8 @@ $ = require 'jquery'
 
 content = require '../content'
 
-module.exports.get = (view) ->
-  content[view]
+module.exports.get = (key) ->
+  content[key]
+
+module.exports.view = (view) ->
+  content.views[view]
