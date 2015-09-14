@@ -84,7 +84,14 @@ gulp.task 'stylus', ->
 
   styl = gulp
     .src('src/stylus/style.styl')
-    .pipe(stylus({set: ['include css']}))
+    .pipe(stylus({
+      set: ['include css'],
+      paths: [
+        'node_modules',
+        path.join(__dirname, 'src/stylus'),
+        path.join(__dirname, 'src/coffee')
+      ]
+    }))
     .on 'error', err
 
   les = gulp.src('src/less/*.less')
