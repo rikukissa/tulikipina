@@ -22,6 +22,7 @@ Grid          = require 'viewModels/Grid'
 Adventures    = require 'viewModels/Adventures'
 Renting       = require 'viewModels/Renting'
 Home          = require 'viewModels/Home'
+Summer        = require 'viewModels/Summer'
 
 
 class Application
@@ -76,7 +77,7 @@ class Application
 
 app = new Application()
   .viewModel 'home',  Home ViewModel 'home'
-  .viewModel 'summer', Grid ViewModel 'summer'
+  .viewModel 'summer', Summer Grid ViewModel 'summer'
   .viewModel 'winter', Grid ViewModel 'winter'
   .viewModel 'adventures', Adventures ViewModel 'adventures'
   .viewModel 'renting', Renting ViewModel 'renting'

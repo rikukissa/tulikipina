@@ -44,30 +44,6 @@ module.exports =
       button:
         backToMain: "Back to other activities"
       activities:
-        rafting:
-          thumbnail: "images/thumbnails/summer/rafting.jpg"
-          title: "White Water Rafting"
-          cover: "images/covers/summer/rafting.jpg"
-          subtitle: "River Rafting Experience"
-          content: """
-            Enjoy the midnight sun in different way and come ride with us! Feel the speed and joy of rafting just outside the town, only 20 kilometers from Rovaniemi.
-
-            River rafting is totally safe thing to do.
-            First class-safety equipment (life jackets and helmets) and services of a professional river rafting guide ensures, that the rafting experience is always exciting and safe.
-
-            Rafting is available from April to October depending on the water level.
-
-            ## River rafting experience, 2-3 hours, 2-4 persons
-
-            Rafting is provided on the river Raudanjoki, Rovaniemi. During the rafting we challenge the rapid called Vikaköngäs several times. After rafting we will sit around fireplace and drink hot drinks and eat snacks.
-
-            For an extra fee you can have lunch while sitting around at open fire.
-
-            * Departure time will be agreed with the participants.
-            * Price **65 €** per person.
-            * Groups from 2 to 4 persons, including transportation from hotel, beverages and snacks
-            * Please [ask for an offer](#!/contacts) for bigger groups.
-          """
         trekking:
           thumbnail: "images/thumbnails/summer/trekking.jpg"
           title: "Hikes and treks"
@@ -108,27 +84,6 @@ module.exports =
             * Duration: 2-3 hours.
             * **Restrictions:** To reduce fatalities climbing is not possible on rainy days. Instead of climbing you can try abseiling.
           """
-        kayaking:
-          thumbnail: "images/thumbnails/summer/kayaking.jpg"
-          title: "Kayaking and canoeing"
-          cover: "images/covers/summer/kayaking.jpg"
-          subtitle: "Enjoy nature's wonder by paddling with our kayaks or canoes. Excursions are also suitable for beginners."
-          content: """
-            We offer introduction and training if needed. We always plan the paddling trips based on customers' needs and wishes.
-
-            These can include a 1-2 hour trip or overnight stays. We offer trips for example in Rovaniemi city rivers.
-            We also rent out kayaks and canoes with the necessary accessories and we can also transport them to your location.
-
-            ## Rovaniemi City Paddling
-
-            See Rovaniemi city from a different perspective! After a short introduction of canoeing we'll paddle along the river Ounasjoki.
-            We'll see the museum Arktikum from the shoreline and paddle under the big bridges of Rovaniemi.
-
-            * Departure time: Will be agreed with the participants.
-            * Price **60 €** per person including transportation, equipment, beverages and guiding.
-            * Duration: 2-3 hours.
-
-          """
         abseiling:
           thumbnail: "images/thumbnails/summer/abseiling.jpg"
           title: "Rope Descending, Rappelling, Abseiling..."
@@ -146,6 +101,51 @@ module.exports =
             * We can also offer a transportation for small groups, 2-4 persons.
             * Abseiling nearby Rovaniemi takes about 1-2 hours.
             * Descending is possible also during winter. Just [ask for an offer](#!/contacts)!
+
+          """
+        rafting:
+          thumbnail: "images/covers/summer/rafting.jpg"
+          title: "White Water Rafting"
+          cover: "images/covers/summer/rafting.jpg"
+          subtitle: "River Rafting Experience"
+          content: """
+            Enjoy the midnight sun in different way and come ride with us! Feel the speed and joy of rafting just outside the town, only 20 kilometers from Rovaniemi.
+
+            River rafting is totally safe thing to do.
+            First class-safety equipment (life jackets and helmets) and services of a professional river rafting guide ensures, that the rafting experience is always exciting and safe.
+
+            Rafting is available from April to October depending on the water level.
+
+            ## River rafting experience, 2-3 hours, 2-4 persons
+
+            Rafting is provided on the river Raudanjoki, Rovaniemi. During the rafting we challenge the rapid called Vikaköngäs several times. After rafting we will sit around fireplace and drink hot drinks and eat snacks.
+
+            For an extra fee you can have lunch while sitting around at open fire.
+
+            * Departure time will be agreed with the participants.
+            * Price **65 €** per person.
+            * Groups from 2 to 4 persons, including transportation from hotel, beverages and snacks
+            * Please [ask for an offer](#!/contacts) for bigger groups.
+          """
+        kayaking:
+          thumbnail: "images/covers/summer/kayaking.jpg"
+          title: "Kayaking and canoeing"
+          cover: "images/covers/summer/kayaking.jpg"
+          subtitle: "Enjoy nature's wonder by paddling with our kayaks or canoes. Excursions are also suitable for beginners."
+          content: """
+            We offer introduction and training if needed. We always plan the paddling trips based on customers' needs and wishes.
+
+            These can include a 1-2 hour trip or overnight stays. We offer trips for example in Rovaniemi city rivers.
+            We also rent out kayaks and canoes with the necessary accessories and we can also transport them to your location.
+
+            ## Rovaniemi City Paddling
+
+            See Rovaniemi city from a different perspective! After a short introduction of canoeing we'll paddle along the river Ounasjoki.
+            We'll see the museum Arktikum from the shoreline and paddle under the big bridges of Rovaniemi.
+
+            * Departure time: Will be agreed with the participants.
+            * Price **60 €** per person including transportation, equipment, beverages and guiding.
+            * Duration: 2-3 hours.
 
           """
     winter:
