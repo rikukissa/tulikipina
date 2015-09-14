@@ -1,5 +1,6 @@
-process.nextTick ->
+$ = require 'jquery'
 
+$ ->
   # Google analytics
   ((i, s, o, g, r, a, m) ->
     i["GoogleAnalyticsObject"] = r
