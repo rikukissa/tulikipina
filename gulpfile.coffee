@@ -36,9 +36,6 @@ gulp.task 'coffee', ->
   entries = [
     path: './src/coffee/main.coffee'
     file: 'bundle.js'
-  ,
-    path: './src/coffee/ie.coffee'
-    file: 'ie.js'
   ]
 
   es.concat.apply es, entries.map (entry) ->
