@@ -1,22 +1,20 @@
-$  = require 'jquery'
 ko = require 'knockout'
+
+facebook = require '../services/facebook'
 
 module.exports =
   init: (element, valueAccessor, allBindings, viewModel, bindingContext) ->
     feed = ko.observableArray()
-
-    $.get 'https://graph.facebook.com/tulikipina/feed',
-      access_token: '623816767664793|Z0CPBw6htLxbnvVfFGZNzXMqxKI'
-    .then ({data}) ->
-      messages = ko.utils.arrayFilter data, (message) ->
-        message.type isnt 'status' and message.message?
-
-
-      feed messages
 
     innerBindingContext = bindingContext.extend
       feed: feed
 
     ko.applyBindingsToDescendants innerBindingContext, element
 
-    controlsDescendantBindings: true
+    facebook.get().then (data) ->
+      messages = ko.utils.arrayFilter data, (message) ->
+        message.type isnt 'status' and message.message?
+
+      feed messages
+
+    return {controlsDescendantBindings: true}
