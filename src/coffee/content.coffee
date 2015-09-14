@@ -1,8 +1,9 @@
+email = "info" + "@" + "tulikipina.com"
 module.exports =
   contacts:
     title: "Contact us"
     name: "Vesa Rouvila"
-    email: "info" + "@" + "tulikipina.com"
+    email: "[#{email}](mailto:#{email})"
     phone: "+358 40 572 0174"
     address: "Leimaajankuja 2 C 6, 96460 Rovaniemi Finland"
     company: "Tulikipinä 1710555-4"
