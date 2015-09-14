@@ -43,18 +43,21 @@ gulp.task 'coffee', ->
     opts =
       entries: [entry.path]
       extensions: ['.coffee']
+      debug: !production
+      cache: {}
+      paths: ['src/coffee', 'node_modules']
+      packageCache: {}
 
     bundle = unless production
-      watchify opts
+      watchify browserify opts
     else
       browserify opts
 
     rebundle = ->
 
-      build = bundle.bundle
-          debug: not production
-        .on 'error', gutil.log
-        .pipe(source(entry.file))
+      build = bundle.bundle()
+      .on 'error', gutil.log
+      .pipe(source(entry.file))
 
       build.pipe(streamify(uglify())) if production
 
@@ -151,7 +154,6 @@ gulp.task "watch", ->
   reloadServer.listen 35729, (err) ->
     console.error err if err?
 
-    gulp.watch "src/coffee/**/*.coffee", ["coffee"]
     gulp.watch "src/jade/**/*.jade", ["jade"]
     gulp.watch "src/**/*.styl", ["stylus"]
     gulp.watch "src/less/**/*.less", ["stylus"]

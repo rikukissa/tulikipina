@@ -5,23 +5,23 @@ routie    = require 'routie'
 scrollTo  = require 'scrollTo'
 Modernizr = require 'modernizr'
 
-ko.bindingHandlers.header    = require './bindingHandlers/header'
-ko.bindingHandlers.map       = require './bindingHandlers/map'
-ko.bindingHandlers.video     = require './bindingHandlers/video'
-ko.bindingHandlers.facebook  = require './bindingHandlers/facebook'
-ko.bindingHandlers.markdown  = require './bindingHandlers/markdown'
-ko.bindingHandlers.timeago   = require './bindingHandlers/timeago'
+ko.bindingHandlers.header    = require 'bindingHandlers/header'
+ko.bindingHandlers.map       = require 'bindingHandlers/map'
+ko.bindingHandlers.video     = require 'bindingHandlers/video'
+ko.bindingHandlers.facebook  = require 'bindingHandlers/facebook'
+ko.bindingHandlers.markdown  = require 'bindingHandlers/markdown'
+ko.bindingHandlers.timeago   = require 'bindingHandlers/timeago'
 
-ko.components.register 'tk-instagram', require './components/instagram'
-ko.components.register 'tk-contacts', require './components/contacts'
+ko.components.register 'tk-instagram', require 'components/instagram'
+ko.components.register 'tk-contacts', require 'components/contacts'
 
-require './integrations'
+require 'integrations'
 
-ViewModel     = require './viewModels/ViewModel'
-Grid          = require './viewModels/Grid'
-Adventures    = require './viewModels/Adventures'
-Renting       = require './viewModels/Renting'
-Home          = require './viewModels/Home'
+ViewModel     = require 'viewModels/ViewModel'
+Grid          = require 'viewModels/Grid'
+Adventures    = require 'viewModels/Adventures'
+Renting       = require 'viewModels/Renting'
+Home          = require 'viewModels/Home'
 
 
 class Application

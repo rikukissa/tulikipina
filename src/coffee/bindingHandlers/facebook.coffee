@@ -1,6 +1,6 @@
 ko = require 'knockout'
 
-facebook = require '../services/facebook'
+facebook = require 'services/facebook'
 
 module.exports =
   init: (element, valueAccessor, allBindings, viewModel, bindingContext) ->

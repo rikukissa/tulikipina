@@ -1,4 +1,4 @@
-content = require '../../services/content'
+content = require 'services/content'
 
 module.exports =
   template: require './index.jade'
