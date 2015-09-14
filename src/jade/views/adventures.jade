@@ -1,5 +1,5 @@
 +view("adventures")
-  .page.page-visible(data-bind='css: { "page-visible": page() === "main" }')
+  .page.page-visible(data-bind='css: { "page-visible": page() === "home" }')
     // ko with: data
     .cover
       .cover-overlay
@@ -22,7 +22,7 @@
               a(data-bind='attr: { href: "#!/adventures/" + $parent }, markdown: description')
 
     // /ko
-  .page.page-visible(data-bind='css: { "page-visible": page() !== "main" }, with: data')
+  .page.page-visible(data-bind='css: { "page-visible": page() !== "home" }, with: data')
     // ko with: adventures[$parent.page()]
 
     .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')

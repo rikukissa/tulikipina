@@ -1,5 +1,5 @@
 module.exports =
-  main:
+  home:
     title: "Tulikipinä"
     about: """
       ### About us

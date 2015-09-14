@@ -17,59 +17,10 @@ require './integrations'
 
 ViewModel     = require './viewModels/ViewModel'
 GridViewModel = require './viewModels/GridViewModel'
+Adventures    = require './viewModels/Adventures'
+Renting       = require './viewModels/Renting'
+Home          = require './viewModels/Home'
 
-class MainViewModel extends ViewModel
-  constructor: ->
-    super
-
-    @routes = [
-      ''
-      'contacts': ->
-        $.scrollTo '#contacts', 500,
-          offset:
-            top: -50
-    ]
-
-class AdventuresViewModel extends ViewModel
-  constructor: ->
-    super
-    @page = ko.observable 'main'
-
-    @routes = [
-      'adventures': ->
-        @page 'main'
-
-      'adventures/:adventure': (adventure) ->
-        @page adventure
-    ]
-
-    @adventures = ko.computed =>
-      data = @data()
-      return [] unless data?
-      _.keys data.adventures
-
-class RentingViewModel extends ViewModel
-  constructor: ->
-    super
-
-    @routes = [
-      'renting'
-      'renting/:page': (products) ->
-        $.scrollTo '#renting-' + products, 500,
-          offset:
-            top: -50
-    ]
-
-    @categories = ko.computed =>
-      data = @data()
-      return [] unless data?
-
-      categories = []
-
-      for id, category of data.categories
-        categories.push { id, category }
-
-      categories
 
 class Application
   constructor: ->
@@ -77,7 +28,7 @@ class Application
 
     @views = {}
 
-    @currentView = ko.observable 'main'
+    @currentView = ko.observable 'home'
     @currentViewModel = null
     @navigationVisible = ko.observable false
 
@@ -122,11 +73,11 @@ class Application
     this
 
 app = new Application()
-  .viewModel 'main',  new MainViewModel 'main'
+  .viewModel 'home',  new Home()
   .viewModel 'summer', new GridViewModel 'summer'
   .viewModel 'winter', new GridViewModel 'winter'
-  .viewModel 'adventures', new AdventuresViewModel 'adventures'
-  .viewModel 'renting', new RentingViewModel 'renting'
+  .viewModel 'adventures', new Adventures()
+  .viewModel 'renting', new Renting()
 
 $ -> ko.applyBindings app.init()
 
