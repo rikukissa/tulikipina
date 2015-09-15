@@ -1,4 +1,4 @@
-$  = require 'jquery'
+$ = require 'jquery'
 ko = require 'knockout'
 
 CACHE_INTERVAL = 1000 * 3600 * 24 # one day

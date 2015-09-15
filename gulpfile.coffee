@@ -1,29 +1,30 @@
-fs         = require 'fs'
-path       = require 'path'
-gulp       = require 'gulp'
-gutil      = require 'gulp-util'
-jade       = require 'gulp-jade'
-stylus     = require 'gulp-stylus'
-CSSmin     = require 'gulp-minify-css'
+fs = require 'fs'
+path = require 'path'
+gulp = require 'gulp'
+gutil = require 'gulp-util'
+jade = require 'gulp-jade'
+stylus = require 'gulp-stylus'
+CSSmin = require 'gulp-minify-css'
 browserify = require 'browserify'
-watchify   = require 'watchify'
-rename     = require 'gulp-rename'
-uglify     = require 'gulp-uglify'
-rimraf     = require 'rimraf'
-lr         = require 'tiny-lr'
+watchify = require 'watchify'
+rename = require 'gulp-rename'
+uglify = require 'gulp-uglify'
+rimraf = require 'rimraf'
+lr = require 'tiny-lr'
 livereload = require 'gulp-livereload'
-cmq        = require 'gulp-combine-media-queries'
-concat     = require 'gulp-concat'
-prefix     = require 'gulp-autoprefixer'
-imagemin   = require 'gulp-imagemin'
-cson       = require 'gulp-cson'
-less       = require 'gulp-less'
-replace    = require 'gulp-replace'
-rev        = require 'gulp-rev'
-express    = require 'express'
-source     = require 'vinyl-source-stream'
-streamify  = require 'gulp-streamify'
-es         = require 'event-stream'
+cmq = require 'gulp-combine-media-queries'
+concat = require 'gulp-concat'
+prefix = require 'gulp-autoprefixer'
+imagemin = require 'gulp-imagemin'
+cson = require 'gulp-cson'
+less = require 'gulp-less'
+replace = require 'gulp-replace'
+rev = require 'gulp-rev'
+express = require 'express'
+source = require 'vinyl-source-stream'
+streamify = require 'gulp-streamify'
+es = require 'event-stream'
+
 reloadServer = lr()
 
 production = process.env.NODE_ENV is 'production'
@@ -69,7 +70,7 @@ gulp.task 'coffee', ->
 
     rebundle()
 
-gulp.task "jade", ->
+gulp.task 'jade', ->
   gulp
     .src('src/jade/*.jade')
     .pipe(jade(pretty: not production))
@@ -121,7 +122,7 @@ gulp.task 'compress', ['assets'], ->
     .pipe imagemin()
     .pipe gulp.dest 'public/images/'
 
-gulp.task 'revision-files', ["coffee", "stylus", "compress"],  ->
+gulp.task 'revision-files', ['coffee', 'stylus', 'compress'],  ->
   gulp
     .src ['public/**/*.js', 'public/**/*.css', 'public/videos*/**/*', 'public/images*/**/*']
     .pipe rev()
@@ -139,7 +140,7 @@ gulp.task 'replace-references', ['revision-files'], ->
 
   build.pipe gulp.dest 'public/'
 
-gulp.task "server", ->
+gulp.task 'server', ->
   app = express()
 
   app.configure ->
@@ -150,20 +151,20 @@ gulp.task "server", ->
 
   app.listen 9001
 
-gulp.task "watch", ->
+gulp.task 'watch', ->
   reloadServer.listen 35729, (err) ->
     console.error err if err?
 
-    gulp.watch "src/jade/**/*.jade", ["jade"]
-    gulp.watch "src/**/*.styl", ["stylus"]
-    gulp.watch "src/less/**/*.less", ["stylus"]
-    gulp.watch "src/assets/**/*.*", ["assets"]
+    gulp.watch 'src/jade/**/*.jade', ['jade']
+    gulp.watch 'src/**/*.styl', ['stylus']
+    gulp.watch 'src/less/**/*.less', ['stylus']
+    gulp.watch 'src/assets/**/*.*', ['assets']
 
-gulp.task "revision", ["revision-files", "replace-references"]
+gulp.task 'revision', ['revision-files', 'replace-references']
 
-buildTasks = ["coffee", "jade", "stylus", "assets"]
-buildTasks = buildTasks.concat ["compress", "revision"] if production
+buildTasks = ['coffee', 'jade', 'stylus', 'assets']
+buildTasks = buildTasks.concat ['compress', 'revision'] if production
 
-gulp.task "build", buildTasks
+gulp.task 'build', buildTasks
 
-gulp.task "default", ["build", "watch", "server"]
+gulp.task 'default', ['build', 'watch', 'server']

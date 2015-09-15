@@ -1,5 +1,5 @@
-$      = require 'jquery'
-ko     = require 'knockout'
+$ = require 'jquery'
+ko = require 'knockout'
 marked = require 'marked'
 
 module.exports =

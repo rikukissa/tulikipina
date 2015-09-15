@@ -1,4 +1,4 @@
-ko      = require 'knockout'
+ko = require 'knockout'
 timeago = require 'timeago'
 
 module.exports =
