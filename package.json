@@ -55,10 +55,11 @@
     "watchify": "~0.8.2"
   },
   "browser": {
-    "jquery": "./vendor/jquery/dist/jquery.js",
-    "scrollTo": "./vendor/jquery.scrollTo/jquery.scrollTo.js",
-    "modernizr": "./vendor/modernizr/modernizr.js",
-    "routie": "./vendor/routie/dist/routie.js"
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "scrollTo": "./bower_components/jquery.scrollTo/jquery.scrollTo.js",
+    "modernizr": "./bower_components/modernizr/modernizr.js",
+    "routie": "./bower_components/routie/dist/routie.js"
   },
   "browserify-shim": {
     "jquery": "$",

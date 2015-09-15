@@ -113,7 +113,11 @@ gulp.task 'stylus', ->
 
 gulp.task 'assets', ->
   gulp
-    .src ['src/assets/**/*', 'src/assets/**/.*', 'vendor/font-awesome/fonts*/*.*', 'node_modules/leaflet/dist/images*/*.*']
+    .src [
+      'src/assets/**/*',
+      'src/assets/**/.*',
+      'bower_components/font-awesome/fonts*/*.*',
+      'node_modules/leaflet/dist/images*/*.*']
     .pipe gulp.dest 'public/'
 
 gulp.task 'compress', ['assets'], ->

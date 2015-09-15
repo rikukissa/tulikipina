@@ -1,7 +1,7 @@
 npm-debug.log
 node_modules
 public
-vendor
+bower_components
 .DS_Store
 .gulp
 rev-manifest.json
