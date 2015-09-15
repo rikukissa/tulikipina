@@ -1,6 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto+Condensed')
 
-@import 'leaflet/dist/leaflet.css'
 @import 'variables'
 @import 'layout'
 @import 'components'
@@ -37,17 +36,17 @@
     &:after
       background transparent
 
-#map
-  width 66%
-  height 100%
-  position absolute
-  right 0
-  top 0
+#contacts
+  .map
+    width 66%
+    height 100%
+    position absolute
+    right 0
+    top 0
 
-
-@media breakpoint2
-  #map
-    display none
+  @media breakpoint2
+    .map
+      display none
 
 #adventures
   .cover

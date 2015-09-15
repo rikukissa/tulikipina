@@ -17,4 +17,3 @@ module.exports =
       L.marker(COORDS, title: 'Rovaniemi').addTo(map)
 
       map.addLayer osm
-

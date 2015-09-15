@@ -1,6 +1,6 @@
 ko = require 'knockout'
 
-contentService = require '../services/content'
+contentService = require 'services/content'
 
 module.exports = (name) ->
   name: name

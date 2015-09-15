@@ -17,19 +17,7 @@
               i.fa.fa-facebook
             span(data-bind='text: title')
 
-          .facebook-feed(data-bind='facebook: {}')
-            .facebook-feed__wrapper
-              // ko foreach: feed
-              .facebook-message
-                .message-body
-                  a(data-bind='attr: { href: $data.link }', target='_blank')
-                    h4(data-bind='text: $data.message')
-                  .message-body__timestamp
-                    span(data-bind='timeago: $data.created_time')
-                  p
-                    img(data-bind='if: $data.picture, attr: { src: $data.picture }')
-                    span(data-bind='text: $data.description')
-              // /ko
+          tk-facebook
     .cover.cover-instagram
       tk-instagram
 
@@ -38,4 +26,4 @@
         .column
           tk-contacts
 
-      #map(data-bind='map: {}')
+      tk-map
