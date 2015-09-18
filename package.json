@@ -30,7 +30,7 @@
     "coffeeify": "^1.1.0",
     "event-stream": "~3.1.5",
     "express": "~3.5.0",
-    "gulp": "^3.9.0",
+    "gulp": "3.9.0",
     "gulp-autoprefixer": "0.0.6",
     "gulp-combine-media-queries": "0.0.1",
     "gulp-concat": "~2.2.0",
@@ -51,10 +51,9 @@
     "rimraf": "~2.2.6",
     "tiny-lr": "0.0.5",
     "vinyl-source-stream": "~0.1.1",
-    "watchify": "~0.8.2"
+    "watchify": "^3.4.0"
   },
   "browser": {
-    "jquery": "./bower_components/jquery/dist/jquery.js",
     "jquery": "./bower_components/jquery/dist/jquery.js",
     "scrollTo": "./bower_components/jquery.scrollTo/jquery.scrollTo.js",
     "modernizr": "./bower_components/modernizr/modernizr.js",
