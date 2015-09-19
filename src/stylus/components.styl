@@ -105,6 +105,13 @@ blockquote
   100%
     opacity 1
 
+@keyframes scaleDown
+  0%
+    transform scale(1.1, 1.1)
+
+  100%
+    transform scale(1, 1)
+
 
 .grid-item
   float left
@@ -127,6 +134,9 @@ blockquote
     position relative
     background-size cover
     background-position center center
+    transition transform 300ms
+    &:hover
+      transform scale(1.1, 1.1)
     &:before
       content ''
       display block
@@ -169,6 +179,7 @@ blockquote
     margin-bottom 1em
 
   &.previous-grid-item
+    animation scaleDown 0.6s
     .overlay
       animation fadeOpacity 0.5s
 
