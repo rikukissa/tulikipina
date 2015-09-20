@@ -17,5 +17,9 @@ ko.bindingHandlers.instagram =
     feed.run()
 
 module.exports =
-  template: '<div class="insta-feed" data-bind="instagram: {}">'
+  template: """
+    <div class="insta-feed" data-bind="instagram: {}">
+      <a href="https://instagram.com/tulikipina" target="_blank" class="insta-feed__logo"></a>
+    </div>
+  """
 
