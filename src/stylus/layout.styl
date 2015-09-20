@@ -2,8 +2,9 @@ body, html
   margin 0
   height 100%
   font-family 'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif
-  font-weight 300
+  font-weight 400
   font-size 14px
+  background #ECEFF1
 a
   text-decoration none
   color linkColor
@@ -17,12 +18,13 @@ h1
   @media breakpoint1
     font-size 3em
 
-h1, h2
+h1
   font-weight 300
   margin 0
   titleFont()
 
 h2
+  font-size 2em
   i
     font-size 2em
     margin-right 0.3em
@@ -53,7 +55,7 @@ hr
 
 .view-content
   overflow hidden
-  padding 3em 0
+  padding 50px 0
   h3
     i
       margin-right 0.5em
@@ -73,6 +75,10 @@ hr
     padding 0 1em
 
 .row
+  h2
+    margin-top 1.25em
+  h2:first-child
+    margin-top 0
   .column
     width (100/3)%
     float left
@@ -80,6 +86,9 @@ hr
     padding-right 2em
     &:last-child
       padding-right 0
+
+  .column1-2
+    width 50%
   .column2-3
     width (100/3*2)%
 

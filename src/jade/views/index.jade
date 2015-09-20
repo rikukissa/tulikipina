@@ -6,18 +6,16 @@
         source(src='videos/Ivalojoki_Skiexpo_2.ogg', type='video/ogg')
       .cover-overlay
         .cover-overlay-content
-          img(src='images/logo.png')
+          h1.cover__title Your next adventure awaits
+          h2.cover__subtitle We provide unique, everlasting nature experiences during all seasons
+
 
     .view-content
       .row
         .column.column2-3(data-bind='markdown: about')
-        .column.facebook(data-bind='with: feed')
-          h3
-            a(href='https://www.facebook.com/tulikipina', target='_blank')
-              i.fa.fa-facebook
-            span(data-bind='text: title')
-
+        .column
           tk-facebook
+
     .cover.cover-instagram
       tk-instagram
 

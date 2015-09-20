@@ -11,9 +11,9 @@ module.exports =
     home:
       title: "Tulikipinä"
       about: """
-        ### About us
+        ## About us
 
-        Tulikipinä is an outdoor adventure company located in Rovaniemi, Finland.<br />
+        Tulikipinä is an outdoor adventure company located in **Rovaniemi, Finland**.<br />
         We offer fun and reasonable priced outdoor experiences for both groups and individuals during all seasons.
         <br />
         <br />
@@ -30,9 +30,9 @@ module.exports =
 
         We offer both ready-to-go packages and tailor made trips. We also [rent](#!/renting) out our kayaks, canoes and other trekking equipment.
 
-        ### Our values
+        ## Our values
 
-        We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
+        We don't use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
       """
 
     summer:
@@ -256,7 +256,7 @@ module.exports =
 
     adventures:
       title: "Arctic adventures"
-      subtitle: "If you appreciate nature`s peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
+      subtitle: "If you appreciate nature's peace and stillness, sleeping in a tent or staying at a cozy wilderness cottage instead of a noisy cities and crowded hotels, these adventures are for you."
       content: """
         We offer longer 3-14 days treks in Lapland by feet, bikes, canoes or kayaks.
         Also catching fish for dinner or picking eatable Finnish wilderness treats increases your experience in a fresh way.

@@ -4,8 +4,8 @@
     .cover
       .cover-overlay
         .cover-overlay-content
-          h1(data-bind='text: title')
-          h2(data-bind='text: subtitle')
+          h1.cover__title(data-bind='text: title')
+          h2.cover__subtitle(data-bind='text: subtitle')
 
     .view-content
       .row
@@ -28,8 +28,8 @@
     .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
       .cover-overlay
         .cover-overlay-content
-          h1(data-bind='text: title')
-          h2(data-bind='text: subtitle')
+          h1.cover__title(data-bind='text: title')
+          h2.cover__subtitle(data-bind='text: subtitle')
     .view-header
       .row
         .view-nav

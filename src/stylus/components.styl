@@ -46,6 +46,10 @@ blockquote
     &:after
       background rgba(70, 40, 0, 0.4)
 
+  .cover__title
+    titleFont()
+    font-weight 700
+
   .cover-overlay
     width 100%
     height 100%
@@ -65,16 +69,17 @@ blockquote
     h1
       font-size 7em
       titleFont()
+
     h2
       max-width 800px
       text-align center
       margin auto
       color #F4F5F2
-      font-size 1.5em
+      font-size 1.2em
       font-family inherit
-
-
-
+      font-weight 400
+      p // Markdown content
+        margin 0
     @media breakpoint5
       h1
         font-size 5em
@@ -463,4 +468,3 @@ ul
 
   a
     color linkColor
-
