@@ -34,8 +34,6 @@ module.exports =
 
         We don`t use any motorized activities or equipment, because our core value is keeping the environment’s natural peace and tranquility.
       """
-      feed:
-        title: "Recent posts"
 
     summer:
       title: "Summer"
