@@ -86,7 +86,7 @@ gulp.task 'stylus', ->
   styl = gulp
     .src('src/stylus/style.styl')
     .pipe(stylus({
-      set: ['include css'],
+      'include css': true
       paths: [
         'node_modules',
         path.join(__dirname, 'src/stylus'),
