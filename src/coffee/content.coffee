@@ -5,7 +5,7 @@ module.exports =
     name: "Vesa Rouvila"
     email: "[#{email}](mailto:#{email})"
     phone: "+358 40 572 0174"
-    address: "Leimaajankuja 2 C 6, 96460 Rovaniemi Finland"
+    address: "Leimaajankuja 2 C 6, 96460 <br />Rovaniemi Finland"
     company: "Tulikipinä 1710555-4"
   views:
     home:
