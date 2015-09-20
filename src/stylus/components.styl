@@ -182,7 +182,7 @@ blockquote
     .overlay
       animation fadeOpacity 0.5s
 
-#header
+.header
   width 100%
   height 65px
   padding 0 0.5em
@@ -191,11 +191,10 @@ blockquote
   left 0
   line-height 65px
   z-index 3
-  background #fff
   user-select none
   .logo
-    width (103/2.5)px
-    height (117/2.5)px
+    width 50px
+    margin-bottom -10px
     vertical-align middle
 
   .nav
@@ -205,13 +204,15 @@ blockquote
     height 100%
     display inline-block
     font-size 1em
-    margin-left 0.5em
     a
       height 100%
-      padding 0 1em
+      padding 0 .75em
       display inline-block
-      color textColor
+      color #fff
+      font-weight 400
       text-decoration none
+      &:first-child
+        padding-left 0.5em
     .selected
       color #EA202D
 
@@ -231,7 +232,7 @@ blockquote
       position absolute
       right 10px
       top 50%
-      margin-top -23px
+      margin-top -28px
       z-index 3
 
     .header-toggle
@@ -248,6 +249,7 @@ blockquote
         transform translateY(0px)
       a
         display block
+        color textColor
         border-bottom 1px solid #eee
         &:first-child
           border-top 1px solid #eee

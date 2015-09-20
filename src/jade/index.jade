@@ -48,10 +48,10 @@ html
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-    #header(data-bind='header: { threshold: 150, max: 500 }')
+    .header(data-bind='header: { threshold: 150, max: 500 }')
       .header-toggle(data-bind='click: toggleNavigation')
         i.fa.fa-bars
-      img.logo(src='images/header-logo.png')
+      img.logo(src='images/logo.svg')
       .nav(data-bind='css: { "nav-visible": navigationVisible }')
         a(href='#!/', data-bind='css: { selected: currentView() === "home" }') Tulikipinä
         a(href='#!/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
