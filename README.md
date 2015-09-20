@@ -1,6 +1,5 @@
-# Tulikipinä
-
-## Add prerender token to src/assets/.htaccess before deploying to production
+# Tulikipina.fi
+![](http://i.imgur.com/oQlKEb2.png)
 
 ## Getting things up and running
 
@@ -16,3 +15,6 @@
     * Compiles your files, starts watching files for changes, serves static files to port 9001
 * npm run build
     * Builds & minifies everything
+
+:warning: Add prerender token to src/assets/.htaccess before deploying to production
+
