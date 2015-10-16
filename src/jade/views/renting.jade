@@ -8,28 +8,47 @@
     .view-header
       .row
         .view-nav(data-bind='foreach: $parent.categories')
-          a.btn(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.category.title')
+          a.btn(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.title')
 
-    .view-content(data-bind='foreach: $parent.categories')
-
+    .view-content
+      // ko foreach: $parent.categories
       .rental-products(data-bind='attr: { id: "renting-" + id }')
         .products-intro
-          // ko if: category.thumbnail
+          // ko if: $data.thumbnail
           .products-image
-            img(data-bind='attr: { src: category.thumbnail }')
+            img(data-bind='attr: { src: $data.thumbnail }')
           // /ko
           .products-info
-            h2.products-title(data-bind='text: category.title')
-            // ko if: category.description
-            .products-description(data-bind='markdown: category.description')
+            h2.products-title(data-bind='text: $data.title')
+            // ko if: $data.descriptions
+            .products-description(data-bind='markdown: $data.description')
             // /ko
         table.products-table
-          tbody(data-bind='foreach: category.items')
-            tr
+          tbody(data-bind='foreach: items')
+            tr.product
               td(data-bind='markdown: title')
-              td.product-description
+              td.product__description
                 // ko if: $data.description
                 div(data-bind='markdown: description')
                 // /ko
-              td(data-bind='markdown: price')
-
+              td.product__price
+                // ko if: $data.pricePerDay
+                span(data-bind='text: pricePerDay')
+                |  / Day
+                br
+                // /ko
+                // ko if: $data.pricePerWeek
+                span(data-bind='text: pricePerWeek')
+                |  / Week
+                br
+                // /ko
+                // ko if: $data.customPrice
+                span(data-bind='text: customPrice')
+                // /ko
+      // /ko
+      .rental-products
+        .products-intro
+          .products-info
+            h2.products-title Other
+            .products-description
+              a(href='#!/contacts') Ask for an offer.

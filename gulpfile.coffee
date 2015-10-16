@@ -26,11 +26,17 @@ streamify = require 'gulp-streamify'
 es = require 'event-stream'
 
 reloadServer = lr()
+contentful = require './contentful'
 
 production = process.env.NODE_ENV is 'production'
 
 
 rimraf.sync './public'
+
+toPromise = (stream) ->
+  new Promise (resolve, reject) ->
+    stream.on 'end', resolve
+    stream.on 'error', reject
 
 gulp.task 'coffee', ->
 
@@ -38,37 +44,41 @@ gulp.task 'coffee', ->
     path: './src/coffee/main.coffee'
     file: 'bundle.js'
   ]
+  opts =
+    extensions: ['.coffee']
+    debug: !production
+    cache: {}
+    paths: ['src/coffee', 'node_modules']
+    packageCache: {}
 
-  es.concat.apply es, entries.map (entry) ->
+  contentful.getContent().then (content) ->
 
-    opts =
-      entries: [entry.path]
-      extensions: ['.coffee']
-      debug: !production
-      cache: {}
-      paths: ['src/coffee', 'node_modules']
-      packageCache: {}
+    bundler = if production then browserify else _.compose(watchify, browserify)
 
-    bundle = unless production
-      watchify browserify opts
-    else
-      browserify opts
+    toPromise es.concat.apply es, entries.map (entry) ->
 
-    rebundle = ->
+      bundle = bundler _.extend opts,
+        entries: [entry.path]
+        insertGlobalVars:
+          __CONTENT__: ->
+            JSON.stringify content
 
-      build = bundle.bundle()
-      .on 'error', gutil.log
-      .pipe(source(entry.file))
+      rebundle = ->
 
-      build.pipe(streamify(uglify())) if production
+        build = bundle.bundle()
+        .on 'error', gutil.log
+        .pipe(source(entry.file))
 
-      build
-        .pipe(gulp.dest('./public/js/'))
-        .pipe(livereload(reloadServer))
+        build.pipe(streamify(uglify())) if production
 
-    bundle.on 'update', rebundle unless production
+        build
+          .pipe(gulp.dest('./public/js/'))
+          .pipe(livereload(reloadServer))
 
-    rebundle()
+      bundle.on 'update', rebundle unless production
+
+      rebundle()
+
 
 gulp.task 'jade', ->
   gulp

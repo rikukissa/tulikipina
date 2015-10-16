@@ -10,20 +10,23 @@
     .view-content
       .row
         blockquote(data-bind='text: content')
-
-        .adventures(data-bind='foreach: $parent.adventures')
-          .adventure(data-bind='with: $parent.adventures[$data].intro')
+        .adventures(data-bind='foreach: $parent.activities')
+          .adventure(data-bind='with: $parent.activities[$data]')
             .adventure-image
-              a(data-bind='attr: { href: "#!/adventures/" + $parent }')
+              a(data-bind='attr: { href: "#!/adventures/" + id }')
                 img(data-bind='attr: { src: thumbnail }')
             .adventure-description
               a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
-                h4(data-bind='text: title')
-              a(data-bind='attr: { href: "#!/adventures/" + $parent }, markdown: description')
+                h4
+                  span(data-bind='text: title')
+                  |  (
+                  span(data-bind='text: duration')
+                  |)
+              a(data-bind='attr: { href: "#!/adventures/" + $parent }, markdown: subtitle')
 
     // /ko
   .page.page-visible(data-bind='css: { "page-visible": page() !== "home" }, with: content')
-    // ko with: adventures[$parent.page()]
+    // ko with: activities[$parent.page()]
 
     .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
       .cover-overlay
@@ -33,15 +36,9 @@
     .view-header
       .row
         .view-nav
-          a.btn(href='#!/adventures', data-bind='text: $parent.button.backToMain')
+          a.btn(href='#!/adventures', data-bind='text: backButton')
     .view-content
       .row
         .markdown(data-bind='markdown: content')
-
-      .row
-        .adventure-info(data-bind='markdown: includes')
-
-      .row
-        .markdown(data-bind='markdown: timeline')
     // /ko
 

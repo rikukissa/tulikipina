@@ -14,4 +14,4 @@ module.exports = (vm) ->
         subView adventure
     ]
 
-    adventures: _.keys vm.content.adventures
+    activities: _.keys vm.content.activities

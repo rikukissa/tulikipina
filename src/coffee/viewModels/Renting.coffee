@@ -1,5 +1,6 @@
 ko = require 'knockout'
 _ = require 'lodash'
+content = require 'services/content'
 
 module.exports = (vm) ->
   _.extend vm,
@@ -11,5 +12,4 @@ module.exports = (vm) ->
             top: -50
     ]
 
-    categories: _.map vm.content.categories, (category, id) ->
-      { id, category }
+    categories: _.toArray content.get 'products'

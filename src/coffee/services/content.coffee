@@ -1,7 +1,4 @@
-$ = require 'jquery'
-
-content = require 'content'
-
+content = __CONTENT__
 module.exports.get = (key) ->
   content[key]
 

@@ -1,7 +1,7 @@
 +view("winter")
   .page.page-visible(data-bind='css: { "page-visible": page() === "home" }')
     // ko with: content
-    .cover
+    .cover(data-bind='style: { backgroundImage: "url(" + cover + ")"}')
       .cover-overlay
         .cover-overlay-content
           h1.cover_title(data-bind='text: title')
@@ -28,7 +28,7 @@
       .view-header
         .row
           .view-nav
-            a.btn(href='#!/winter', data-bind='text: $parent.button.backToMain')
+            a.btn(href='#!/winter', data-bind='text: backButton')
 
       .view-content
         .row.markdown(data-bind='markdown: content')
