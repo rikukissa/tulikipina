@@ -6,7 +6,8 @@
       .cover-overlay
         .cover-overlay-content
           h1.cover__title= views.summer.title
-          h2.cover__subtitle= views.summer.subtitle
+          h2.cover__subtitle
+            != markdown(views.summer.subtitle)
     .view-content
       .row
         blockquote= views.summer.content

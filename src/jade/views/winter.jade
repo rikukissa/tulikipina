@@ -5,7 +5,8 @@
       .cover-overlay
         .cover-overlay-content
           h1.cover__title= views.winter.title
-          h2.cover__subtitle= views.winter.subtitle
+          h2.cover__subtitle
+            != markdown(views.winter.subtitle)
 
     .view-content
       .row
