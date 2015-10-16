@@ -29,6 +29,7 @@
     "browserify-shim": "^3.8.10",
     "coffee-script": "^1.10.0",
     "coffeeify": "^1.1.0",
+    "contentful": "^1.2.0",
     "event-stream": "~3.1.5",
     "express": "~3.5.0",
     "gulp": "3.9.0",
