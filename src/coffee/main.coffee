@@ -1,6 +1,6 @@
 $ = require 'jquery'
 _ = require 'lodash'
-ko = require 'knockout'
+window.ko = ko = require 'knockout'
 routie = require 'routie'
 scrollTo = require 'scrollTo'
 Modernizr = require 'modernizr'
@@ -12,7 +12,6 @@ ko.bindingHandlers.markdown = require 'bindingHandlers/markdown'
 ko.bindingHandlers.timeago = require 'bindingHandlers/timeago'
 
 ko.components.register 'tk-instagram', require 'components/instagram'
-ko.components.register 'tk-contacts', require 'components/contacts'
 ko.components.register 'tk-footer', require 'components/footer'
 ko.components.register 'tk-map', require 'components/map'
 ko.components.register 'tk-facebook', require 'components/facebook'
@@ -22,8 +21,6 @@ Grid = require 'viewModels/Grid'
 Adventures = require 'viewModels/Adventures'
 Renting = require 'viewModels/Renting'
 Home = require 'viewModels/Home'
-Summer = require 'viewModels/Summer'
-
 
 class Application
   constructor: ->
@@ -77,7 +74,7 @@ class Application
 
 app = new Application()
   .viewModel 'home',  Home ViewModel 'home'
-  .viewModel 'summer', Summer Grid ViewModel 'summer'
+  .viewModel 'summer', Grid ViewModel 'summer'
   .viewModel 'winter', Grid ViewModel 'winter'
   .viewModel 'adventures', Adventures ViewModel 'adventures'
   .viewModel 'renting', Renting ViewModel 'renting'

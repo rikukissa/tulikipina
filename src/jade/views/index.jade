@@ -6,13 +6,13 @@
         source(src='videos/Ivalojoki_Skiexpo_2.ogg', type='video/ogg')
       .cover-overlay
         .cover-overlay-content
-          h1.cover__title Your next adventure awaits
-          h2.cover__subtitle We provide unique, everlasting nature experiences during all seasons
-
+          h1.cover__title= views.home.title
+          h2.cover__subtitle= views.home.subtitle
 
     .view-content
       .row
-        .column.column2-3(data-bind='markdown: about')
+        .column.column2-3
+          != markdown(views.home.content)
         .column
           tk-facebook
 
@@ -23,4 +23,4 @@
       tk-map
       .row
         .column
-          tk-contacts
+          include ../../coffee/components/contacts/index

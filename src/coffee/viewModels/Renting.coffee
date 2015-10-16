@@ -11,5 +11,3 @@ module.exports = (vm) ->
           offset:
             top: -50
     ]
-
-    categories: _.toArray content.get 'products'

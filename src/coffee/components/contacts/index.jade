@@ -1,21 +1,23 @@
-.contacts(data-bind='with: contacts')
+.contacts
   h3
-    span(data-bind='text: title')
+    span= contacts.title
 
   ol.contacts__list
     li
       i.fa.fa-user
-      span(data-bind='text: name')
+      span= contacts.name
     li
       i.fa.fa-envelope
-      span(data-bind='markdown: email')
+      span
+        !=markdown(contacts.email)
 
     li
       i.fa.fa-phone
-      span(data-bind='text: phone')
+      span= contacts.phone
 
     li
       i.fa.fa-map-marker
-      span(data-bind='markdown: address')
+      span
+        !=markdown(contacts.address)
 
-    li(data-bind='text: company')
+    li= contacts.company

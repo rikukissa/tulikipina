@@ -1,30 +1,28 @@
 +view("adventures")
   .page.page-visible(data-bind='css: { "page-visible": page() === "home" }')
-    // ko with: content
-    .cover
+    .cover(style='background-image: url(#{views.adventures.cover})')
       .cover-overlay
         .cover-overlay-content
-          h1.cover__title(data-bind='text: title')
-          h2.cover__subtitle(data-bind='text: subtitle')
+          h1.cover__title= views.adventures.title
+          h2.cover__subtitle= views.adventures.subtitle
 
     .view-content
       .row
-        blockquote(data-bind='text: content')
-        .adventures(data-bind='foreach: $parent.activities')
-          .adventure(data-bind='with: $parent.activities[$data]')
-            .adventure-image
-              a(data-bind='attr: { href: "#!/adventures/" + id }')
-                img(data-bind='attr: { src: thumbnail }')
-            .adventure-description
-              a.adventure-title(data-bind='attr: { href: "#!/adventures/" + $parent }')
-                h4
-                  span(data-bind='text: title')
-                  |  (
-                  span(data-bind='text: duration')
-                  |)
-              a(data-bind='attr: { href: "#!/adventures/" + $parent }, markdown: subtitle')
+        blockquote= views.adventures.content
+        each activity, key in views.adventures.activities
+          .adventures
+            .adventure
+              .adventure-image
+                a(href='#!/adventures/#{activity.id}')
+                  img(src='#{activity.thumbnail}')
+              .adventure-description
+                a.adventure-title(href='#!/adventures/#{activity.id}')
+                  h4
+                    span #{activity.title} (#{activity.duration})
 
-    // /ko
+                a(href='#!/adventures/#{activity.id}')
+                  !=markdown(activity.subtitle)
+
   .page.page-visible(data-bind='css: { "page-visible": page() !== "home" }, with: content')
     // ko with: activities[$parent.page()]
 

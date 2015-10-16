@@ -1,51 +1,50 @@
 +view("renting")
   .page.page-visible(data-bind='with: content')
-    .cover
+    .cover(style='background-image: url(#{views.renting.cover})')
       .cover-overlay
         .cover-overlay-content
           h1(data-bind='text: title')
 
     .view-header
       .row
-        .view-nav(data-bind='foreach: $parent.categories')
-          a.btn(data-bind='attr: { href: "#!/renting/" + $data.id }, text: $data.title')
+        .view-nav
+          each category in products
+            a.btn(href='#!/renting/#{category.id}')= category.title
 
     .view-content
-      // ko foreach: $parent.categories
-      .rental-products(data-bind='attr: { id: "renting-" + id }')
-        .products-intro
-          // ko if: $data.thumbnail
-          .products-image
-            img(data-bind='attr: { src: $data.thumbnail }')
-          // /ko
-          .products-info
-            h2.products-title(data-bind='text: $data.title')
-            // ko if: $data.descriptions
-            .products-description(data-bind='markdown: $data.description')
-            // /ko
-        table.products-table
-          tbody(data-bind='foreach: items')
-            tr.product
-              td(data-bind='markdown: title')
-              td.product__description
-                // ko if: $data.description
-                div(data-bind='markdown: description')
-                // /ko
-              td.product__price
-                // ko if: $data.pricePerDay
-                span(data-bind='text: pricePerDay')
-                |  / Day
-                br
-                // /ko
-                // ko if: $data.pricePerWeek
-                span(data-bind='text: pricePerWeek')
-                |  / Week
-                br
-                // /ko
-                // ko if: $data.customPrice
-                span(data-bind='text: customPrice')
-                // /ko
-      // /ko
+      each category in products
+        .rental-products(id="renting-#{category.id}")
+          .products-intro
+            .products-image
+              img(src='#{category.thumbnail}')
+            .products-info
+              h2.products-title= category.title
+              if category.description
+                .products-description
+                  !=markdown(category.description)
+
+          table.products-table
+            tbody
+              each item in category.items
+                tr.product
+                  td
+                    !=markdown(item.title)
+                  td.product__description
+                    if item.description
+                      div
+                        !=markdown(item.description)
+
+                  td.product__price
+                    if item.pricePerDay
+                      span #{item.pricePerDay} / Day
+                      br
+                    if item.pricePerWeek
+                      span #{item.pricePerWeek} / Week
+                      br
+
+                    if item.customPrice
+                      span= item.customPrice
+
       .rental-products
         .products-intro
           .products-info

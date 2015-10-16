@@ -1,3 +1,4 @@
+_ = require 'lodash'
 fs = require 'fs'
 path = require 'path'
 gulp = require 'gulp'
@@ -16,6 +17,7 @@ cmq = require 'gulp-combine-media-queries'
 concat = require 'gulp-concat'
 prefix = require 'gulp-autoprefixer'
 imagemin = require 'gulp-imagemin'
+marked = require 'marked'
 cson = require 'gulp-cson'
 less = require 'gulp-less'
 replace = require 'gulp-replace'
@@ -80,12 +82,29 @@ gulp.task 'coffee', ->
       rebundle()
 
 
+toGrid = (data) ->
+  _.chain(data)
+    .map (activity, id) -> {id, activity}
+    .groupBy (item, i) ->
+      Math.floor i / 3
+    .toArray()
+    .value()
+
 gulp.task 'jade', ->
-  gulp
-    .src('src/jade/*.jade')
-    .pipe(jade(pretty: not production))
-    .pipe(gulp.dest('public/'))
-    .pipe livereload(reloadServer)
+  contentful.getContent().then (content) ->
+    stream = gulp
+      .src('src/jade/*.jade')
+      .pipe(jade(
+        pretty: not production
+        paths: [path.join(__dirname, 'src')]
+        locals: _.extend content,
+          markdown: marked
+          toGrid: toGrid
+      ))
+      .pipe(gulp.dest('public/'))
+      .pipe livereload(reloadServer)
+
+    toPromise stream
 
 gulp.task 'stylus', ->
   err = (err) ->
