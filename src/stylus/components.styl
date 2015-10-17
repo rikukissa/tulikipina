@@ -20,7 +20,6 @@ blockquote
   font-size 1.4em
   text-align center
   font-style italic
-  max-width 70%
   margin 1em auto
 
 .cover
@@ -70,12 +69,12 @@ blockquote
       titleFont()
 
     h2
-      max-width 800px
+      titleFont()
+      max-width 1000px
       text-align center
       margin auto
       color #F4F5F2
-      font-size 1.4em
-      font-family inherit
+      font-size 2.5em
       font-weight 400
       p // Markdown content
         margin 0
@@ -172,7 +171,7 @@ blockquote
     text-transform uppercase
     vertical-align middle
     display table-cell
-    font-size 1.5em
+    font-size 2em
 
   @media breakpoint4
     width auto
@@ -377,35 +376,34 @@ ul
   margin-bottom 0
   position relative
   overflow hidden
-  .products-info
-    h2, img
-      vertical-align middle
-    h2
-      margin 0
-      display inline
-    img
-      margin-right 0.25em
-      width 25px
-      height 25px
-
-  .products-intro
-    width 100%
-    display table
-    padding-left 1em
-    position relative
+.products-info
+  h2, img
     vertical-align middle
+  h2
+    margin 0
+    display inline
+  img
+    margin-right 0.25em
+    width 25px
+    height 25px
 
-  .products-title
-    titleFont()
-    font-weight 400
-    text-transform none
-    color textColorLight
-    text-decoration none
-    font-size 1.5em
+.products-intro
+  border-bottom 1px solid #E0DEDE
+  margin 0 1em
+  padding-bottom 1em
+  margin-bottom 1em
 
-  .products-description
-    p
-      margin 0
+.products-title
+  titleFont()
+  font-weight 400
+  text-transform none
+  color textColorLight
+  text-decoration none
+  font-size 1.5em
+
+.products-description
+  p
+    margin 0
 
 .product-card
   width 270px
@@ -437,3 +435,5 @@ ul
   font-weight bold
   width 100%
   color #F7853A
+.other-gear
+  margin-left 1em

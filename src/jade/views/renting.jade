@@ -7,10 +7,9 @@
 
 
     .view-header.is-separator
-      .row
-        .view-nav
-          each category in products
-            a.btn(href='#!/renting/#{category.id}')= category.title
+      .view-nav
+        each category in products
+          a.btn(href='#!/renting/#{category.id}')= category.title
 
     .view-content
       each category in products
@@ -48,10 +47,6 @@
                   if item.customPrice
                     span= item.customPrice
 
-
-      .rental-products
-        .products-intro
-          .products-info
-            h2.products-title Other
-            .products-description
-              a(href='#!/contacts') Ask for an offer.
+      .other-gear
+        h2.products-title Other gear
+        a(href='#!/contacts') Ask for an offer.

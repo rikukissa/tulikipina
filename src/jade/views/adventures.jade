@@ -7,9 +7,9 @@
           h2.cover__subtitle= views.adventures.subtitle
 
     .view-header.is-separator
-      blockquote= views.adventures.content
 
     .view-content
+      .row= views.adventures.content
       .row
         each activity, key in views.adventures.activities
           .adventures
