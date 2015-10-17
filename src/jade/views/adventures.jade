@@ -6,9 +6,11 @@
           h1.cover__title= views.adventures.title
           h2.cover__subtitle= views.adventures.subtitle
 
+    .view-header.is-separator
+      blockquote= views.adventures.content
+
     .view-content
       .row
-        blockquote= views.adventures.content
         each activity, key in views.adventures.activities
           .adventures
             .adventure
@@ -31,7 +33,7 @@
         .cover-overlay-content
           h1.cover__title(data-bind='text: title')
           h2.cover__subtitle(data-bind='text: subtitle')
-    .view-header
+    .view-header.is-separator
       .row
         .view-nav
           a.btn(href='#!/adventures', data-bind='text: backButton')

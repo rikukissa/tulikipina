@@ -26,7 +26,6 @@ express = require 'express'
 source = require 'vinyl-source-stream'
 streamify = require 'gulp-streamify'
 es = require 'event-stream'
-
 reloadServer = lr()
 contentful = require './contentful'
 

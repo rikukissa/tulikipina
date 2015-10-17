@@ -5,7 +5,8 @@
         .cover-overlay-content
           h1(data-bind='text: title')
 
-    .view-header
+
+    .view-header.is-separator
       .row
         .view-nav
           each category in products
@@ -15,35 +16,38 @@
       each category in products
         .rental-products(id="renting-#{category.id}")
           .products-intro
-            .products-image
-              img(src='#{category.thumbnail}')
             .products-info
+              img(src='#{category.thumbnail}')
               h2.products-title= category.title
               if category.description
                 .products-description
                   !=markdown(category.description)
 
-          table.products-table
-            tbody
-              each item in category.items
-                tr.product
-                  td
-                    !=markdown(item.title)
-                  td.product__description
-                    if item.description
-                      div
-                        !=markdown(item.description)
+          each item in category.items
+            .product-card
+              if item.image
+                a.product-card__image(
+                  href='#{item.image}',
+                  target='_blank'
+                  style='background-image: url(#{item.thumbnail})'
+                )
+              else
+                .product-card__image(style='background-image: url(#{item.thumbnail})')
+              .product-card__info
+                .product-card__title= item.title
+                if item.description
+                  .product-card__description= item.description
 
-                  td.product__price
-                    if item.pricePerDay
-                      span #{item.pricePerDay} / Day
-                      br
-                    if item.pricePerWeek
-                      span #{item.pricePerWeek} / Week
-                      br
+                .product-card__price
+                  if item.pricePerDay
+                    span #{item.pricePerDay} / Day
+                    br
+                  if item.pricePerWeek
+                    span #{item.pricePerWeek} / Week
 
-                    if item.customPrice
-                      span= item.customPrice
+                  if item.customPrice
+                    span= item.customPrice
+
 
       .rental-products
         .products-intro

@@ -1,5 +1,5 @@
 +view("summer")
-  .page.page-visible(data-bind='css: { "page-visible": page() === "home" }')
+  .page.page--grid.page-visible(data-bind='css: { "page-visible": page() === "home" }')
 
     // ko with: content
     .cover(style='background-image: url(#{views.summer.cover})')
@@ -8,9 +8,10 @@
           h1.cover__title= views.summer.title
           h2.cover__subtitle
             != markdown(views.summer.subtitle)
-    .view-content
+    .view-header
       .row
         blockquote= views.summer.content
+    .view-content
 
       .grid
         - var groups = toGrid(views.summer.activities).reverse();
@@ -36,7 +37,7 @@
             h1.cover__title(data-bind='text: title')
             h2.cover__subtitle(data-bind='text: subtitle')
 
-      .view-header
+      .view-header.is-separator
         .row
           .view-nav
             a.btn(href='#!/summer', data-bind='text: backButton')

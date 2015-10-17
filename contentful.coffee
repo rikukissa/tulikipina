@@ -33,7 +33,10 @@ products = client.entries(content_type: PRODUCTS).then (products) ->
       thumbnail: category.fields.thumbnail?.fields.file.url
       items: []
 
-    categories[id].items.push product.fields
+    categories[id].items.push _.extend product.fields,
+      thumbnail: product.fields.thumbnail?.fields.file.url
+      image: product.fields.image?.fields.file.url
+
     categories
   , {}
 

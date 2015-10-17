@@ -16,13 +16,12 @@
     background rgba(0, 0, 0, 0.3)
 
 blockquote
-  font-size 1.3em
-  color textColorLight
+  line-height 1.8em
+  font-size 1.4em
   text-align center
   font-style italic
   max-width 70%
-  margin auto
-  margin-bottom 1em
+  margin 1em auto
 
 .cover
   height 500px
@@ -75,7 +74,7 @@ blockquote
       text-align center
       margin auto
       color #F4F5F2
-      font-size 1.2em
+      font-size 1.4em
       font-family inherit
       font-weight 400
       p // Markdown content
@@ -97,7 +96,6 @@ blockquote
 .grid
   padding 0
   margin 0 auto
-  margin-top 2em
 
 .grid-row
   overflow hidden
@@ -335,99 +333,6 @@ blockquote
       border-radius 25px
       vertical-align bottom
 
-.rental-products
-  position relative
-
-  .products-info, .products-image
-    display table-cell
-    vertical-align middle
-
-  .products-image
-    width 50px
-    img
-      margin-right 1em
-      width 50px
-      height 50px
-
-  .products-intro
-    width 100%
-    display table
-    padding-left 1em
-    position relative
-    vertical-align middle
-    margin-bottom 1em
-  .products-title
-    titleFont()
-    font-weight 400
-    text-transform none
-    color textColorLight
-    text-decoration none
-    font-size 1.5em
-
-  .products-description
-    p
-      margin 0
-
-  .products-table
-    width 100%
-    border-collapse collapse
-    color textColorLight
-
-    td:first-child
-      width 30%
-      text-align left
-      font-weight 400
-      font-size 1.1em
-      color textColor
-
-    td:last-child
-      width 100px
-
-
-    tr:nth-child(odd)
-      background #faf7f2
-      td
-        background #faf7f2
-        color #9a9389
-      td:first-child
-        color #696259
-
-    @media breakpoint2
-      display block
-      tr, td, tbody
-        display block
-
-      tbody
-        tr
-          overflow hidden
-
-      td
-        background transparent !important
-        width auto !important
-        border-bottom 0
-
-      p
-        margin 0
-      td
-        text-align left
-        margin-right 70px
-
-      td:last-child
-        font-weight 300
-        padding 1em
-        float right
-        margin-right 0
-      td:first-child
-        font-weight 400
-        padding-top 1em
-
-.product
-  td
-    padding 1em
-
-.product__price
-  text-align right
-
 .adventure-info
   padding 2em 0 0 0
   ul
@@ -466,3 +371,69 @@ ul
 
   a
     color linkColor
+
+.rental-products
+  margin 3em 0
+  margin-bottom 0
+  position relative
+  overflow hidden
+  .products-info
+    h2, img
+      vertical-align middle
+    h2
+      margin 0
+      display inline
+    img
+      margin-right 0.25em
+      width 25px
+      height 25px
+
+  .products-intro
+    width 100%
+    display table
+    padding-left 1em
+    position relative
+    vertical-align middle
+
+  .products-title
+    titleFont()
+    font-weight 400
+    text-transform none
+    color textColorLight
+    text-decoration none
+    font-size 1.5em
+
+  .products-description
+    p
+      margin 0
+
+.product-card
+  width 270px
+  height 300px
+
+  float left
+  margin 1em
+  position relative
+.product-card__image
+  display block
+  background #f3f3f3
+  height 160px
+  background-size cover
+.product-card__info
+  padding 0.5em
+.product-card__title
+  font-weight bold
+  overflow hidden
+  text-overflow ellipsis
+.product-card__description
+  font-size 0.9em
+  color descriptionColor
+.product-card__price
+  text-align right
+  position absolute
+  bottom 0.5em
+  right 0.5em
+  font-size 1.3em
+  font-weight bold
+  width 100%
+  color #F7853A
