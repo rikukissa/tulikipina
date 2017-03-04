@@ -9,6 +9,7 @@ CONTACTS = '4f0abwsEisQkKOcsGkSws6'
 VIEWS = '4cbcatG768QMMGKWGyAKy8'
 PRODUCT_CATEGORIES = 'yFltYdnOUgYSk24cs2Oyo'
 PRODUCTS = '5HIBLLRLk4OeSgGYa2SECe'
+GEAR_CATEGORIES = 'yFltYdnOUgYSk24cs2Oyo'
 
 if not process.env.CONTENTFUL_ACCESS_TOKEN
   throw new Error 'Missing Contentful access token'
@@ -19,11 +20,22 @@ client = contentful.createClient
   resolveLinks: true
 
 
-products = client.entries(content_type: PRODUCTS).then (products) ->
+products = Promise.all([
+  client.entries(content_type: PRODUCTS),
+  client.entries(content_type: GEAR_CATEGORIES)
+]).then ([products, cats]) ->
+
+  allCategories = cats.map (cat) ->
+    Object.assign(cat, {id: cat.sys.id})
 
   categories = products.reduce (categories, product) ->
 
-    category = product.fields.category
+    categoryId = product.fields.category.sys.id
+
+    category = _.findWhere allCategories, { id: categoryId }
+
+    if !category
+      return categories
 
     id = _.kebabCase category.fields.title
 
