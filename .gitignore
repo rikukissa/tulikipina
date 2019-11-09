@@ -5,3 +5,4 @@ bower_components
 .DS_Store
 .gulp
 rev-manifest.json
+.env

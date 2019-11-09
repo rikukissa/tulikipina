@@ -1,1 +1,1 @@
-put -rp /home/rof/clone/public/* public_html
+put -rp ./public/* public_html
