@@ -10,7 +10,7 @@ module.exports =
       map = new L.Map el,
         scrollWheelZoom: false
 
-      osm = new L.TileLayer 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      osm = new L.TileLayer 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
       map.setView new L.LatLng(COORDS...), 11
 
