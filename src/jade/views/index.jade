@@ -1,7 +1,7 @@
 +view("home")(class='view-visible')
   .page.page-visible(data-bind='with: content')
     .cover
-      video(loop='', preload='none', data-bind='video: {}', poster='images/covers/video.jpg')
+      video(muted='muted' loop='', preload='none', data-bind='video: {}', poster='images/covers/video.jpg')
         source(src='videos/Ivalojoki_Skiexpo_2.mp4', type='video/mp4')
         source(src='videos/Ivalojoki_Skiexpo_2.ogg', type='video/ogg')
       .cover-overlay
