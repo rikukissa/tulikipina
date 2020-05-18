@@ -6,14 +6,12 @@ scrollTo = require 'scrollTo'
 Modernizr = require 'modernizr'
 
 ko.bindingHandlers.header = require 'bindingHandlers/header'
-ko.bindingHandlers.map = require 'bindingHandlers/map'
 ko.bindingHandlers.video = require 'bindingHandlers/video'
 ko.bindingHandlers.markdown = require 'bindingHandlers/markdown'
 ko.bindingHandlers.timeago = require 'bindingHandlers/timeago'
 
 ko.components.register 'tk-instagram', require 'components/instagram'
 ko.components.register 'tk-footer', require 'components/footer'
-ko.components.register 'tk-map', require 'components/map'
 ko.components.register 'tk-facebook', require 'components/facebook'
 
 ViewModel = require 'viewModels/ViewModel'
