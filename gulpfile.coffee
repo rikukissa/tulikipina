@@ -53,7 +53,6 @@ gulp.task 'coffee', ->
     packageCache: {}
 
   contentful.getContent().then (content) ->
-
     bundler = if production then browserify else _.compose(watchify, browserify)
 
     toPromise es.concat.apply es, entries.map (entry) ->
@@ -175,8 +174,8 @@ gulp.task 'replace-references', ['revision-files'], ->
 gulp.task 'server', ->
   app = express()
 
-  app.configure ->
-    app.use express.static path.join __dirname, 'public'
+  app.use express.static path.join __dirname, 'public'
+
 
   app.get '/*', (req, res) ->
     res.sendfile path.join __dirname, 'public/index.html'

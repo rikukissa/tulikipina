@@ -1,0 +1,1 @@
+docker run -p 9001:9001 -v $(pwd):/opt/app -it node:7.10.1 /bin/bash -c 'cd /opt/app && npm install && npm run prepublish && source .env && npm start'

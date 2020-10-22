@@ -58,8 +58,6 @@ html
       .nav(data-bind='css: { "nav-visible": navigationVisible }')
         a(href='#!/', data-bind='css: { selected: currentView() === "home" }') Tulikipinä
         a(href='#!/adventures', data-bind='css: { selected: currentView() === "adventures" }') Arctic Adventures
-        a(href='#!/summer', data-bind='css: { selected: currentView() === "summer" }') Summer
-        a(href='#!/winter', data-bind='css: { selected: currentView() === "winter" }') Winter
         a(href='#!/renting', data-bind='css: { selected: currentView() === "renting" }') Rental gear
 
     mixin view(name)
@@ -71,8 +69,6 @@ html
         | <!-- /ko -->
     include views/index
     include views/adventures
-    include views/summer
-    include views/winter
     include views/renting
 
     tk-footer
